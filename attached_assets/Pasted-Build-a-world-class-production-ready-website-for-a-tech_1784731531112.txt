@@ -1,0 +1,372 @@
+Build a world-class, production-ready website for a technology company named "Nexio".
+
+Company Details:
+- Company Name: Nexio
+- Tagline: Transforming Businesses Through Technology
+- Domain: nexio.biz
+
+Company Positioning:
+Nexio is a Digital Transformation and Technology Consulting company that helps businesses build, automate, secure, and scale through modern technology. We provide services globally.
+
+Core Services:
+1. Digital Solutions
+   - Corporate Websites
+   - Web Applications
+   - SaaS Platforms
+   - Custom Software
+
+2. AI & Automation
+   - AI Assistants
+   - Business Automation
+   - Workflow Automation
+   - AI Integrations
+
+3. Cloud Solutions
+   - Cloud Infrastructure
+   - Deployment
+   - DevOps
+   - Managed Hosting
+
+4. Cybersecurity
+   - Security Assessments
+   - Penetration Testing
+   - Security Consulting
+   - Managed Security
+
+5. Digital Transformation Consulting
+   - Digital Strategy
+   - Technology Consulting
+   - Process Optimization
+   - Technology Roadmaps
+
+Brand Objective:
+The website must position Nexio as a premium Digital Transformation and Technology Consulting company. It should feel similar to companies such as:
+- Stripe
+- Linear
+- Vercel
+- Accenture
+- Palantir
+- Apple
+- Notion
+- OpenAI
+
+The website MUST NOT feel like:
+- A Sri Lankan web design agency.
+- A WordPress template.
+- An AI-generated website.
+- A freelancer portfolio.
+- A computer repair shop.
+- A marketing agency.
+
+
+Analyze and adopt:
+- Typography hierarchy
+- White space
+- Modern layouts
+- Professional spacing
+- Minimalistic sections
+- Premium interactions
+- Clean visual balance
+
+Design Guidelines:
+
+GENERAL:
+- Minimal.
+- Premium.
+- Modern.
+- Corporate.
+- Human-designed.
+- High attention to detail.
+
+COLOR PALETTE:
+Primary:
+- #2563EB
+- #3B82F6
+
+Secondary:
+- #60A5FA
+- #93C5FD
+
+Neutrals:
+- White (#FFFFFF)
+- Off White (#F8FAFC)
+- Light Grey (#E2E8F0)
+- Dark Text (#0F172A)
+
+DO NOT use:
+- Dark cyberpunk themes.
+
+The website should feel:
+- Trustworthy.
+- Modern.
+- Airy.
+- Elegant.
+- Enterprise-ready.
+
+TYPOGRAPHY:
+- Use Poppins throughout.
+- Font weights:
+    - 700 for Hero Headlines
+    - 600 for Section Titles
+    - 500 for Cards
+    - 400 for Body Text
+
+Maintain:
+- Large typography.
+- Excellent readability.
+- Consistent spacing.
+
+UI SYSTEM:
+
+Implement:
+- Liquid Glass effects.
+- Glassmorphism.
+- Soft shadows.
+- Blur backgrounds.
+- Rounded corners (16px-24px).
+- Subtle borders.
+- Floating cards.
+
+Avoid:
+- Excessive animations.
+- Overly decorative elements.
+- Heavy illustrations.
+- Generic stock imagery.
+
+Animations:
+- Framer Motion.
+- Subtle fade-in.
+- Smooth scroll.
+- Hover transitions.
+- Card elevation.
+- Floating effects.
+- Staggered reveals.
+
+Performance:
+- Lighthouse score >95.
+- SEO optimized.
+- Fully responsive.
+- Accessibility compliant.
+
+Technology Stack:
+- Next.js 15
+- TypeScript
+- TailwindCSS
+- Framer Motion
+- Lucide Icons
+
+WEBSITE STRUCTURE:
+
+1. NAVBAR
+
+Left:
+- Nexio Logo
+
+Center:
+- Services
+- Industries
+- About
+- Contact
+
+Right:
+- Book a Consultation
+
+Navbar:
+- Sticky
+- Transparent
+- Blur on scroll
+
+-------------------------------------------------
+
+2. HERO SECTION
+
+Layout:
+- Two-column.
+
+Left:
+Headline:
+
+"Transforming Businesses Through Technology"
+
+Subheading:
+
+"We help businesses build, automate, secure, and scale through intelligent digital solutions."
+
+Buttons:
+- Book a Consultation
+- Explore Services
+
+Right:
+Create a custom 3D-inspired dashboard illustration showing:
+
+- AI
+- Cloud
+- Cybersecurity
+- Automation
+- Analytics
+
+Use floating glass cards.
+
+Include:
+- "AI Solutions"
+- "Cloud Infrastructure"
+- "Cybersecurity"
+- "Digital Transformation"
+
+No stock photos.
+
+-------------------------------------------------
+
+3. TRUST SECTION
+
+Display:
+
+"Trusted by ambitious businesses worldwide."
+
+Include:
+
+- Global icon
+- Remote-first delivery
+- Worldwide support
+
+Statistics:
+
+- Global Delivery
+- Modern Tech Stack
+- Secure Solutions
+- End-to-End Support
+
+-------------------------------------------------
+
+4. SERVICES SECTION
+
+Create premium glass cards.
+
+Services:
+
+Digital Solutions
+AI & Automation
+Cloud Solutions
+Cybersecurity
+Technology Consulting
+
+Each card:
+- Icon
+- Title
+- Short description
+- Hover animation
+
+-------------------------------------------------
+
+
+
+Include subtle icons.
+
+-------------------------------------------------
+
+7. WHY Nexio
+
+Grid layout.
+
+Points:
+
+- Global Delivery
+- Modern Technology Stack
+- Security First
+- AI-Driven Solutions
+- Business Focused
+- Long-Term Partnership
+
+-------------------------------------------------
+
+8. PROCESS SECTION
+
+1. Discovery
+2. Strategy
+3. Development
+4. Deployment
+5. Continuous Support
+
+
+-------------------------------------------------
+
+9. CTA SECTION
+
+Headline:
+
+"Ready to Transform Your Business?"
+
+Text:
+
+"Partner with Nexio and unlock the power of modern technology."
+
+Buttons:
+- Let's Talk
+- Schedule Consultation
+
+-------------------------------------------------
+
+10. FOOTER
+
+Columns:
+
+Company
+Services
+Industries
+Socials
+
+Include:
+
+Nexio
+Transforming Businesses Through Technology
+
+Email:
+hello@nexio.biz
+
+Website:
+www.nexio.biz
+
+Social:
+- LinkedIn
+- Facebook
+- Instagram
+
+-------------------------------------------------
+
+UX REQUIREMENTS:
+
+- Smooth scrolling.
+- animations and visual effects
+- liquid glass
+- Premium hover states.
+- Micro interactions.
+- Consistent spacing.
+- Mobile-first.
+- Responsive.
+- Pixel-perfect.
+- both dark mode and light mode
+
+SPACING SYSTEM:
+- Section Padding: 120px
+- Card Padding: 32px
+- Border Radius: 20px
+- Container Width: 1280px
+
+IMPORTANT:
+
+This website must look like it was designed and developed by an experienced senior product designer and frontend engineer. Every section should feel intentional. ultimately this should look unique, attractive and not boring an most importantly should be able to win customers attention. use visual effects, and elements if needed. use abstract attractive blue-ish gradients accordingly
+
+Do not use generic templates.
+
+Do not use AI-looking illustrations and icons, instead use pngs from internet
+
+Do not use excessive text.
+
+Prioritize:
+- Simplicity
+- Elegance
+- Trust
+- Premium aesthetics
+- Enterprise positioning
+
+Final result should feel like a cross between Stripe, Linear, Vercel, and a modern consulting company, while maintaining Nexio's identity and blue trust-centric branding.
