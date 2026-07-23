@@ -65,8 +65,6 @@ export function Hero() {
         />
         {/* Dark gradient overlay for text legibility */}
         <div className="absolute inset-0 bg-gradient-to-r from-[#010d1e]/95 via-[#031428]/85 to-[#010d1e]/60" />
-        {/* Bottom fade — smoothly blends hero image into page in both modes */}
-        <div className="hero-bottom-fade" />
       </div>
 
       {/* Radial glow */}
