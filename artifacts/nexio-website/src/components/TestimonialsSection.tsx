@@ -1,168 +1,132 @@
-import { motion } from "framer-motion";
-import { Quote, Star } from "lucide-react";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Quote, Star, ChevronLeft, ChevronRight } from "lucide-react";
 
 const testimonials = [
   {
-    name: "James Harrington",
+    name: "Chamara Perera",
     role: "CTO",
-    company: "Vantage Systems",
+    company: "Softwave Technologies, Sri Lanka",
     stars: 5,
     quote:
-      "Nexio completely transformed our cloud infrastructure. The migration was seamless, zero downtime, and our costs dropped by 40%. Their team communicates with precision — no fluff, just results.",
-    avatar: "JH",
+      "Nexio rebuilt our entire core banking integration layer. The new system is three times faster, handles ten times the transaction volume, and the migration had zero downtime. A truly exceptional team.",
+    avatar: "CP",
     color: "from-blue-500/20 to-blue-600/5",
     glow: "rgba(59,130,246,0.15)",
   },
   {
-    name: "Sofia Mendes",
-    role: "Head of Operations",
-    company: "Elaris Global",
+    name: "James Harrington",
+    role: "CTO",
+    company: "Vantage Systems, United Kingdom",
     stars: 5,
     quote:
-      "The AI automation suite Nexio built us eliminated 60% of our manual workflows within the first month. I didn't think ROI like that was possible in such a short timeline.",
-    avatar: "SM",
+      "Nexio completely transformed our cloud infrastructure. The migration was seamless and our costs dropped by 40%. Their team communicates with precision — no fluff, just results.",
+    avatar: "JH",
     color: "from-violet-500/20 to-violet-600/5",
     glow: "rgba(139,92,246,0.15)",
   },
   {
-    name: "Daniel Okonkwo",
+    name: "Dilini Jayawardena",
     role: "CEO",
-    company: "Pinnacle Fintech",
+    company: "CloudMark Lanka, Sri Lanka",
     stars: 5,
     quote:
-      "We needed enterprise-grade cybersecurity fast — regulatory deadline looming. Nexio's team assessed, remediated, and hardened our entire stack in six weeks. Exceptional.",
-    avatar: "DO",
+      "We approached Nexio to digitise our operations and the outcome exceeded our expectations. They understood our local market context and delivered a platform our customers genuinely love.",
+    avatar: "DJ",
     color: "from-cyan-500/20 to-cyan-600/5",
     glow: "rgba(6,182,212,0.15)",
   },
   {
-    name: "Laura Kim",
-    role: "VP Product",
-    company: "NovaSpark Inc.",
+    name: "Sofia Mendes",
+    role: "Head of Operations",
+    company: "Elaris Global, United States",
     stars: 5,
     quote:
-      "Nexio rebuilt our SaaS platform from scratch. The new architecture handles 10x the load at a fraction of the cost. Their engineers are genuinely senior — they caught design flaws we didn't even know we had.",
-    avatar: "LK",
+      "The AI automation suite Nexio built us eliminated 60% of our manual workflows within the first month. I didn't think ROI like that was possible in such a short timeline.",
+    avatar: "SM",
     color: "from-emerald-500/20 to-emerald-600/5",
     glow: "rgba(16,185,129,0.15)",
   },
   {
-    name: "Rayan Al-Farsi",
-    role: "Director of Engineering",
-    company: "Meridian Corp",
+    name: "Pradeep Gunasekara",
+    role: "Director of Technology",
+    company: "Nexgen Retail, Sri Lanka",
     stars: 5,
     quote:
-      "What sets Nexio apart is their long-term thinking. They didn't just ship features — they gave us a 3-year technology roadmap that our board now uses as a strategic asset.",
-    avatar: "RA",
-    color: "from-orange-400/20 to-orange-500/5",
-    glow: "rgba(251,146,60,0.15)",
+      "From our e-commerce platform to our warehouse management system, Nexio handled everything with professionalism. They are a strategic partner in every sense of the word.",
+    avatar: "PG",
+    color: "from-amber-400/20 to-amber-500/5",
+    glow: "rgba(251,191,36,0.15)",
   },
   {
-    name: "Priya Nair",
-    role: "Chief Digital Officer",
-    company: "Helios Retail",
+    name: "Daniel Okonkwo",
+    role: "CEO",
+    company: "Pinnacle Fintech, Nigeria",
     stars: 5,
     quote:
-      "From digital strategy to execution, Nexio acted as a true partner. They integrated with our team, respected our culture, and delivered a transformation we're proud of.",
-    avatar: "PN",
-    color: "from-pink-500/20 to-pink-600/5",
-    glow: "rgba(236,72,153,0.15)",
+      "We needed enterprise-grade cybersecurity fast with a regulatory deadline looming. Nexio assessed, remediated, and hardened our entire stack in six weeks. Exceptional execution.",
+    avatar: "DO",
+    color: "from-rose-500/20 to-rose-600/5",
+    glow: "rgba(244,63,94,0.15)",
   },
 ];
 
-function LiquidGlassCard({
-  t,
-  i,
-}: {
-  t: (typeof testimonials)[0];
-  i: number;
-}) {
+const PER_PAGE = 3;
+
+function TestimonialCard({ t, i }: { t: typeof testimonials[0]; i: number }) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 28 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-60px" }}
-      transition={{ duration: 0.55, delay: i * 0.08 }}
-      whileHover={{ y: -6, scale: 1.015 }}
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -20 }}
+      transition={{ duration: 0.4, delay: i * 0.06 }}
+      whileHover={{ y: -5 }}
       className="relative group h-full"
-      style={{ filter: `drop-shadow(0 8px 32px ${t.glow})` }}
+      style={{ filter: `drop-shadow(0 6px 24px ${t.glow})` }}
     >
-      {/* Liquid-glass shell */}
       <div
-        className="relative rounded-3xl border border-white/15 dark:border-white/10 overflow-hidden h-full flex flex-col p-7"
-        style={{
-          background:
-            "linear-gradient(135deg, rgba(255,255,255,0.07) 0%, rgba(255,255,255,0.02) 100%)",
-          backdropFilter: "blur(24px)",
-          WebkitBackdropFilter: "blur(24px)",
-        }}
+        className="relative rounded-2xl border border-gray-200/80 dark:border-white/10 overflow-hidden h-full flex flex-col p-7 bg-white dark:bg-card"
       >
-        {/* Colour accent blob top-left */}
-        <div
-          className={`absolute -top-6 -left-6 w-28 h-28 bg-gradient-to-br ${t.color} rounded-full blur-2xl pointer-events-none opacity-80`}
-        />
-        {/* Inner highlight rim */}
-        <div className="absolute inset-0 rounded-3xl pointer-events-none ring-1 ring-inset ring-white/10" />
+        <div className={`absolute -top-5 -left-5 w-24 h-24 bg-gradient-to-br ${t.color} rounded-full blur-2xl pointer-events-none opacity-70`} />
+        <div className="absolute inset-0 rounded-2xl pointer-events-none ring-1 ring-inset ring-black/5 dark:ring-white/5" />
 
-        {/* Stars */}
         <div className="flex gap-0.5 mb-5 relative z-10">
           {Array.from({ length: t.stars }).map((_, s) => (
-            <Star
-              key={s}
-              size={13}
-              className="fill-amber-400 text-amber-400"
-            />
+            <Star key={s} size={12} className="fill-amber-400 text-amber-400" />
           ))}
         </div>
 
-        {/* Quote icon */}
-        <Quote
-          size={28}
-          className="text-primary/40 mb-3 relative z-10 flex-shrink-0"
-        />
+        <Quote size={24} className="text-primary/30 mb-3 relative z-10 flex-shrink-0" />
 
-        {/* Quote text */}
-        <p className="text-foreground/80 dark:text-white/75 text-sm leading-relaxed flex-1 relative z-10">
+        <p className="text-foreground/75 text-sm leading-relaxed flex-1 relative z-10">
           "{t.quote}"
         </p>
 
-        {/* Author row */}
-        <div className="flex items-center gap-3 mt-6 pt-5 border-t border-white/10 relative z-10">
-          {/* Avatar */}
+        <div className="flex items-center gap-3 mt-6 pt-5 border-t border-gray-100 dark:border-white/8 relative z-10">
           <div
-            className={`w-10 h-10 rounded-full flex-shrink-0 flex items-center justify-center text-xs font-semibold text-white bg-gradient-to-br ${t.color} border border-white/20`}
-            style={{ backdropFilter: "blur(8px)" }}
+            className={`w-9 h-9 rounded-full flex-shrink-0 flex items-center justify-center text-xs font-bold text-white bg-gradient-to-br ${t.color}`}
           >
             {t.avatar}
           </div>
           <div>
-            <p className="text-sm font-semibold text-foreground leading-tight">
-              {t.name}
-            </p>
-            <p className="text-xs text-muted-foreground mt-0.5">
-              {t.role} · {t.company}
-            </p>
+            <p className="text-sm font-semibold text-foreground leading-tight">{t.name}</p>
+            <p className="text-xs text-muted-foreground mt-0.5">{t.role}, {t.company}</p>
           </div>
         </div>
-
-        {/* Hover shimmer */}
-        <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-400 bg-white/[0.03] pointer-events-none" />
-        {/* Bottom shine line */}
-        <div className="absolute bottom-0 left-6 right-6 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
       </div>
     </motion.div>
   );
 }
 
 export function TestimonialsSection() {
+  const [page, setPage] = useState(0);
+  const totalPages = Math.ceil(testimonials.length / PER_PAGE);
+  const visible = testimonials.slice(page * PER_PAGE, page * PER_PAGE + PER_PAGE);
+
   return (
-    <section
-      className="py-32 relative overflow-hidden"
-      id="testimonials"
-    >
-      {/* Subtle section background */}
+    <section className="py-24 relative overflow-hidden" id="testimonials">
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/3 to-transparent pointer-events-none" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-primary/5 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-primary/5 rounded-full blur-[100px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         {/* Header */}
@@ -170,25 +134,65 @@ export function TestimonialsSection() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-20"
+          className="text-center mb-14"
         >
-          <p className="text-primary text-sm font-semibold tracking-widest uppercase mb-4">
-            Client Stories
-          </p>
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-5">
             Trusted by Leaders Who Deliver
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             From fintech to retail, our clients move faster, scale smarter, and
-            sleep better — because Nexio is behind the technology.
+            grow with confidence because Nexio is behind the technology.
           </p>
         </motion.div>
 
-        {/* 3-column grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {testimonials.map((t, i) => (
-            <LiquidGlassCard key={t.name} t={t} i={i} />
-          ))}
+        {/* Cards */}
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={page}
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -30 }}
+            transition={{ duration: 0.35 }}
+            className="grid grid-cols-1 md:grid-cols-3 gap-5 min-h-[320px]"
+          >
+            {visible.map((t, i) => (
+              <TestimonialCard key={t.name} t={t} i={i} />
+            ))}
+          </motion.div>
+        </AnimatePresence>
+
+        {/* Navigation */}
+        <div className="flex items-center justify-center gap-4 mt-10">
+          <button
+            onClick={() => setPage((p) => Math.max(0, p - 1))}
+            disabled={page === 0}
+            className="w-10 h-10 rounded-full border border-gray-200 dark:border-gray-700 flex items-center justify-center text-foreground/60 hover:text-primary hover:border-primary disabled:opacity-30 disabled:cursor-not-allowed transition-all"
+            aria-label="Previous"
+          >
+            <ChevronLeft size={18} />
+          </button>
+
+          <div className="flex gap-2">
+            {Array.from({ length: totalPages }).map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setPage(i)}
+                className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                  i === page ? "bg-primary w-6" : "bg-gray-300 dark:bg-gray-600"
+                }`}
+                aria-label={`Page ${i + 1}`}
+              />
+            ))}
+          </div>
+
+          <button
+            onClick={() => setPage((p) => Math.min(totalPages - 1, p + 1))}
+            disabled={page === totalPages - 1}
+            className="w-10 h-10 rounded-full border border-gray-200 dark:border-gray-700 flex items-center justify-center text-foreground/60 hover:text-primary hover:border-primary disabled:opacity-30 disabled:cursor-not-allowed transition-all"
+            aria-label="Next"
+          >
+            <ChevronRight size={18} />
+          </button>
         </div>
       </div>
     </section>

@@ -3,6 +3,11 @@ import { Toaster } from '@/components/ui/toaster';
 import { TooltipProvider } from '@/components/ui/tooltip';
 import NotFound from '@/pages/not-found';
 import Home from '@/pages/Home';
+import DigitalSolutions from '@/pages/services/DigitalSolutions';
+import AIAutomation from '@/pages/services/AIAutomation';
+import CloudSolutions from '@/pages/services/CloudSolutions';
+import Cybersecurity from '@/pages/services/Cybersecurity';
+import TechnologyConsulting from '@/pages/services/TechnologyConsulting';
 import { Route, Switch, Router as WouterRouter } from 'wouter';
 import { ThemeProvider } from '@/components/theme-provider';
 
@@ -12,6 +17,11 @@ function Router() {
   return (
     <Switch>
       <Route path="/" component={Home} />
+      <Route path="/services/digital-solutions" component={DigitalSolutions} />
+      <Route path="/services/ai-automation" component={AIAutomation} />
+      <Route path="/services/cloud-solutions" component={CloudSolutions} />
+      <Route path="/services/cybersecurity" component={Cybersecurity} />
+      <Route path="/services/technology-consulting" component={TechnologyConsulting} />
       <Route component={NotFound} />
     </Switch>
   );

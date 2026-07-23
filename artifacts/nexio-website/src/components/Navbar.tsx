@@ -10,7 +10,7 @@ export function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
+      setScrolled(window.scrollY > 60);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -31,6 +31,12 @@ export function Navbar() {
     { name: "Contact", href: "contact" },
   ];
 
+  const linkClass = scrolled
+    ? "text-sm font-medium text-foreground/80 hover:text-primary transition-colors"
+    : "text-sm font-medium text-white/90 hover:text-white transition-colors";
+
+  const iconClass = scrolled ? "text-foreground/70" : "text-white/80";
+
   return (
     <motion.nav
       initial={{ y: -100 }}
@@ -38,13 +44,13 @@ export function Navbar() {
       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out ${
         scrolled
-          ? "bg-white/70 dark:bg-black/50 backdrop-blur-lg border-b border-gray-200/50 dark:border-gray-800/50 py-3 shadow-sm"
+          ? "bg-white/80 dark:bg-black/60 backdrop-blur-lg border-b border-gray-200/60 dark:border-gray-800/50 py-3 shadow-sm"
           : "bg-transparent py-5"
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         <div className="flex items-center gap-2">
-          <span className="text-2xl font-semibold text-primary tracking-tight">Nexio</span>
+          <span className="text-2xl font-semibold text-primary tracking-tight">nexio</span>
         </div>
 
         {/* Desktop Links */}
@@ -53,7 +59,7 @@ export function Navbar() {
             <button
               key={link.name}
               onClick={() => scrollTo(link.href)}
-              className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors"
+              className={linkClass}
             >
               {link.name}
             </button>
@@ -64,14 +70,14 @@ export function Navbar() {
         <div className="hidden md:flex items-center gap-4">
           <button
             onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-            className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-foreground/80"
+            className={`p-2 rounded-full hover:bg-white/10 dark:hover:bg-gray-800/60 transition-colors ${iconClass}`}
             aria-label="Toggle theme"
           >
             {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
           </button>
           <button
             onClick={() => scrollTo("contact")}
-            className="bg-primary hover:bg-primary/90 text-primary-foreground px-5 py-2.5 rounded-full text-sm font-medium transition-all hover:scale-105 shadow-[0_0_15px_rgba(37,99,235,0.3)] hover:shadow-[0_0_20px_rgba(37,99,235,0.5)]"
+            className="bg-primary hover:bg-primary/90 text-white px-5 py-2.5 rounded-full text-sm font-medium transition-all hover:scale-105 shadow-[0_0_15px_rgba(37,99,235,0.3)] hover:shadow-[0_0_20px_rgba(37,99,235,0.5)]"
           >
             Book a Consultation
           </button>
@@ -81,13 +87,13 @@ export function Navbar() {
         <div className="md:hidden flex items-center gap-4">
           <button
             onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-            className="p-2 rounded-full text-foreground/80"
+            className={`p-2 rounded-full ${iconClass}`}
           >
             {theme === "dark" ? <Sun size={20} /> : <Moon size={20} />}
           </button>
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-2 text-foreground"
+            className={`p-2 ${iconClass}`}
           >
             {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -115,7 +121,7 @@ export function Navbar() {
               ))}
               <button
                 onClick={() => scrollTo("contact")}
-                className="bg-primary text-primary-foreground px-5 py-3 rounded-full text-base font-medium mt-4 w-full"
+                className="bg-primary text-white px-5 py-3 rounded-full text-base font-medium mt-4 w-full"
               >
                 Book a Consultation
               </button>
