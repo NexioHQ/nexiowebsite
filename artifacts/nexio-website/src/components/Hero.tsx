@@ -1,36 +1,86 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Globe, Shield, Zap, Cloud, Cpu, Lock } from "lucide-react";
+import { ArrowRight, Globe, Shield, Zap } from "lucide-react";
+import heroBg from "@assets/download_1784735577002.jpg";
+
+const serviceCards = [
+  {
+    iconUrl: "https://img.icons8.com/fluency/96/web.png",
+    label: "Digital Solutions",
+    desc: "Web apps, SaaS & custom software",
+    color: "from-blue-500/25 to-blue-600/5",
+    glow: "rgba(59,130,246,0.22)",
+    float: [0, -12, 0] as [number, number, number],
+    floatDuration: 6,
+    delay: 0,
+  },
+  {
+    iconUrl: "https://img.icons8.com/fluency/96/artificial-intelligence.png",
+    label: "AI & Automation",
+    desc: "Intelligent workflows & AI integrations",
+    color: "from-violet-500/25 to-violet-600/5",
+    glow: "rgba(139,92,246,0.22)",
+    float: [0, 14, 0] as [number, number, number],
+    floatDuration: 7,
+    delay: 1,
+  },
+  {
+    iconUrl: "https://img.icons8.com/fluency/96/cloud.png",
+    label: "Cloud & Infrastructure",
+    desc: "Scalable DevOps & managed hosting",
+    color: "from-cyan-500/25 to-cyan-600/5",
+    glow: "rgba(6,182,212,0.22)",
+    float: [0, -10, 0] as [number, number, number],
+    floatDuration: 8,
+    delay: 2,
+  },
+  {
+    iconUrl: "https://img.icons8.com/fluency/96/cyber-security.png",
+    label: "Cybersecurity",
+    desc: "Assessments, pen testing & managed security",
+    color: "from-emerald-500/25 to-emerald-600/5",
+    glow: "rgba(16,185,129,0.22)",
+    float: [0, 16, 0] as [number, number, number],
+    floatDuration: 6.5,
+    delay: 1.5,
+  },
+];
 
 export function Hero() {
   return (
-    <section className="relative min-h-[100dvh] pt-32 pb-20 flex items-center overflow-hidden" id="home">
-      {/* Background gradients */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] opacity-30 dark:opacity-20 pointer-events-none">
-        <div className="absolute inset-0 bg-primary/30 blur-[120px] rounded-full" />
+    <section
+      className="relative min-h-[100dvh] pt-32 pb-20 flex items-center overflow-hidden"
+      id="home"
+    >
+      {/* Background image */}
+      <div className="absolute inset-0 z-0">
+        <img
+          src={heroBg}
+          alt=""
+          className="w-full h-full object-cover object-center"
+          aria-hidden="true"
+        />
+        {/* Overlay — rich dark gradient for text legibility */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#010d1e]/92 via-[#031428]/82 to-[#010d1e]/55" />
+        {/* Bottom fade to page background */}
+        <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-background to-transparent" />
       </div>
+
+      {/* Radial glow over image */}
+      <div className="absolute top-1/3 left-1/3 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[120px] pointer-events-none z-0" />
 
       <div className="max-w-7xl mx-auto px-6 w-full relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
+
           {/* Left Column */}
           <div className="flex flex-col items-start text-left space-y-8">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-primary/20 bg-primary/5 dark:bg-primary/10 text-primary text-sm font-medium"
-            >
-              <Zap size={14} className="fill-primary" />
-              Digital Transformation Experts
-            </motion.div>
-
             <motion.h1
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-5xl lg:text-7xl font-bold text-foreground leading-[1.1] tracking-tight"
+              transition={{ duration: 0.7 }}
+              className="text-5xl lg:text-7xl font-bold text-white leading-[1.08] tracking-tight"
             >
               Transforming <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">
                 Businesses
               </span>{" "}
               <br />
@@ -40,8 +90,8 @@ export function Hero() {
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-lg lg:text-xl text-muted-foreground max-w-lg leading-relaxed"
+              transition={{ duration: 0.6, delay: 0.15 }}
+              className="text-lg lg:text-xl text-white/70 max-w-lg leading-relaxed"
             >
               We help businesses build, automate, secure, and scale through
               intelligent digital solutions.
@@ -50,14 +100,17 @@ export function Hero() {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
+              transition={{ duration: 0.6, delay: 0.28 }}
               className="flex flex-wrap gap-4 pt-2"
             >
-              <button className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-4 rounded-full font-medium transition-all hover:scale-105 shadow-[0_8px_30px_rgba(37,99,235,0.24)] flex items-center gap-2">
+              <button className="bg-primary hover:bg-primary/90 text-white px-8 py-4 rounded-full font-medium transition-all hover:scale-105 shadow-[0_8px_30px_rgba(37,99,235,0.4)] flex items-center gap-2">
                 Book a Consultation
                 <ArrowRight size={18} />
               </button>
-              <button className="bg-transparent hover:bg-secondary border border-border text-foreground px-8 py-4 rounded-full font-medium transition-colors">
+              <button
+                onClick={() => document.getElementById("services")?.scrollIntoView({ behavior: "smooth" })}
+                className="bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 text-white px-8 py-4 rounded-full font-medium transition-all"
+              >
                 Explore Services
               </button>
             </motion.div>
@@ -65,139 +118,92 @@ export function Hero() {
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 1, delay: 0.8 }}
-              className="flex items-center gap-6 pt-8 border-t border-border w-full mt-4"
+              transition={{ duration: 1, delay: 0.7 }}
+              className="flex items-center gap-6 pt-4 border-t border-white/10 w-full"
             >
-              <div className="flex items-center gap-2 text-sm text-muted-foreground font-medium">
-                <Globe size={16} className="text-primary" /> Global Delivery
+              <div className="flex items-center gap-2 text-sm text-white/60 font-medium">
+                <Globe size={15} className="text-blue-400" /> Global Delivery
               </div>
-              <div className="flex items-center gap-2 text-sm text-muted-foreground font-medium">
-                <Shield size={16} className="text-primary" /> Enterprise Grade
+              <div className="flex items-center gap-2 text-sm text-white/60 font-medium">
+                <Shield size={15} className="text-blue-400" /> Enterprise Grade
               </div>
-              <div className="flex items-center gap-2 text-sm text-muted-foreground font-medium">
-                <Zap size={16} className="text-primary" /> 24/7 Support
+              <div className="flex items-center gap-2 text-sm text-white/60 font-medium">
+                <Zap size={15} className="text-blue-400" /> 24/7 Support
               </div>
             </motion.div>
           </div>
 
-          {/* Right Column: Custom Illustration Dashboard */}
+          {/* Right Column — 2×2 service cards with PNG icons */}
           <motion.div
             initial={{ opacity: 0, x: 40 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="relative h-[600px] w-full hidden lg:block perspective-1000"
+            transition={{ duration: 0.8, delay: 0.35 }}
+            className="hidden lg:grid grid-cols-2 gap-5 relative"
           >
-            {/* Center core */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-primary/10 rounded-full blur-2xl" />
-            
-            {/* Card 1: AI Solutions */}
-            <motion.div
-              animate={{ y: [0, -15, 0] }}
-              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute top-[10%] left-[10%] w-64 glass-card rounded-2xl p-5 z-20 backdrop-blur-xl border border-white/20 dark:border-white/10 shadow-2xl"
-            >
-              <div className="flex items-center gap-4 mb-4">
-                <div className="w-10 h-10 rounded-xl bg-blue-500/20 flex items-center justify-center text-blue-500">
-                  <Cpu size={20} />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-sm">AI Solutions</h3>
-                  <p className="text-xs text-muted-foreground">Neural Networks Active</p>
-                </div>
-              </div>
-              <div className="space-y-2">
-                <div className="h-2 w-full bg-secondary rounded-full overflow-hidden">
-                  <div className="h-full bg-blue-500 w-[85%] rounded-full" />
-                </div>
-                <div className="flex justify-between text-[10px] text-muted-foreground font-mono">
-                  <span>Efficiency</span>
-                  <span className="text-blue-500">+85%</span>
-                </div>
-              </div>
-            </motion.div>
+            {/* ambient glow */}
+            <div className="absolute inset-0 bg-primary/5 rounded-3xl blur-3xl pointer-events-none" />
 
-            {/* Card 2: Cloud Infrastructure */}
-            <motion.div
-              animate={{ y: [0, 20, 0] }}
-              transition={{ duration: 8, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-              className="absolute top-[30%] right-[5%] w-72 glass-card rounded-2xl p-5 z-10 backdrop-blur-xl border border-white/20 dark:border-white/10 shadow-xl"
-            >
-              <div className="flex items-center gap-4 mb-4">
-                <div className="w-10 h-10 rounded-xl bg-primary/20 flex items-center justify-center text-primary">
-                  <Cloud size={20} />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-sm">Cloud Infrastructure</h3>
-                  <p className="text-xs text-muted-foreground">Global Edge Network</p>
-                </div>
-              </div>
-              <div className="flex items-end gap-2 h-16 mt-4">
-                {[40, 70, 45, 90, 65, 85, 100].map((h, i) => (
-                  <div key={i} className="flex-1 bg-secondary rounded-t-sm relative group overflow-hidden">
-                    <motion.div 
-                      initial={{ height: 0 }}
-                      animate={{ height: `${h}%` }}
-                      transition={{ duration: 1, delay: i * 0.1 + 0.5 }}
-                      className="absolute bottom-0 left-0 right-0 bg-primary/80 rounded-t-sm"
+            {serviceCards.map((card) => (
+              <motion.div
+                key={card.label}
+                animate={{ y: card.float }}
+                transition={{
+                  duration: card.floatDuration,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: card.delay,
+                }}
+                whileHover={{ scale: 1.04, y: -6 }}
+                className="relative group cursor-default"
+                style={{ filter: `drop-shadow(0 8px 32px ${card.glow})` }}
+              >
+                {/* Glass card */}
+                <div
+                  className="relative rounded-2xl overflow-hidden border border-white/15 h-full flex flex-col p-6"
+                  style={{
+                    background:
+                      "linear-gradient(135deg, rgba(255,255,255,0.09) 0%, rgba(255,255,255,0.03) 100%)",
+                    backdropFilter: "blur(22px)",
+                    WebkitBackdropFilter: "blur(22px)",
+                  }}
+                >
+                  {/* Colour accent blob */}
+                  <div
+                    className={`absolute top-0 left-0 w-24 h-24 bg-gradient-to-br ${card.color} rounded-br-full opacity-60 blur-xl pointer-events-none`}
+                  />
+
+                  {/* PNG icon */}
+                  <div
+                    className="relative w-14 h-14 rounded-2xl flex items-center justify-center mb-4 flex-shrink-0"
+                    style={{
+                      background: "rgba(255,255,255,0.10)",
+                      border: "1px solid rgba(255,255,255,0.18)",
+                    }}
+                  >
+                    <img
+                      src={card.iconUrl}
+                      alt={card.label}
+                      className="w-8 h-8 object-contain"
+                      loading="lazy"
                     />
                   </div>
-                ))}
-              </div>
-            </motion.div>
 
-            {/* Card 3: Cybersecurity */}
-            <motion.div
-              animate={{ y: [0, -25, 0] }}
-              transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-              className="absolute bottom-[20%] left-[20%] w-60 glass-card rounded-2xl p-5 z-30 backdrop-blur-xl border border-white/20 dark:border-white/10 shadow-2xl"
-            >
-              <div className="flex items-center gap-4 mb-4">
-                <div className="w-10 h-10 rounded-xl bg-emerald-500/20 flex items-center justify-center text-emerald-500">
-                  <Lock size={20} />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-sm">Cybersecurity</h3>
-                  <p className="text-xs text-emerald-500">System Secure</p>
-                </div>
-              </div>
-              <div className="grid grid-cols-2 gap-2 mt-4">
-                <div className="bg-secondary/50 rounded-lg p-2 text-center">
-                  <div className="text-xs text-muted-foreground mb-1">Threats</div>
-                  <div className="text-sm font-semibold">0 blocked</div>
-                </div>
-                <div className="bg-secondary/50 rounded-lg p-2 text-center">
-                  <div className="text-xs text-muted-foreground mb-1">Uptime</div>
-                  <div className="text-sm font-semibold text-emerald-500">99.99%</div>
-                </div>
-              </div>
-            </motion.div>
+                  <h3 className="text-white font-semibold text-sm mb-1.5 leading-tight">
+                    {card.label}
+                  </h3>
+                  <p className="text-white/50 text-xs leading-relaxed">
+                    {card.desc}
+                  </p>
 
-            {/* Decorative Connection Lines */}
-            <svg className="absolute inset-0 w-full h-full z-0 pointer-events-none" viewBox="0 0 600 600">
-              <motion.path 
-                initial={{ pathLength: 0, opacity: 0 }}
-                animate={{ pathLength: 1, opacity: 0.2 }}
-                transition={{ duration: 2, delay: 1 }}
-                d="M 200 150 Q 350 250 450 250" 
-                fill="none" 
-                stroke="currentColor" 
-                strokeWidth="2" 
-                strokeDasharray="4 4" 
-                className="text-primary"
-              />
-              <motion.path 
-                initial={{ pathLength: 0, opacity: 0 }}
-                animate={{ pathLength: 1, opacity: 0.2 }}
-                transition={{ duration: 2, delay: 1.5 }}
-                d="M 250 450 Q 350 350 450 300" 
-                fill="none" 
-                stroke="currentColor" 
-                strokeWidth="2" 
-                strokeDasharray="4 4" 
-                className="text-primary"
-              />
-            </svg>
+                  {/* Bottom shine */}
+                  <div className="absolute bottom-0 left-4 right-4 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+                  {/* Hover shimmer */}
+                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white/5 pointer-events-none rounded-2xl" />
+                </div>
+              </motion.div>
+            ))}
           </motion.div>
+
         </div>
       </div>
     </section>

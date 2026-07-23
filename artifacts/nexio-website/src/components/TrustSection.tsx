@@ -1,27 +1,26 @@
 import { motion } from "framer-motion";
-import { Globe, Layers, ShieldCheck, Headphones } from "lucide-react";
 
 const stats = [
   {
-    icon: Globe,
+    iconUrl: "https://img.icons8.com/fluency/96/worldwide-location.png",
     title: "Global Delivery",
-    desc: "Teams operating across major time zones to deliver consistently."
+    desc: "Teams operating across major time zones to deliver consistently.",
   },
   {
-    icon: Layers,
+    iconUrl: "https://img.icons8.com/fluency/96/source-code.png",
     title: "Modern Tech Stack",
-    desc: "Built on scalable, future-proof frameworks and cloud infrastructure."
+    desc: "Built on scalable, future-proof frameworks and cloud infrastructure.",
   },
   {
-    icon: ShieldCheck,
+    iconUrl: "https://img.icons8.com/fluency/96/security-checked.png",
     title: "Secure Solutions",
-    desc: "Enterprise-grade security baked into every line of code we write."
+    desc: "Enterprise-grade security baked into every line of code we write.",
   },
   {
-    icon: Headphones,
+    iconUrl: "https://img.icons8.com/fluency/96/customer-support.png",
     title: "End-to-End Support",
-    desc: "From discovery to deployment and continuous maintenance."
-  }
+    desc: "From discovery to deployment and continuous maintenance.",
+  },
 ];
 
 export function TrustSection() {
@@ -32,7 +31,7 @@ export function TrustSection() {
       <div className="absolute top-1/2 right-0 w-64 h-64 bg-accent/5 rounded-full blur-[80px] -translate-y-1/2" />
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
@@ -54,10 +53,19 @@ export function TrustSection() {
               className="glass-card rounded-2xl p-8 hover:-translate-y-2 transition-transform duration-300 group"
             >
               <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                <stat.icon className="text-primary w-6 h-6" />
+                <img
+                  src={stat.iconUrl}
+                  alt={stat.title}
+                  className="w-7 h-7 object-contain"
+                  loading="lazy"
+                />
               </div>
-              <h3 className="font-semibold text-lg mb-2 text-foreground">{stat.title}</h3>
-              <p className="text-muted-foreground text-sm leading-relaxed">{stat.desc}</p>
+              <h3 className="font-semibold text-lg mb-2 text-foreground">
+                {stat.title}
+              </h3>
+              <p className="text-muted-foreground text-sm leading-relaxed">
+                {stat.desc}
+              </p>
             </motion.div>
           ))}
         </div>

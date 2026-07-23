@@ -1,37 +1,37 @@
 import { motion } from "framer-motion";
-import { Laptop, Cpu, Cloud, Lock, LineChart, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 const services = [
   {
-    icon: Laptop,
+    iconUrl: "https://img.icons8.com/fluency/96/web.png",
     title: "Digital Solutions",
     desc: "Corporate sites, robust web apps, scalable SaaS platforms, and custom enterprise software.",
     colSpan: "lg:col-span-2",
   },
   {
-    icon: Cpu,
+    iconUrl: "https://img.icons8.com/fluency/96/artificial-intelligence.png",
     title: "AI & Automation",
     desc: "AI assistants, intelligent business automation, workflow optimization, and bespoke AI integrations.",
     colSpan: "lg:col-span-1",
   },
   {
-    icon: Cloud,
+    iconUrl: "https://img.icons8.com/fluency/96/cloud.png",
     title: "Cloud Solutions",
     desc: "Cloud infrastructure architecture, seamless deployment, DevOps, and managed high-performance hosting.",
     colSpan: "lg:col-span-1",
   },
   {
-    icon: Lock,
+    iconUrl: "https://img.icons8.com/fluency/96/cyber-security.png",
     title: "Cybersecurity",
     desc: "Comprehensive security assessments, penetration testing, compliance consulting, and managed security.",
     colSpan: "lg:col-span-1",
   },
   {
-    icon: LineChart,
+    iconUrl: "https://img.icons8.com/fluency/96/strategy.png",
     title: "Technology Consulting",
     desc: "Strategic digital roadmaps, technology stack evaluation, process optimization, and leadership consulting.",
     colSpan: "lg:col-span-1",
-  }
+  },
 ];
 
 export function ServicesSection() {
@@ -48,7 +48,8 @@ export function ServicesSection() {
               Everything You Need to Scale
             </h2>
             <p className="text-lg text-muted-foreground">
-              We provide comprehensive technology capabilities to power your digital transformation journey from concept to enterprise scale.
+              Comprehensive technology capabilities to power your digital
+              transformation journey — from concept to enterprise scale.
             </p>
           </motion.div>
         </div>
@@ -64,18 +65,27 @@ export function ServicesSection() {
               className={`glass-card rounded-[24px] p-8 md:p-10 relative overflow-hidden group hover:-translate-y-1 transition-all duration-300 ${service.colSpan}`}
             >
               <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-bl-[100px] -z-10 transition-transform duration-500 group-hover:scale-150" />
-              
+
+              {/* PNG icon in a styled container */}
               <div className="w-14 h-14 rounded-2xl bg-white dark:bg-gray-800 shadow-sm border border-gray-100 dark:border-gray-700 flex items-center justify-center mb-8">
-                <service.icon className="w-7 h-7 text-primary" />
+                <img
+                  src={service.iconUrl}
+                  alt={service.title}
+                  className="w-8 h-8 object-contain"
+                  loading="lazy"
+                />
               </div>
-              
-              <h3 className="text-xl font-bold mb-4 text-foreground">{service.title}</h3>
+
+              <h3 className="text-xl font-bold mb-4 text-foreground">
+                {service.title}
+              </h3>
               <p className="text-muted-foreground leading-relaxed mb-8">
                 {service.desc}
               </p>
-              
+
               <div className="mt-auto flex items-center text-primary font-medium text-sm group-hover:gap-2 transition-all">
-                Learn more <ArrowRight className="w-4 h-4 ml-1 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all" />
+                Learn more{" "}
+                <ArrowRight className="w-4 h-4 ml-1 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all" />
               </div>
             </motion.div>
           ))}

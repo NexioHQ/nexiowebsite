@@ -26,8 +26,8 @@ export function Navbar() {
 
   const navLinks = [
     { name: "Services", href: "services" },
-    { name: "Industries", href: "industries" },
-    { name: "About", href: "about" },
+    { name: "Why Nexio", href: "why-nexio" },
+    { name: "Testimonials", href: "testimonials" },
     { name: "Contact", href: "contact" },
   ];
 
@@ -69,7 +69,10 @@ export function Navbar() {
           >
             {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
           </button>
-          <button className="bg-primary hover:bg-primary/90 text-primary-foreground px-5 py-2.5 rounded-full text-sm font-medium transition-all hover:scale-105 shadow-[0_0_15px_rgba(37,99,235,0.3)] hover:shadow-[0_0_20px_rgba(37,99,235,0.5)]">
+          <button
+            onClick={() => scrollTo("contact")}
+            className="bg-primary hover:bg-primary/90 text-primary-foreground px-5 py-2.5 rounded-full text-sm font-medium transition-all hover:scale-105 shadow-[0_0_15px_rgba(37,99,235,0.3)] hover:shadow-[0_0_20px_rgba(37,99,235,0.5)]"
+          >
             Book a Consultation
           </button>
         </div>
@@ -110,7 +113,10 @@ export function Navbar() {
                   {link.name}
                 </button>
               ))}
-              <button className="bg-primary text-primary-foreground px-5 py-3 rounded-full text-base font-medium mt-4 w-full">
+              <button
+                onClick={() => scrollTo("contact")}
+                className="bg-primary text-primary-foreground px-5 py-3 rounded-full text-base font-medium mt-4 w-full"
+              >
                 Book a Consultation
               </button>
             </div>
