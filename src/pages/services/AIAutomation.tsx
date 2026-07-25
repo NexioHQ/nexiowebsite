@@ -1,12 +1,11 @@
-import { Cpu } from "lucide-react";
+import { BrainCircuit } from "lucide-react";
 import { ServicePage, type ServiceData } from "@/components/ServicePage";
 
 const data: ServiceData = {
-  num: "02",
   title: "AI and Automation",
   tagline: "Intelligent systems that reduce manual effort, accelerate decisions, and create entirely new revenue opportunities for your organisation.",
   description: "We help businesses harness the power of artificial intelligence not as a buzzword, but as a practical tool that eliminates repetitive work, surfaces actionable insights, and enables products that were previously impossible to build.",
-  Icon: Cpu,
+  Icon: BrainCircuit,
   accent: "from-violet-500 to-violet-600",
   iconBg: "bg-violet-50 dark:bg-violet-500/10",
   iconColor: "text-violet-600 dark:text-violet-400",

@@ -15,7 +15,7 @@ const solutionLinks = [
 const navLinks = [
   { name: "Home", href: "/" },
   { name: "About Us", href: "/about" },
-  { name: "Solutions", href: "/solutions", hasDropdown: true },
+  { name: "Solutions", href: "/solutions/digital-solutions", hasDropdown: true },
   { name: "Resources", href: "/resources" },
   { name: "Careers", href: "/careers" },
   { name: "Contact Us", href: "/contact" },
@@ -107,12 +107,6 @@ export function Navbar() {
                         onMouseLeave={() => setSolutionsOpen(false)}
                         className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-56 bg-white dark:bg-gray-950 border border-gray-200 dark:border-gray-800 rounded-xl shadow-xl py-2 z-50"
                       >
-                        <Link href="/solutions">
-                          <span className="block px-4 py-2.5 text-sm font-medium text-foreground hover:bg-gray-50 dark:hover:bg-gray-800/50 hover:text-primary transition-colors cursor-pointer">
-                            All Solutions
-                          </span>
-                        </Link>
-                        <div className="border-t border-gray-100 dark:border-gray-800 my-1" />
                         {solutionLinks.map((sl) => (
                           <Link key={sl.href} href={sl.href}>
                             <span className="block px-4 py-2.5 text-sm text-foreground/80 hover:bg-gray-50 dark:hover:bg-gray-800/50 hover:text-primary transition-colors cursor-pointer">
@@ -199,11 +193,6 @@ export function Navbar() {
                             exit={{ opacity: 0, height: 0 }}
                             className="pl-4 space-y-1"
                           >
-                            <Link href="/solutions">
-                              <span className="block text-base text-foreground/70 hover:text-primary py-1.5 cursor-pointer">
-                                All Solutions
-                              </span>
-                            </Link>
                             {solutionLinks.map((sl) => (
                               <Link key={sl.href} href={sl.href}>
                                 <span className="block text-base text-foreground/70 hover:text-primary py-1.5 cursor-pointer">

@@ -1,12 +1,11 @@
-import { Monitor } from "lucide-react";
+import { Layers } from "lucide-react";
 import { ServicePage, type ServiceData } from "@/components/ServicePage";
 
 const data: ServiceData = {
-  num: "01",
   title: "Digital Solutions",
   tagline: "We design and build high-performance web applications, SaaS platforms, and enterprise software that scale with your business.",
   description: "From concept through to deployment, our engineers and designers work closely with your team to deliver digital products that are fast, intuitive, and built to last. We specialise in complex, data-intensive applications that require both technical depth and polished user experience.",
-  Icon: Monitor,
+  Icon: Layers,
   accent: "from-blue-500 to-blue-600",
   iconBg: "bg-blue-50 dark:bg-blue-500/10",
   iconColor: "text-blue-600 dark:text-blue-400",

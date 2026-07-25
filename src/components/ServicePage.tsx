@@ -7,7 +7,6 @@ import { useState } from "react";
 import { ContactForm } from "./ContactForm";
 
 export interface ServiceData {
-  num: string;
   title: string;
   tagline: string;
   description: string;
@@ -47,7 +46,6 @@ export function ServicePage({ data }: { data: ServiceData }) {
             <div className={`inline-flex items-center justify-center w-14 h-14 rounded-2xl ${data.iconBg} mb-6`}>
               <data.Icon size={26} className={data.iconColor} strokeWidth={1.75} />
             </div>
-            <p className="text-sm font-semibold text-primary tracking-widest uppercase mb-3">Service {data.num}</p>
             <h1 className="text-5xl md:text-6xl font-bold tracking-tight mb-5">{data.title}</h1>
             <p className="text-xl text-muted-foreground max-w-2xl leading-relaxed">{data.tagline}</p>
           </motion.div>

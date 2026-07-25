@@ -1,12 +1,11 @@
-import { BarChart3 } from "lucide-react";
+import { Compass } from "lucide-react";
 import { ServicePage, type ServiceData } from "@/components/ServicePage";
 
 const data: ServiceData = {
-  num: "05",
   title: "Technology Consulting",
   tagline: "Strategic guidance that aligns your technology investments with business outcomes, from long-term roadmaps to hands-on execution leadership.",
   description: "Many organisations have talented teams but struggle to translate technical capability into strategic business value. Our consulting practice bridges that gap — helping you make better technology decisions, build stronger teams, and execute transformations that actually stick.",
-  Icon: BarChart3,
+  Icon: Compass,
   accent: "from-amber-500 to-orange-500",
   iconBg: "bg-amber-50 dark:bg-amber-500/10",
   iconColor: "text-amber-600 dark:text-amber-400",

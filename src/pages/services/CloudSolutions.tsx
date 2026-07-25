@@ -1,12 +1,11 @@
-import { Cloud } from "lucide-react";
+import { CloudCog } from "lucide-react";
 import { ServicePage, type ServiceData } from "@/components/ServicePage";
 
 const data: ServiceData = {
-  num: "03",
   title: "Cloud Solutions",
   tagline: "Cloud infrastructure that scales with your ambitions — architected for performance, designed for resilience, and managed for peace of mind.",
   description: "Whether you are migrating from on-premise infrastructure or optimising an existing cloud environment, our team brings deep expertise across AWS, Google Cloud, and Azure to help you run faster, spend less, and sleep better.",
-  Icon: Cloud,
+  Icon: CloudCog,
   accent: "from-cyan-500 to-cyan-600",
   iconBg: "bg-cyan-50 dark:bg-cyan-500/10",
   iconColor: "text-cyan-600 dark:text-cyan-400",

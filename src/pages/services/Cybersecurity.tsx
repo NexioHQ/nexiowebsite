@@ -1,12 +1,11 @@
-import { ShieldCheck } from "lucide-react";
+import { ShieldHalf } from "lucide-react";
 import { ServicePage, type ServiceData } from "@/components/ServicePage";
 
 const data: ServiceData = {
-  num: "04",
   title: "Cybersecurity",
   tagline: "Proactive security strategies that protect your business, meet compliance requirements, and keep your customers' trust intact.",
   description: "In a world where breaches make headlines daily, security cannot be an afterthought. Our team of certified security professionals embeds enterprise-grade protection into your systems and processes — before attackers find the gaps you don't know exist.",
-  Icon: ShieldCheck,
+  Icon: ShieldHalf,
   accent: "from-emerald-500 to-emerald-600",
   iconBg: "bg-emerald-50 dark:bg-emerald-500/10",
   iconColor: "text-emerald-600 dark:text-emerald-400",
