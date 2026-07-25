@@ -8,16 +8,6 @@ export interface BlogPost {
   readTime: string;
 }
 
-export interface CaseStudy {
-  title: string;
-  excerpt: string;
-  slug: string;
-  client: string;
-  industry: string;
-  image: string;
-  results: string[];
-}
-
 export const blogPosts: BlogPost[] = [
   {
     title: "How AI is Reshaping Enterprise Workflow Automation",
@@ -72,44 +62,5 @@ export const blogPosts: BlogPost[] = [
     category: "engineering",
     image: "https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?w=600&q=80",
     readTime: "6 min read",
-  },
-];
-
-export const caseStudies: CaseStudy[] = [
-  {
-    title: "Automating Claims Processing for a Leading Insurer",
-    excerpt: "How we reduced claims processing time by 65% using AI-powered document extraction and automated workflows.",
-    slug: "insurance-claims-automation",
-    client: "Fortune 500 Insurance Company",
-    industry: "Insurance & Finance",
-    image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600&q=80",
-    results: ["65% faster processing", "92% accuracy rate", "$2.4M annual savings"],
-  },
-  {
-    title: "Cloud Migration for a Global Logistics Provider",
-    excerpt: "Migrating 200+ microservices from on-premise to a multi-cloud architecture with zero downtime.",
-    slug: "logistics-cloud-migration",
-    client: "International Logistics Corp",
-    industry: "Logistics & Supply Chain",
-    image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=600&q=80",
-    results: ["Zero downtime migration", "40% cost reduction", "99.99% uptime achieved"],
-  },
-  {
-    title: "Building a Real-Time Analytics Platform for E-Commerce",
-    excerpt: "Designing and deploying a real-time data pipeline processing 50M+ events daily for personalised customer experiences.",
-    slug: "ecommerce-analytics-platform",
-    client: "Leading E-Commerce Retailer",
-    industry: "Retail & E-Commerce",
-    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&q=80",
-    results: ["50M+ daily events processed", "23% increase in conversions", "Sub-second query response"],
-  },
-  {
-    title: "Securing a FinTech Platform Against Emerging Threats",
-    excerpt: "Implementing comprehensive security measures that achieved SOC2 Type II compliance in record time.",
-    slug: "fintech-security-compliance",
-    client: "Fast-Growing FinTech Startup",
-    industry: "Financial Technology",
-    image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=600&q=80",
-    results: ["SOC2 Type II in 4 months", "Zero security incidents", "100% audit pass rate"],
   },
 ];

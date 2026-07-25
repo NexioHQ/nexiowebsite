@@ -2,6 +2,7 @@ import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
 import { TrustSection } from "@/components/TrustSection";
 import { ServicesSection } from "@/components/ServicesSection";
+import { FeaturedWork } from "@/components/FeaturedWork";
 import { MarqueeTech } from "@/components/MarqueeTech";
 import { WhyNexio } from "@/components/WhyNexio";
 import { TestimonialsSection } from "@/components/TestimonialsSection";
@@ -16,6 +17,7 @@ export default function Home() {
         <Hero />
         <TrustSection />
         <ServicesSection />
+        <FeaturedWork />
         <MarqueeTech />
         <WhyNexio />
         <TestimonialsSection />
