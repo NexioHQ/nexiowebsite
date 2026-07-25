@@ -3,13 +3,27 @@ import { Toaster } from '@/components/ui/toaster';
 import { TooltipProvider } from '@/components/ui/tooltip';
 import NotFound from '@/pages/not-found';
 import Home from '@/pages/Home';
+import About from '@/pages/About';
+import Solutions from '@/pages/Solutions';
+import Resources from '@/pages/Resources';
+import Careers from '@/pages/Careers';
+import Contact from '@/pages/Contact';
 import DigitalSolutions from '@/pages/services/DigitalSolutions';
 import AIAutomation from '@/pages/services/AIAutomation';
 import CloudSolutions from '@/pages/services/CloudSolutions';
 import Cybersecurity from '@/pages/services/Cybersecurity';
 import TechnologyConsulting from '@/pages/services/TechnologyConsulting';
-import { Route, Switch, Router as WouterRouter } from 'wouter';
+import { Route, Switch, Router as WouterRouter, useLocation } from 'wouter';
 import { ThemeProvider } from '@/components/theme-provider';
+import { useEffect } from 'react';
+
+function ScrollToTop() {
+  const [location] = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location]);
+  return null;
+}
 
 const queryClient = new QueryClient();
 
@@ -17,11 +31,16 @@ function Router() {
   return (
     <Switch>
       <Route path="/" component={Home} />
-      <Route path="/services/digital-solutions" component={DigitalSolutions} />
-      <Route path="/services/ai-automation" component={AIAutomation} />
-      <Route path="/services/cloud-solutions" component={CloudSolutions} />
-      <Route path="/services/cybersecurity" component={Cybersecurity} />
-      <Route path="/services/technology-consulting" component={TechnologyConsulting} />
+      <Route path="/about" component={About} />
+      <Route path="/solutions" component={Solutions} />
+      <Route path="/solutions/digital-solutions" component={DigitalSolutions} />
+      <Route path="/solutions/ai-automation" component={AIAutomation} />
+      <Route path="/solutions/cloud-solutions" component={CloudSolutions} />
+      <Route path="/solutions/cybersecurity" component={Cybersecurity} />
+      <Route path="/solutions/technology-consulting" component={TechnologyConsulting} />
+      <Route path="/resources" component={Resources} />
+      <Route path="/careers" component={Careers} />
+      <Route path="/contact" component={Contact} />
       <Route component={NotFound} />
     </Switch>
   );
@@ -33,6 +52,7 @@ function App() {
       <QueryClientProvider client={queryClient}>
         <TooltipProvider>
           <WouterRouter base={import.meta.env.BASE_URL.replace(/\/$/, '')}>
+            <ScrollToTop />
             <Router />
           </WouterRouter>
           <Toaster />

@@ -1,4 +1,5 @@
 import { Facebook, Instagram, Linkedin } from "lucide-react";
+import { Link } from "wouter";
 
 export function Footer() {
   return (
@@ -7,7 +8,9 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8 mb-12">
           {/* Col 1 */}
           <div className="space-y-5">
-            <span className="text-2xl font-semibold text-primary tracking-tight">nexio</span>
+            <Link href="/">
+              <span className="text-2xl font-semibold text-primary tracking-tight cursor-pointer">nexio</span>
+            </Link>
             <p className="text-muted-foreground text-sm max-w-xs leading-relaxed">
               Transforming Businesses Through Technology. We build scalable, secure, and intelligent digital solutions.
             </p>
@@ -21,22 +24,23 @@ export function Footer() {
           <div>
             <h4 className="font-semibold mb-5 text-sm">Company</h4>
             <ul className="space-y-3 text-sm text-muted-foreground">
-              <li><a href="#services" className="hover:text-primary transition-colors">Services</a></li>
-              <li><a href="#about" className="hover:text-primary transition-colors">About</a></li>
-              <li><a href="#contact" className="hover:text-primary transition-colors">Contact</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">Careers</a></li>
+              <li><Link href="/about"><span className="hover:text-primary transition-colors cursor-pointer">About Us</span></Link></li>
+              <li><Link href="/solutions"><span className="hover:text-primary transition-colors cursor-pointer">Solutions</span></Link></li>
+              <li><Link href="/resources"><span className="hover:text-primary transition-colors cursor-pointer">Resources</span></Link></li>
+              <li><Link href="/careers"><span className="hover:text-primary transition-colors cursor-pointer">Careers</span></Link></li>
+              <li><Link href="/contact"><span className="hover:text-primary transition-colors cursor-pointer">Contact</span></Link></li>
             </ul>
           </div>
 
           {/* Col 3 */}
           <div>
-            <h4 className="font-semibold mb-5 text-sm">Services</h4>
+            <h4 className="font-semibold mb-5 text-sm">Solutions</h4>
             <ul className="space-y-3 text-sm text-muted-foreground">
-              <li><a href="/services/digital-solutions" className="hover:text-primary transition-colors">Digital Solutions</a></li>
-              <li><a href="/services/ai-automation" className="hover:text-primary transition-colors">AI and Automation</a></li>
-              <li><a href="/services/cloud-solutions" className="hover:text-primary transition-colors">Cloud Solutions</a></li>
-              <li><a href="/services/cybersecurity" className="hover:text-primary transition-colors">Cybersecurity</a></li>
-              <li><a href="/services/technology-consulting" className="hover:text-primary transition-colors">Technology Consulting</a></li>
+              <li><Link href="/solutions/digital-solutions"><span className="hover:text-primary transition-colors cursor-pointer">Digital Solutions</span></Link></li>
+              <li><Link href="/solutions/ai-automation"><span className="hover:text-primary transition-colors cursor-pointer">AI and Automation</span></Link></li>
+              <li><Link href="/solutions/cloud-solutions"><span className="hover:text-primary transition-colors cursor-pointer">Cloud Solutions</span></Link></li>
+              <li><Link href="/solutions/cybersecurity"><span className="hover:text-primary transition-colors cursor-pointer">Cybersecurity</span></Link></li>
+              <li><Link href="/solutions/technology-consulting"><span className="hover:text-primary transition-colors cursor-pointer">Technology Consulting</span></Link></li>
             </ul>
           </div>
 
@@ -63,7 +67,7 @@ export function Footer() {
         </div>
 
         <div className="pt-6 border-t border-border text-center text-sm text-muted-foreground">
-          <p>© 2026 Nexio Global. All rights reserved.</p>
+          <p>&copy; 2026 Nexio Global. All rights reserved.</p>
         </div>
       </div>
     </footer>

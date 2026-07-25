@@ -13,7 +13,7 @@ const services = [
     iconBg: "bg-blue-50 dark:bg-blue-500/10",
     iconColor: "text-blue-600 dark:text-blue-400",
     borderTop: "border-t-blue-500",
-    href: "/services/digital-solutions",
+    href: "/solutions/digital-solutions",
     span: "lg:col-span-2",
   },
   {
@@ -26,7 +26,7 @@ const services = [
     iconBg: "bg-violet-50 dark:bg-violet-500/10",
     iconColor: "text-violet-600 dark:text-violet-400",
     borderTop: "border-t-violet-500",
-    href: "/services/ai-automation",
+    href: "/solutions/ai-automation",
     span: "lg:col-span-1",
   },
   {
@@ -39,7 +39,7 @@ const services = [
     iconBg: "bg-cyan-50 dark:bg-cyan-500/10",
     iconColor: "text-cyan-600 dark:text-cyan-400",
     borderTop: "border-t-cyan-500",
-    href: "/services/cloud-solutions",
+    href: "/solutions/cloud-solutions",
     span: "lg:col-span-1",
   },
   {
@@ -52,7 +52,7 @@ const services = [
     iconBg: "bg-emerald-50 dark:bg-emerald-500/10",
     iconColor: "text-emerald-600 dark:text-emerald-400",
     borderTop: "border-t-emerald-500",
-    href: "/services/cybersecurity",
+    href: "/solutions/cybersecurity",
     span: "lg:col-span-1",
   },
   {
@@ -65,7 +65,7 @@ const services = [
     iconBg: "bg-amber-50 dark:bg-amber-500/10",
     iconColor: "text-amber-600 dark:text-amber-400",
     borderTop: "border-t-amber-500",
-    href: "/services/technology-consulting",
+    href: "/solutions/technology-consulting",
     span: "lg:col-span-1",
   },
 ];
