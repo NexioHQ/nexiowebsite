@@ -20,7 +20,7 @@ const testimonials = [
     company: "Vantage Systems, United Kingdom",
     stars: 5,
     quote:
-      "Nexio completely transformed our cloud infrastructure. The migration was seamless and our costs dropped by 40%. Their team communicates with precision — no fluff, just results.",
+      "Nexio completely transformed our cloud infrastructure. The migration was seamless and our costs dropped by 40%. Their team communicates with precision, no fluff, just results.",
     avatar: "JH",
     color: "from-violet-500/20 to-violet-600/5",
     glow: "rgba(139,92,246,0.15)",

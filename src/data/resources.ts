@@ -48,7 +48,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     title: "Building Scalable SaaS Platforms with Modern Architectures",
-    excerpt: "From microservices to event-driven design — explore the patterns that power high-growth SaaS products.",
+    excerpt: "From microservices to event-driven design, explore the patterns that power high-growth SaaS products.",
     slug: "scalable-saas-modern-architectures",
     date: "2026-06-20",
     category: "engineering",
@@ -57,7 +57,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     title: "Digital Transformation ROI: Measuring What Matters",
-    excerpt: "Beyond vanity metrics — how to quantify the real business impact of your technology investments.",
+    excerpt: "Beyond vanity metrics. Learn how to quantify the real business impact of your technology investments.",
     slug: "digital-transformation-roi",
     date: "2026-06-12",
     category: "business",

@@ -17,7 +17,7 @@ const values = [
   {
     icon: Users,
     title: "Client Partnership",
-    description: "We don't just deliver projects — we become an extension of your team.",
+    description: "We don't just deliver projects. We become an extension of your team."
   },
   {
     icon: Award,
@@ -185,7 +185,7 @@ export default function About() {
                 <p>
                   Today, we serve clients across 15+ countries, helping them build scalable applications, 
                   implement AI solutions, migrate to the cloud, and secure their digital assets. 
-                  Every project we take on is a partnership — we succeed when our clients succeed.
+                  Every project we take on is a partnership. We succeed when our clients succeed.
                 </p>
               </div>
             </motion.div>

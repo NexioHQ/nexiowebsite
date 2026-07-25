@@ -79,11 +79,13 @@ export default function Resources() {
                     transition={{ delay: i * 0.08 }}
                     className="group bg-white dark:bg-card border border-gray-100 dark:border-gray-800 rounded-2xl overflow-hidden hover:shadow-xl hover:border-gray-300 dark:hover:border-gray-700 transition-all duration-300 cursor-pointer"
                   >
-                    <div className="aspect-[16/9] overflow-hidden">
+                    <div className="aspect-[16/9] overflow-hidden bg-gray-100 dark:bg-gray-800">
                       <img
                         src={post.image}
                         alt={post.title}
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        loading="lazy"
+                        referrerPolicy="no-referrer"
                       />
                     </div>
                     <div className="p-6">
@@ -132,11 +134,13 @@ export default function Resources() {
                     className="group bg-white dark:bg-card border border-gray-100 dark:border-gray-800 rounded-2xl overflow-hidden hover:shadow-xl hover:border-gray-300 dark:hover:border-gray-700 transition-all duration-300 cursor-pointer"
                   >
                     <div className="flex flex-col md:flex-row">
-                      <div className="md:w-80 aspect-[16/9] md:aspect-auto overflow-hidden flex-shrink-0">
+                      <div className="md:w-80 aspect-[16/9] md:aspect-auto overflow-hidden flex-shrink-0 bg-gray-100 dark:bg-gray-800">
                         <img
                           src={study.image}
                           alt={study.title}
                           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                          loading="lazy"
+                          referrerPolicy="no-referrer"
                         />
                       </div>
                       <div className="p-6 md:p-8 flex-1">

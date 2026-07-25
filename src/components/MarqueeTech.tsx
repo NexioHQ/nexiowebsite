@@ -11,10 +11,10 @@ const techStack = [
   { name: "PostgreSQL",    icon: "https://cdn.simpleicons.org/postgresql/4169E1" },
   { name: "MongoDB",       icon: "https://cdn.simpleicons.org/mongodb/47A248" },
   { name: "TensorFlow",    icon: "https://cdn.simpleicons.org/tensorflow/FF6F00" },
-  { name: "OpenAI",        icon: "https://cdn.simpleicons.org/openai/000000" },
+  { name: "OpenAI",        icon: "https://cdn.simpleicons.org/openai/412991" },
   { name: "Terraform",     icon: "https://cdn.simpleicons.org/terraform/7B42BC" },
-  { name: "GitHub",        icon: "https://cdn.simpleicons.org/github/181717" },
-  { name: "Next.js",       icon: "https://cdn.simpleicons.org/nextdotjs/000000" },
+  { name: "GitHub",        icon: "https://cdn.simpleicons.org/github/6e5494" },
+  { name: "Next.js",       icon: "https://cdn.simpleicons.org/nextdotjs/71717A" },
 ];
 
 // Duplicate for seamless infinite scroll
@@ -23,7 +23,7 @@ const doubled = [...techStack, ...techStack];
 function TechItem({ name, icon }: { name: string; icon: string }) {
   return (
     <div className="flex items-center gap-3 px-5 py-3 rounded-xl bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 shadow-sm flex-shrink-0 select-none">
-      <img src={icon} alt={name} className="w-5 h-5 object-contain" loading="lazy" />
+      <img src={icon} alt={name} className="w-5 h-5 object-contain" loading="lazy" referrerPolicy="no-referrer" />
       <span className="text-sm font-medium text-foreground/70 whitespace-nowrap">{name}</span>
     </div>
   );

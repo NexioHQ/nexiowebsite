@@ -62,9 +62,33 @@ export default function Contact() {
       return;
     }
     setLoading(true);
-    await new Promise((r) => setTimeout(r, 1200));
-    setLoading(false);
-    setSubmitted(true);
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          access_key: "YOUR_WEB3FORMS_ACCESS_KEY",
+          subject: `[NexioGBL] New message from ${form.name}`,
+          from_name: form.name,
+          replyto: form.email,
+          email: form.email,
+          phone: form.phone || "Not provided",
+          country: form.country,
+          service: form.service,
+          message: form.message,
+        }),
+      });
+      const data = await response.json();
+      if (data.success) {
+        setSubmitted(true);
+      } else {
+        setErrors({ form: "Something went wrong. Please try again." });
+      }
+    } catch {
+      setErrors({ form: "Network error. Please try again later." });
+    } finally {
+      setLoading(false);
+    }
   };
 
   const inputClass = (field: string) =>
@@ -280,6 +304,9 @@ export default function Contact() {
                             "Send Message"
                           )}
                         </button>
+                        {errors.form && (
+                          <p className="text-red-500 text-sm text-center mt-2">{errors.form}</p>
+                        )}
                       </form>
                     </>
                   )}

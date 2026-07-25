@@ -3,7 +3,7 @@ import { ServicePage, type ServiceData } from "@/components/ServicePage";
 
 const data: ServiceData = {
   title: "Cloud Solutions",
-  tagline: "Cloud infrastructure that scales with your ambitions — architected for performance, designed for resilience, and managed for peace of mind.",
+  tagline: "Cloud infrastructure that scales with your ambitions. Architected for performance, designed for resilience, and managed for peace of mind.",
   description: "Whether you are migrating from on-premise infrastructure or optimising an existing cloud environment, our team brings deep expertise across AWS, Google Cloud, and Azure to help you run faster, spend less, and sleep better.",
   Icon: CloudCog,
   accent: "from-cyan-500 to-cyan-600",

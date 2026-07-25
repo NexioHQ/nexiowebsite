@@ -30,7 +30,7 @@ const data: ServiceData = {
     { step: "05", title: "Monitor and Improve", desc: "Continuous model monitoring, retraining, and performance optimisation post-launch." },
   ],
   why: [
-    "Practical AI focus — we build tools that work, not demos that impress but fail in production",
+    "Practical AI focus. We build tools that work, not demos that impress but fail in production",
     "Experience across GPT, Claude, open-source, and fine-tuned models",
     "ROI-first framing: every project is justified by measurable business outcomes",
     "Ongoing model maintenance and performance monitoring included",
