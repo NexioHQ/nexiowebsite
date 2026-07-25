@@ -12,7 +12,7 @@ const services = [
     iconBg: "bg-blue-50 dark:bg-blue-500/10",
     iconColor: "text-blue-600 dark:text-blue-400",
     href: "/solutions/digital-solutions",
-    span: "lg:col-span-2",
+    span: "md:col-span-2 lg:col-span-2",
   },
   {
     Icon: BrainCircuit,
@@ -70,7 +70,7 @@ function ServiceCard({ service, index }: { service: typeof services[0]; index: n
       className={`group ${service.span}`}
     >
       <Link href={service.href}>
-        <div className="h-full bg-white dark:bg-card border border-gray-100 dark:border-gray-800 rounded-2xl p-8 flex flex-col hover:border-gray-300 dark:hover:border-gray-700 hover:shadow-xl dark:hover:shadow-2xl transition-all duration-300 cursor-pointer relative overflow-hidden">
+        <div className="h-full bg-white dark:bg-card border border-gray-100 dark:border-gray-800 rounded-2xl p-6 sm:p-8 flex flex-col hover:border-gray-300 dark:hover:border-gray-700 hover:shadow-xl dark:hover:shadow-2xl transition-all duration-300 cursor-pointer relative overflow-hidden">
           {/* Coloured top accent */}
           <div className={`absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r ${service.accent} opacity-0 group-hover:opacity-100 transition-opacity duration-300`} />
 
@@ -108,18 +108,18 @@ function ServiceCard({ service, index }: { service: typeof services[0]; index: n
 
 export function ServicesSection() {
   return (
-    <section className="py-24 bg-gray-50/70 dark:bg-card/20 relative" id="services">
-      <div className="max-w-7xl mx-auto px-6">
+    <section className="py-16 sm:py-24 bg-gray-50/70 dark:bg-card/20 relative" id="services">
+      <div className="max-w-7xl mx-auto px-5 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mb-16 text-center max-w-2xl mx-auto"
+          className="mb-12 sm:mb-16 text-center max-w-2xl mx-auto"
         >
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-5">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-5">
             Everything You Need to Scale
           </h2>
-          <p className="text-lg text-muted-foreground">
+          <p className="text-base sm:text-lg text-muted-foreground">
             Comprehensive technology capabilities to power your digital
             transformation journey, from concept to enterprise scale.
           </p>

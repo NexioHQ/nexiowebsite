@@ -124,11 +124,11 @@ export function TestimonialsSection() {
   const visible = testimonials.slice(page * PER_PAGE, page * PER_PAGE + PER_PAGE);
 
   return (
-    <section className="py-24 relative overflow-hidden" id="testimonials">
+    <section className="py-16 sm:py-24 relative overflow-hidden" id="testimonials">
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/3 to-transparent pointer-events-none" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-primary/5 rounded-full blur-[100px] pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
+      <div className="max-w-7xl mx-auto px-5 sm:px-6 relative z-10">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -136,7 +136,7 @@ export function TestimonialsSection() {
           viewport={{ once: true }}
           className="text-center mb-14"
         >
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-5">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-5">
             Trusted by Leaders Who Deliver
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
@@ -153,7 +153,7 @@ export function TestimonialsSection() {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -30 }}
             transition={{ duration: 0.35 }}
-            className="grid grid-cols-1 md:grid-cols-3 gap-5 min-h-[320px]"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 min-h-[320px]"
           >
             {visible.map((t, i) => (
               <TestimonialCard key={t.name} t={t} i={i} />

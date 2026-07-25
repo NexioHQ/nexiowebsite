@@ -30,15 +30,15 @@ const steps = [
 
 export function ProcessSection() {
   return (
-    <section className="py-32 bg-gray-50/50 dark:bg-card/20 border-y border-border">
-      <div className="max-w-7xl mx-auto px-6">
+    <section className="py-20 sm:py-32 bg-gray-50/50 dark:bg-card/20 border-y border-border">
+      <div className="max-w-7xl mx-auto px-5 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-20"
+          className="text-center mb-14 sm:mb-20"
         >
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-6">Our Proven Process</h2>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-6">Our Proven Process</h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             A methodology refined over hundreds of enterprise deployments. Predictable, transparent, and focused on outcomes.
           </p>
@@ -64,7 +64,7 @@ export function ProcessSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.15 }}
-                className="flex flex-row lg:flex-col gap-6 lg:gap-8 items-start"
+                className="flex flex-row md:flex-col gap-6 md:gap-6 lg:gap-8 items-start"
               >
                 {/* Number Badge */}
                 <div className="relative">
@@ -73,11 +73,11 @@ export function ProcessSection() {
                   </div>
                   {/* Connecting line mobile */}
                   {i !== steps.length - 1 && (
-                    <div className="lg:hidden absolute top-16 left-1/2 -translate-x-1/2 w-[2px] h-full bg-border -z-10" />
+                    <div className="md:hidden absolute top-16 left-1/2 -translate-x-1/2 w-[2px] h-full bg-border -z-10" />
                   )}
                 </div>
 
-                <div className="pt-2 lg:pt-0">
+                <div className="pt-2 md:pt-0">
                   <h3 className="text-xl font-bold mb-3">{step.title}</h3>
                   <p className="text-muted-foreground text-sm leading-relaxed">{step.desc}</p>
                 </div>

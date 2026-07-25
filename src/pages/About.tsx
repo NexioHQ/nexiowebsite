@@ -58,7 +58,7 @@ export default function About() {
               transition={{ duration: 0.6 }}
               className="max-w-3xl"
             >
-              <h1 className="text-5xl md:text-6xl font-bold tracking-tight mb-6">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight mb-6">
                 About <span className="text-primary">Nexio</span>
               </h1>
               <p className="text-xl text-muted-foreground leading-relaxed">

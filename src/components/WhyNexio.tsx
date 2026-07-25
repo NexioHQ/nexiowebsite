@@ -48,26 +48,26 @@ const reasons = [
 
 export function WhyNexio() {
   return (
-    <section className="py-24 relative" id="why-nexio">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="flex flex-col lg:flex-row gap-16 items-start">
+    <section className="py-16 sm:py-24 relative" id="why-nexio">
+      <div className="max-w-7xl mx-auto px-5 sm:px-6">
+        <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 items-start">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="lg:w-1/3 sticky top-32"
+            className="lg:w-1/3 lg:sticky lg:top-32"
           >
-            <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-6">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-6">
               Why Choose Nexio?
             </h2>
-            <p className="text-lg text-muted-foreground mb-8">
+            <p className="text-base sm:text-lg text-muted-foreground mb-8">
               We don't just write code. We architect solutions that solve real
               business problems and create lasting competitive advantages.
             </p>
             <div className="w-20 h-1 bg-primary rounded-full" />
           </motion.div>
 
-          <div className="lg:w-2/3 grid sm:grid-cols-2 gap-x-8 gap-y-8">
+          <div className="lg:w-2/3 grid sm:grid-cols-2 gap-x-8 gap-y-7 sm:gap-y-8 w-full">
             {reasons.map((reason, i) => (
               <motion.div
                 key={i}

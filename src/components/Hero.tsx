@@ -52,7 +52,7 @@ const serviceCards = [
 export function Hero() {
   return (
     <section
-      className="relative min-h-[100dvh] pt-32 pb-20 flex items-center overflow-hidden"
+      className="relative min-h-[100dvh] pt-28 sm:pt-32 pb-16 sm:pb-20 flex items-center overflow-hidden"
       id="home"
     >
       {/* Background image */}
@@ -70,16 +70,16 @@ export function Hero() {
       {/* Radial glow */}
       <div className="absolute top-1/3 left-1/3 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[120px] pointer-events-none z-0" />
 
-      <div className="max-w-7xl mx-auto px-6 w-full relative z-10">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+      <div className="max-w-7xl mx-auto px-5 sm:px-6 w-full relative z-10">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 
           {/* Left Column */}
-          <div className="flex flex-col items-start text-left space-y-8">
+          <div className="flex flex-col items-start text-left space-y-6 sm:space-y-8">
             <motion.h1
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7 }}
-              className="text-5xl lg:text-7xl font-bold text-white leading-[1.08] tracking-tight"
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.08] tracking-tight"
             >
               Transforming <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">
@@ -93,7 +93,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.15 }}
-              className="text-lg lg:text-xl text-white/70 max-w-lg leading-relaxed"
+              className="text-base sm:text-lg lg:text-xl text-white/70 max-w-lg leading-relaxed"
             >
               We help businesses build, automate, secure, and scale through
               intelligent digital solutions.
@@ -103,18 +103,18 @@ export function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.28 }}
-              className="flex flex-wrap gap-4 pt-2"
+              className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 pt-2 w-full sm:w-auto"
             >
               <button
                 onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
-                className="bg-primary hover:bg-primary/90 text-white px-8 py-4 rounded-full font-medium transition-all hover:scale-105 shadow-[0_8px_30px_rgba(37,99,235,0.4)] flex items-center gap-2"
+                className="bg-primary hover:bg-primary/90 text-white px-8 py-4 rounded-full font-medium transition-all hover:scale-105 shadow-[0_8px_30px_rgba(37,99,235,0.4)] flex items-center justify-center gap-2 w-full sm:w-auto"
               >
                 Book a Consultation
                 <ArrowRight size={18} />
               </button>
               <button
                 onClick={() => document.getElementById("services")?.scrollIntoView({ behavior: "smooth" })}
-                className="bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 text-white px-8 py-4 rounded-full font-medium transition-all"
+                className="bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 text-white px-8 py-4 rounded-full font-medium transition-all w-full sm:w-auto"
               >
                 Explore Services
               </button>
@@ -126,7 +126,7 @@ export function Hero() {
             initial={{ opacity: 0, x: 40 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.35 }}
-            className="hidden lg:grid grid-cols-2 gap-5 relative"
+            className="hidden md:grid grid-cols-2 gap-5 relative"
           >
             <div className="absolute inset-0 bg-primary/5 rounded-3xl blur-3xl pointer-events-none" />
 

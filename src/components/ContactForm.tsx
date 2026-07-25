@@ -65,9 +65,32 @@ export function ContactForm({ open, onClose }: ContactFormProps) {
       return;
     }
     setLoading(true);
-    await new Promise((r) => setTimeout(r, 1200));
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          access_key: "YOUR_WEB3FORMS_ACCESS_KEY",
+          subject: `[NexioGBL] New message from ${form.name}`,
+          from_name: form.name,
+          replyto: form.email,
+          email: form.email,
+          phone: form.phone || "Not provided",
+          country: form.country,
+          service: form.service,
+          message: form.message,
+        }),
+      });
+      const data = await response.json();
+      if (data.success) {
+        setSubmitted(true);
+      } else {
+        setErrors({ form: "Something went wrong. Please try again." });
+      }
+    } catch {
+      setErrors({ form: "Something went wrong. Please try again." });
+    }
     setLoading(false);
-    setSubmitted(true);
   };
 
   const handleClose = () => {
@@ -135,7 +158,7 @@ export function ContactForm({ open, onClose }: ContactFormProps) {
                 </button>
               </div>
             ) : (
-              <div className="p-8">
+              <div className="p-6 sm:p-8">
                 <h3 className="text-2xl font-bold mb-1">Let's Talk</h3>
                 <p className="text-muted-foreground text-sm mb-7">
                   Tell us about your project and we'll get back to you within 24 hours.
@@ -169,7 +192,7 @@ export function ContactForm({ open, onClose }: ContactFormProps) {
                   </div>
 
                   {/* Country + Phone */}
-                  <div className="grid grid-cols-2 gap-3">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     <div>
                       <label className="block text-sm font-medium text-foreground mb-1.5">Country</label>
                       <select
@@ -239,6 +262,10 @@ export function ContactForm({ open, onClose }: ContactFormProps) {
                       "Send Message"
                     )}
                   </button>
+
+                  {errors.form && (
+                    <p className="text-red-500 text-sm text-center mt-2">{errors.form}</p>
+                  )}
                 </form>
               </div>
             )}

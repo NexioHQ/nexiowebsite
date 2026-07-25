@@ -80,7 +80,7 @@ export function Navbar() {
         </Link>
 
         {/* Desktop Links */}
-        <div className="hidden md:flex items-center gap-7">
+        <div className="hidden lg:flex items-center gap-5 xl:gap-7">
           {navLinks.map((link) => {
             const isActive = location === link.href || (link.href !== "/" && location.startsWith(link.href));
 
@@ -132,7 +132,7 @@ export function Navbar() {
         </div>
 
         {/* Desktop Actions */}
-        <div className="hidden md:flex items-center gap-4">
+        <div className="hidden lg:flex items-center gap-4">
           <button
             onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
             className={`p-2 rounded-full hover:bg-white/10 dark:hover:bg-gray-800/60 transition-colors ${iconClass}`}
@@ -148,7 +148,7 @@ export function Navbar() {
         </div>
 
         {/* Mobile Toggle */}
-        <div className="md:hidden flex items-center gap-4">
+        <div className="lg:hidden flex items-center gap-4">
           <button
             onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
             className={`p-2 rounded-full ${iconClass}`}
@@ -171,7 +171,7 @@ export function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden border-t border-border bg-background/95 backdrop-blur-lg"
+            className="lg:hidden border-t border-border bg-background/95 backdrop-blur-lg"
           >
             <div className="flex flex-col py-4 px-6 gap-1">
               {navLinks.map((link) => {

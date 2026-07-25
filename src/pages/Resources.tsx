@@ -24,7 +24,7 @@ export default function Resources() {
               transition={{ duration: 0.6 }}
               className="text-center max-w-3xl mx-auto"
             >
-              <h1 className="text-5xl md:text-6xl font-bold tracking-tight mb-6">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight mb-6">
                 <span className="text-primary">Resources</span>
               </h1>
               <p className="text-xl text-muted-foreground leading-relaxed">
