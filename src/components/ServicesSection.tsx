@@ -1,13 +1,13 @@
-import { motion } from "framer-motion";
-import { Layers, BrainCircuit, CloudCog, ShieldHalf, Compass, ArrowUpRight } from "lucide-react";
+ import { motion } from "framer-motion";
+import { Code2, BrainCircuit, ShieldHalf, ArrowUpRight } from "lucide-react";
 import { Link } from "wouter";
 
 const services = [
   {
-    Icon: Layers,
+    Icon: Code2,
     title: "Digital Solutions",
-    desc: "We design and build high-performance web applications, SaaS platforms, and enterprise software tailored to your business model.",
-    points: ["Custom web and mobile applications", "SaaS platform architecture", "Legacy system modernisation"],
+    desc: "We design and build high-performance websites, web applications, mobile apps, and enterprise software that scale with your business.",
+    points: ["Custom websites and web applications", "Mobile apps and cross-platform solutions", "SaaS products and enterprise software"],
     accent: "from-blue-500 to-blue-600",
     iconBg: "bg-blue-50 dark:bg-blue-500/10",
     iconColor: "text-blue-600 dark:text-blue-400",
@@ -16,9 +16,9 @@ const services = [
   },
   {
     Icon: BrainCircuit,
-    title: "AI and Automation",
+    title: "AI & Automation",
     desc: "Intelligent systems that reduce manual effort, accelerate decisions, and unlock new revenue streams for your organisation.",
-    points: ["AI-powered workflow automation", "Custom LLM integrations", "Predictive analytics solutions"],
+    points: ["AI-powered chatbots and assistants", "Workflow automation and process digitization", "Predictive analytics and AI integrations"],
     accent: "from-violet-500 to-violet-600",
     iconBg: "bg-violet-50 dark:bg-violet-500/10",
     iconColor: "text-violet-600 dark:text-violet-400",
@@ -26,36 +26,14 @@ const services = [
     span: "lg:col-span-1",
   },
   {
-    Icon: CloudCog,
-    title: "Cloud Solutions",
-    desc: "Cloud infrastructure that scales with your ambitions. We architect, migrate, and manage cloud environments built for performance.",
-    points: ["Multi-cloud architecture design", "DevOps and CI/CD pipelines", "Managed hosting and monitoring"],
-    accent: "from-cyan-500 to-cyan-600",
-    iconBg: "bg-cyan-50 dark:bg-cyan-500/10",
-    iconColor: "text-cyan-600 dark:text-cyan-400",
-    href: "/solutions/cloud-solutions",
-    span: "lg:col-span-1",
-  },
-  {
     Icon: ShieldHalf,
     title: "Cybersecurity",
     desc: "Proactive security strategies that protect your business, meet compliance requirements, and keep your customers' trust intact.",
-    points: ["Penetration testing and audits", "Compliance consulting (ISO, SOC2)", "Managed security operations"],
+    points: ["Security audits and vulnerability assessment", "Website hardening and penetration testing", "GRC compliance and security training"],
     accent: "from-emerald-500 to-emerald-600",
     iconBg: "bg-emerald-50 dark:bg-emerald-500/10",
     iconColor: "text-emerald-600 dark:text-emerald-400",
     href: "/solutions/cybersecurity",
-    span: "lg:col-span-1",
-  },
-  {
-    Icon: Compass,
-    title: "Technology Consulting",
-    desc: "Strategic guidance to align your technology investments with business outcomes, from roadmaps to execution.",
-    points: ["Digital transformation roadmaps", "Technology stack evaluation", "CTO advisory and team scaling"],
-    accent: "from-amber-500 to-orange-500",
-    iconBg: "bg-amber-50 dark:bg-amber-500/10",
-    iconColor: "text-amber-600 dark:text-amber-400",
-    href: "/solutions/technology-consulting",
     span: "lg:col-span-1",
   },
 ];
