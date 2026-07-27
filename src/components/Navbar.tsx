@@ -6,10 +6,8 @@ import { Link, useLocation } from "wouter";
 
 const solutionLinks = [
   { name: "Digital Solutions", href: "/solutions/digital-solutions" },
-  { name: "AI and Automation", href: "/solutions/ai-automation" },
-  { name: "Cloud Solutions", href: "/solutions/cloud-solutions" },
+  { name: "AI & Automation", href: "/solutions/ai-automation" },
   { name: "Cybersecurity", href: "/solutions/cybersecurity" },
-  { name: "Technology Consulting", href: "/solutions/technology-consulting" },
 ];
 
 const navLinks = [

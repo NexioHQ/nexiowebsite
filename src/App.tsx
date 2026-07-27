@@ -7,11 +7,9 @@ import About from '@/pages/About';
 import Resources from '@/pages/Resources';
 import Careers from '@/pages/Careers';
 import Contact from '@/pages/Contact';
-import DigitalSolutions from '@/pages/services/DigitalSolutions';
-import AIAutomation from '@/pages/services/AIAutomation';
-import CloudSolutions from '@/pages/services/CloudSolutions';
-import Cybersecurity from '@/pages/services/Cybersecurity';
-import TechnologyConsulting from '@/pages/services/TechnologyConsulting';
+import DigitalSolutions from '@/pages/solutions/WebSoftwareDevelopment';
+import AIAutomation from '@/pages/solutions/AIAutomation';
+import Cybersecurity from '@/pages/solutions/Cybersecurity';
 import { Route, Switch, Router as WouterRouter, useLocation } from 'wouter';
 import { ThemeProvider } from '@/components/theme-provider';
 import { useEffect } from 'react';
@@ -33,9 +31,7 @@ function Router() {
       <Route path="/about" component={About} />
       <Route path="/solutions/digital-solutions" component={DigitalSolutions} />
       <Route path="/solutions/ai-automation" component={AIAutomation} />
-      <Route path="/solutions/cloud-solutions" component={CloudSolutions} />
       <Route path="/solutions/cybersecurity" component={Cybersecurity} />
-      <Route path="/solutions/technology-consulting" component={TechnologyConsulting} />
       <Route path="/resources" component={Resources} />
       <Route path="/careers" component={Careers} />
       <Route path="/contact" component={Contact} />
