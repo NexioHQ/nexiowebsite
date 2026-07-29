@@ -1,111 +1,84 @@
- import { motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { Code2, BrainCircuit, ShieldHalf, ArrowUpRight } from "lucide-react";
 import { Link } from "wouter";
 
 const services = [
   {
     Icon: Code2,
-    title: "Digital Solutions",
-    desc: "We design and build high-performance websites, web applications, mobile apps, and enterprise software that scale with your business.",
-    points: ["Custom websites and web applications", "Mobile apps and cross-platform solutions", "SaaS products and enterprise software"],
+    title: "Software and Web Development",
+    desc: "High-performance websites, web applications, mobile apps, and enterprise software built to scale.",
     accent: "from-blue-500 to-blue-600",
-    iconBg: "bg-blue-50 dark:bg-blue-500/10",
-    iconColor: "text-blue-600 dark:text-blue-400",
+    iconColor: "text-blue-400",
     href: "/solutions/digital-solutions",
-    span: "md:col-span-2 lg:col-span-2",
   },
   {
     Icon: BrainCircuit,
-    title: "AI & Automation",
-    desc: "Intelligent systems that reduce manual effort, accelerate decisions, and unlock new revenue streams for your organisation.",
-    points: ["AI-powered chatbots and assistants", "Workflow automation and process digitization", "Predictive analytics and AI integrations"],
+    title: "AI and Automation",
+    desc: "Intelligent systems that reduce manual effort, accelerate decisions, and unlock new revenue streams.",
     accent: "from-violet-500 to-violet-600",
-    iconBg: "bg-violet-50 dark:bg-violet-500/10",
-    iconColor: "text-violet-600 dark:text-violet-400",
+    iconColor: "text-violet-400",
     href: "/solutions/ai-automation",
-    span: "lg:col-span-1",
   },
   {
     Icon: ShieldHalf,
     title: "Cybersecurity",
-    desc: "Proactive security strategies that protect your business, meet compliance requirements, and keep your customers' trust intact.",
-    points: ["Security audits and vulnerability assessment", "Website hardening and penetration testing", "GRC compliance and security training"],
+    desc: "Proactive security strategies that protect your business, meet compliance, and keep trust intact.",
     accent: "from-emerald-500 to-emerald-600",
-    iconBg: "bg-emerald-50 dark:bg-emerald-500/10",
-    iconColor: "text-emerald-600 dark:text-emerald-400",
+    iconColor: "text-emerald-400",
     href: "/solutions/cybersecurity",
-    span: "lg:col-span-1",
   },
 ];
 
-function ServiceCard({ service, index }: { service: typeof services[0]; index: number }) {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 24 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.5, delay: index * 0.08 }}
-      className={`group ${service.span}`}
-    >
-      <Link href={service.href}>
-        <div className="h-full bg-white dark:bg-card border border-gray-100 dark:border-gray-800 rounded-2xl p-6 sm:p-8 flex flex-col hover:border-gray-300 dark:hover:border-gray-700 hover:shadow-xl dark:hover:shadow-2xl transition-all duration-300 cursor-pointer relative overflow-hidden">
-          {/* Coloured top accent */}
-          <div className={`absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r ${service.accent} opacity-0 group-hover:opacity-100 transition-opacity duration-300`} />
-
-          {/* Icon */}
-          <div className="mb-6">
-            <div className={`w-11 h-11 rounded-xl ${service.iconBg} flex items-center justify-center`}>
-              <service.Icon size={20} className={service.iconColor} strokeWidth={1.75} />
-            </div>
-          </div>
-
-          {/* Content */}
-          <h3 className="text-xl font-bold mb-3 text-foreground">{service.title}</h3>
-          <p className="text-muted-foreground text-sm leading-relaxed mb-6">{service.desc}</p>
-
-          {/* Points */}
-          <ul className="space-y-2 mb-8 flex-1">
-            {service.points.map((point) => (
-              <li key={point} className="flex items-center gap-2 text-sm text-foreground/70">
-                <span className={`w-1 h-1 rounded-full bg-gradient-to-r ${service.accent} flex-shrink-0`} />
-                {point}
-              </li>
-            ))}
-          </ul>
-
-          {/* Link */}
-          <div className="flex items-center gap-1 text-sm font-semibold text-primary group-hover:gap-2 transition-all duration-200">
-            Explore service
-            <ArrowUpRight size={15} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200" />
-          </div>
-        </div>
-      </Link>
-    </motion.div>
-  );
-}
-
 export function ServicesSection() {
   return (
-    <section className="py-16 sm:py-24 bg-gray-50/70 dark:bg-card/20 relative" id="services">
-      <div className="max-w-7xl mx-auto px-5 sm:px-6">
+    <section className="py-24 relative overflow-hidden bg-[#0B1120]" id="services">
+      <div className="absolute top-1/3 right-0 w-96 h-96 bg-blue-500/5 rounded-full blur-[120px] pointer-events-none"></div>
+      <div className="absolute bottom-1/3 left-0 w-96 h-96 bg-violet-500/5 rounded-full blur-[120px] pointer-events-none"></div>
+
+      <div className="max-w-7xl mx-auto px-5 sm:px-6 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mb-12 sm:mb-16 text-center max-w-2xl mx-auto"
+          className="mb-16 text-center max-w-2xl mx-auto"
         >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-5">
+          <p className="text-blue-300/60 text-xs font-medium tracking-[0.2em] uppercase font-mono mb-4">
+            What We Do
+          </p>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight mb-5">
             Everything You Need to Scale
           </h2>
-          <p className="text-base sm:text-lg text-muted-foreground">
-            Comprehensive technology capabilities to power your digital
-            transformation journey, from concept to enterprise scale.
+          <p className="text-base sm:text-lg text-blue-100/50">
+            Comprehensive technology capabilities to power your digital transformation journey, from concept to enterprise scale.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {services.map((service, i) => (
-            <ServiceCard key={service.title} service={service} index={i} />
+            <motion.div
+              key={service.title}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
+            >
+              <Link href={service.href}>
+                <div className="group h-full bg-gradient-to-b from-white/[0.07] to-white/[0.02] border border-white/[0.08] rounded-2xl p-8 flex flex-col hover:border-white/[0.15] hover:bg-white/[0.10] transition-all duration-500 cursor-pointer relative overflow-hidden">
+                  <div className={"absolute -top-20 -right-20 w-40 h-40 bg-gradient-to-br " + service.accent + " opacity-0 group-hover:opacity-10 blur-3xl rounded-full transition-opacity duration-500"}></div>
+                  <div className="mb-6">
+                    <div className="w-12 h-12 rounded-xl bg-white/[0.08] flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                      <service.Icon size={22} className={service.iconColor} strokeWidth={1.5} />
+                    </div>
+                  <h3 className="text-xl font-bold text-white mb-3 font-display">{service.title}</h3>
+                  <p className="text-blue-100/50 text-sm leading-relaxed mb-8 flex-1">{service.desc}</p>
+                  <div className="flex items-center gap-2 text-sm font-medium text-blue-400 group-hover:gap-3 transition-all duration-200">
+                    Explore service
+                    <ArrowUpRight size={15} className="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                  </div>
+                </div>
+                </div>
+              </Link>
+            </motion.div>
           ))}
         </div>
       </div>
