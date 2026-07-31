@@ -5,7 +5,7 @@ import { Link } from "wouter";
 const services = [
   {
     Icon: Code2,
-    title: "Software and Web Development",
+    title: "Digital Solutions",
     desc: "High-performance websites, web applications, mobile apps, and enterprise software built to scale.",
     accent: "from-blue-500 to-blue-600",
     iconColor: "text-blue-400",
@@ -42,9 +42,6 @@ export function ServicesSection() {
           viewport={{ once: true }}
           className="mb-16 text-center max-w-2xl mx-auto"
         >
-          <p className="text-blue-300/60 text-xs font-medium tracking-[0.2em] uppercase font-mono mb-4">
-            What We Do
-          </p>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight mb-5">
             Everything You Need to Scale
           </h2>
@@ -69,13 +66,13 @@ export function ServicesSection() {
                     <div className="w-12 h-12 rounded-xl bg-white/[0.08] flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                       <service.Icon size={22} className={service.iconColor} strokeWidth={1.5} />
                     </div>
+                  </div>
                   <h3 className="text-xl font-bold text-white mb-3 font-display">{service.title}</h3>
                   <p className="text-blue-100/50 text-sm leading-relaxed mb-8 flex-1">{service.desc}</p>
                   <div className="flex items-center gap-2 text-sm font-medium text-blue-400 group-hover:gap-3 transition-all duration-200">
                     Explore service
                     <ArrowUpRight size={15} className="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                   </div>
-                </div>
                 </div>
               </Link>
             </motion.div>

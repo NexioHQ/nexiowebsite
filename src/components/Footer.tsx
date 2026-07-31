@@ -1,5 +1,6 @@
 import { Facebook, Instagram, Linkedin } from "lucide-react";
 import { Link } from "wouter";
+import logo from "../assets/logo.png";
 
 export function Footer() {
   return (
@@ -9,7 +10,7 @@ export function Footer() {
           {/* Col 1 */}
           <div className="space-y-5">
             <Link href="/">
-              <span className="text-2xl font-semibold text-primary tracking-tight cursor-pointer">nexio</span>
+              <img src={logo} alt="Nexio" className="h-8 sm:h-9 w-auto cursor-pointer dark:brightness-0 dark:invert" />
             </Link>
             <p className="text-muted-foreground text-sm max-w-xs leading-relaxed">
               Transforming Businesses Through Technology. We build scalable, secure, and intelligent digital solutions.

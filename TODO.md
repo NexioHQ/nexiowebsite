@@ -1,11 +1,10 @@
-# Homepage Changes TODO
+# Task Progress
 
-## Completed
-- [x] Fix JSX errors in Hero.tsx, Navbar.tsx, ServicesSection.tsx
+## Changes to Make
 
-## Pending
-- [ ] **Hero.tsx**: Remove "Explore Solutions" button, remove trust indicators (50+, 98%, 3x), replace emdash with comma
-- [ ] **TrustSection.tsx**: Remove "50+ Products Shipped" and "30+ Enterprise Clients", keep only "98%" and "3x"
-- [ ] **Navbar.tsx**: Hide "Book a Consultation" button when on home page
-- [ ] **Search & replace emdashes and semicolons** across all site files
-- [ ] Verify build compiles without errors
+- [x] Plan approved by user
+- [x] **Navbar.tsx**: Replace text "nexio." with logo.png image, fix solutions dropdown width
+- [x] **Footer.tsx**: Replace text "nexio" with logo.png image
+- [x] **Hero.tsx**: Add bg2.png as background image with dark overlay for text visibility
+- [x] Verify logo visibility on different backgrounds
+- [x] Verify all changes render correctly

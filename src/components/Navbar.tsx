@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Link, useLocation } from "wouter";
 
 const solutionLinks = [
-  { name: "Software & Web Development", href: "/solutions/digital-solutions" },
+  { name: "Digital Solutions", href: "/solutions/digital-solutions" },
   { name: "AI & Automation", href: "/solutions/ai-automation" },
   { name: "Cybersecurity", href: "/solutions/cybersecurity" },
 ];
@@ -95,7 +95,7 @@ export function Navbar() {
                         transition={{ duration: 0.15 }}
                         onMouseEnter={() => setSolutionsOpen(true)}
                         onMouseLeave={() => setSolutionsOpen(false)}
-                        className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-64 bg-[#0D1528] border border-blue-900/30 rounded-xl shadow-2xl shadow-black/30 py-2 z-50"
+                        className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-48 bg-[#0D1528] border border-blue-900/30 rounded-xl shadow-2xl shadow-black/30 py-2 z-50"
                       >
                         {solutionLinks.map((sl) => (
                           <Link key={sl.href} href={sl.href}>
@@ -127,11 +127,13 @@ export function Navbar() {
           >
             {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
           </button>
-          <Link href="/contact">
-            <span className="bg-blue-600 hover:bg-blue-500 text-white px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 hover:scale-105 shadow-lg shadow-blue-600/20 hover:shadow-blue-500/30 cursor-pointer">
-              Book a Consultation
-            </span>
-          </Link>
+          {!isHome && (
+            <Link href="/contact">
+              <span className="bg-blue-600 hover:bg-blue-500 text-white px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 hover:scale-105 shadow-lg shadow-blue-600/20 hover:shadow-blue-500/30 cursor-pointer">
+                Book a Consultation
+              </span>
+            </Link>
+          )}
         </div>
         <div className="lg:hidden flex items-center gap-4">
           <button
