@@ -56,7 +56,7 @@ const serviceGroups = [
 const stats = [
   { value: "60%", label: "Average reduction in manual workflows" },
   { value: "4x", label: "Faster decision-making cycles" },
-  { value: "30+", label: "AI integrations delivered" },
+  { value: "10+", label: "AI integrations delivered" },
 ];
 
 const process = [
@@ -70,7 +70,7 @@ const process = [
 const whyItems = [
   "Practical AI focus. We build tools that work, not demos that fail in production",
   "Experience across GPT, Claude, open-source, and fine-tuned models",
-  "ROI-first framing: every project is justified by measurable business outcomes",
+  "Every project is justified by measurable business outcomes",
   "Ongoing model maintenance and performance monitoring included",
 ];
 

@@ -1,14 +1,14 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { ContactForm } from "./ContactForm";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 export function CTASection() {
   const [formOpen, setFormOpen] = useState(false);
 
   return (
     <>
-      <section className="py-20 lg:py-28 px-4 sm:px-6 relative overflow-hidden bg-background" id="contact">
+      <section className="py-16 lg:py-24 px-4 sm:px-6 relative overflow-hidden bg-background" id="contact">
         <div className="max-w-6xl mx-auto bg-gradient-to-r from-blue-700 via-blue-600 to-indigo-700 rounded-[36px] overflow-hidden relative shadow-2xl shadow-blue-600/20 border border-blue-400/20">
           {/* Ambient Lighting Accents */}
           <div className="absolute top-0 right-0 w-[550px] h-[550px] bg-sky-400/20 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/3 pointer-events-none" />

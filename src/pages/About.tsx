@@ -181,7 +181,7 @@ export default function About() {
                   technology solutions with the agility and personal attention of a dedicated partner.
                 </p>
                 <p>
-                  Today, we serve clients across 15+ countries, helping them build scalable applications,
+                  Today, we serve clients across the globe, helping businesses build scalable applications,
                   implement AI solutions, migrate to the cloud, and secure their digital assets.
                   Every project we take on is a partnership. We succeed when our clients succeed.
                 </p>

@@ -124,7 +124,7 @@ export function TestimonialsSection() {
   const visible = testimonials.slice(page * PER_PAGE, page * PER_PAGE + PER_PAGE);
 
   return (
-    <section className="py-20 lg:py-28 relative overflow-hidden bg-background" id="testimonials">
+    <section className="py-16 lg:py-24 relative overflow-hidden bg-background" id="testimonials">
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/[0.03] to-transparent pointer-events-none" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-primary/5 rounded-full blur-[140px] pointer-events-none" />
 
@@ -135,14 +135,14 @@ export function TestimonialsSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-14 sm:mb-16 max-w-3xl mx-auto"
+          className="text-center mb-10 sm:mb-12 max-w-3xl mx-auto"
         >
 
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-5 leading-tight">
             Trusted by Leaders Who Deliver
           </h2>
           <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            From fintech pioneers to enterprise global brands, our clients move faster, scale smarter, and build with confidence backed by Nexio engineering.
+            Our clients move faster, scale smarter, and build with confidence backed by Nexio engineering.
           </p>
         </motion.div>
 
@@ -163,7 +163,7 @@ export function TestimonialsSection() {
         </AnimatePresence>
 
         {/* Navigation */}
-        <div className="flex items-center justify-center gap-4 mt-10">
+        <div className="flex items-center justify-center gap-4 mt-8">
           <button
             onClick={() => setPage((p) => Math.max(0, p - 1))}
             disabled={page === 0}

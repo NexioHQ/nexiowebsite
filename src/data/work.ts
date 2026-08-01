@@ -7,6 +7,16 @@ export interface WorkItem {
   stack: string[];
   image: string;
   imageAlt: string;
+  // Digital Solutions
+  industry?: string;
+  businessOutcome?: string;
+  // AI & Automation
+  problem?: string;
+  aiSolution?: string;
+  timeSaved?: string;
+  roi?: string;
+  // Cybersecurity
+  engagementType?: string;
 }
 
 export const workItems: WorkItem[] = [

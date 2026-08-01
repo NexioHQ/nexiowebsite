@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Code2, Cpu, ShieldCheck, ArrowUpRight, Sparkles, CheckCircle2 } from "lucide-react";
+import { Code2, Cpu, ShieldCheck, ArrowUpRight, CheckCircle2 } from "lucide-react";
 import { Link } from "wouter";
 
 const services = [
@@ -17,7 +17,7 @@ const services = [
   {
     Icon: Cpu,
     title: "AI and Automation",
-    desc: "Intelligent autonomous workflows, LLM integrations, and predictive systems that eliminate repetitive tasks and unlock new revenue.",
+    desc: "Intelligent autonomous workflows,  AI assistants, and predictive systems that eliminate repetitive tasks and unlock new revenue.",
     tags: ["Workflow Automation", "AI Assistants and Content Tools", "CRM & Lead Automation"],
     accent: "from-violet-500/20 via-fuchsia-500/10 to-transparent",
     borderGlow: "group-hover:border-violet-500/40",
@@ -40,7 +40,7 @@ const services = [
 
 export function ServicesSection() {
   return (
-    <section className="py-20 lg:py-28 relative overflow-hidden bg-[#0B1120]" id="services">
+    <section className="py-16 lg:py-24 relative overflow-hidden bg-[#0B1120] rounded-b-[48px]" id="services">
       {/* Soft Ambient Background Lighting Effects */}
       <div className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-[140px] pointer-events-none" />
       <div className="absolute bottom-1/4 left-0 w-[500px] h-[500px] bg-violet-600/10 rounded-full blur-[140px] pointer-events-none" />
@@ -52,7 +52,7 @@ export function ServicesSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="mb-14 sm:mb-16 text-center max-w-3xl mx-auto"
+          className="mb-10 sm:mb-12 text-center max-w-3xl mx-auto"
         >
 
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight mb-5 leading-tight">

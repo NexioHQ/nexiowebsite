@@ -96,8 +96,8 @@ export function Navbar() {
                         className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-max bg-[#0D1528] border border-blue-900/30 rounded-xl shadow-2xl shadow-black/30 py-2 z-50"
                       >
                         {solutionLinks.map((sl) => (
-                          <Link key={sl.href} href={sl.href} className="block">
-                            <span className="block px-3 py-2 text-sm text-gray-300 hover:bg-blue-500/10 hover:text-blue-300 transition-colors cursor-pointer whitespace-nowrap">
+                          <Link key={sl.href} href={sl.href} className="block w-max">
+                            <span className="block w-max px-3 py-2 text-sm text-gray-300 hover:bg-blue-500/10 hover:text-blue-300 transition-colors cursor-pointer whitespace-nowrap">
                               {sl.name}
                             </span>
                           </Link>

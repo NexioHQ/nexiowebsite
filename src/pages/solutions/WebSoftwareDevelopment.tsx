@@ -62,8 +62,8 @@ const serviceGroups = [
 ];
 
 const stats = [
-  { value: "50+", label: "Digital products shipped" },
-  { value: "98%", label: "On-time delivery rate" },
+  { value: "30+", label: "Digital products shipped" },
+  { value: "100%", label: "On-time delivery rate" },
   { value: "3x", label: "Average performance improvement" },
 ];
 
