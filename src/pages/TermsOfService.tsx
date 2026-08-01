@@ -83,7 +83,7 @@ const sections = [
   {
     title: "12. Contact Us",
     content: [
-      "If you have any questions about these Terms of Service, please contact us at hello@nexio.biz or visit www.nexio.biz.",
+      "If you have any questions about these Terms of Service, please contact us at hello@nexiogbl.com or visit www.nexiogbl.com.",
     ],
   },
 ];

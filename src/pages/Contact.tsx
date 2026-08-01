@@ -134,7 +134,7 @@ export default function Contact() {
                     </div>
                     <div>
                       <p className="font-medium text-sm mb-0.5">Email</p>
-                      <p className="text-muted-foreground text-sm">hello@nexio.biz</p>
+                      <p className="text-muted-foreground text-sm">hello@nexiogbl.com</p>
                     </div>
                   </div>
 
