@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Sparkles, Shield, Rocket } from "lucide-react";
+import { ArrowRight, Sparkles, Shield, Rocket, Network } from "lucide-react";
 import { Link } from "wouter";
 import bgImage from "../assets/bg.jpg";
 
@@ -22,7 +22,7 @@ export function Hero() {
         <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] sm:w-[900px] h-[350px] sm:h-[450px] bg-gradient-to-r from-blue-600/20 via-sky-500/15 to-violet-600/20 rounded-full blur-[140px] pointer-events-none" />
         <div className="absolute top-1/4 right-10 w-96 h-96 bg-blue-500/10 rounded-full blur-[120px] pointer-events-none" />
 
-        {/* SVG Grid & Float Rings */}
+        {/* SVG Grid */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <svg
             className="absolute inset-0 w-full h-full opacity-[0.15] animate-grid-shift"
@@ -38,10 +38,6 @@ export function Hero() {
             <rect width="100%" height="100%" fill="url(#hero-grid)" />
           </svg>
 
-          {/* Floating Ambient Circles */}
-          <div className="absolute top-1/4 right-1/4 w-72 h-72 border border-blue-500/15 rounded-full animate-float-slow" style={{ animationDelay: "0s" }} />
-          <div className="absolute bottom-1/3 left-1/4 w-56 h-56 border border-sky-400/10 rounded-full animate-float-slow" style={{ animationDelay: "-2.5s" }} />
-          <div className="absolute top-1/2 right-1/3 w-36 h-36 border border-indigo-400/10 rounded-full animate-float-slow" style={{ animationDelay: "-4.5s" }} />
           <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[#0B1120] to-transparent" />
         </div>
       </div>
@@ -49,7 +45,6 @@ export function Hero() {
       {/* Main Content */}
       <div className="max-w-7xl mx-auto px-5 sm:px-6 w-full relative z-10">
         <div className="max-w-4xl mx-auto text-center">
-
 
           {/* Main Title */}
           <motion.h1
@@ -84,7 +79,6 @@ export function Hero() {
           >
             <Link href="/contact">
               <span className="group inline-flex items-center justify-center gap-2.5 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-sky-500 text-white px-8 py-4 rounded-full text-base font-semibold transition-all duration-300 cursor-pointer shadow-xl shadow-blue-600/30 hover:shadow-blue-500/50 hover:scale-[1.03] active:scale-[0.98]">
-
                 Book a Consultation
                 <ArrowRight size={18} className="transition-transform duration-300 group-hover:translate-x-1" />
               </span>
@@ -109,8 +103,10 @@ export function Hero() {
               <div className="text-xs sm:text-sm text-blue-200/60 font-medium mt-0.5">Reliability & Uptime</div>
             </div>
             <div>
-              <div className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">50+</div>
-              <div className="text-xs sm:text-sm text-blue-200/60 font-medium mt-0.5">Projects Delivered</div>
+              <div className="flex items-center justify-center h-8 sm:h-9">
+                <Network size={26} className="text-sky-400" />
+              </div>
+              <div className="text-xs sm:text-sm text-blue-200/60 font-medium mt-0.5">Global Delivery</div>
             </div>
             <div className="col-span-2 sm:col-span-1">
               <div className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">24/7</div>
@@ -122,4 +118,5 @@ export function Hero() {
     </section>
   );
 }
+
 

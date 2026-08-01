@@ -35,12 +35,10 @@ const values = [
     description: "We stay at the forefront of technology to bring cutting-edge solutions to every engagement.",
   },
 ];
-
 const stats = [
-  { value: "50+", label: "Projects Delivered" },
-  { value: "30+", label: "Enterprise Clients" },
-  { value: "98%", label: "Client Satisfaction" },
-  { value: "15+", label: "Countries Served" },
+  { value: "30+", label: "Projects Delivered" },
+  { value: "20+", label: "Enterprise Clients" },
+  { value: "100%", label: "Client Satisfaction" },
 ];
 
 export default function About() {
@@ -62,8 +60,8 @@ export default function About() {
                 About <span className="text-primary">Nexio</span>
               </h1>
               <p className="text-xl text-muted-foreground leading-relaxed">
-                We are a technology company dedicated to transforming businesses through innovative digital solutions. 
-                Founded with the belief that every organisation deserves access to world-class technology, 
+                We are a technology company dedicated to transforming businesses through innovative digital solutions.
+                Founded with the belief that every organisation deserves access to world-class technology,
                 we partner with businesses to build, scale, and secure their digital future.
               </p>
             </motion.div>
@@ -82,8 +80,8 @@ export default function About() {
               >
                 <h2 className="text-3xl font-bold">Our Mission</h2>
                 <p className="text-muted-foreground leading-relaxed text-lg">
-                  To empower organisations of all sizes with enterprise-grade technology solutions that 
-                  drive growth, efficiency, and innovation. We bridge the gap between complex technology 
+                  To empower organisations of all sizes with enterprise-grade technology solutions that
+                  drive growth, efficiency, and innovation. We bridge the gap between complex technology
                   and real business outcomes.
                 </p>
               </motion.div>
@@ -95,8 +93,8 @@ export default function About() {
               >
                 <h2 className="text-3xl font-bold">Our Vision</h2>
                 <p className="text-muted-foreground leading-relaxed text-lg">
-                  To be the most trusted technology partner for businesses worldwide, 
-                  known for delivering transformative solutions that create measurable impact 
+                  To be the most trusted technology partner for businesses worldwide,
+                  known for delivering transformative solutions that create measurable impact
                   and lasting value for our clients and their customers.
                 </p>
               </motion.div>
@@ -107,7 +105,7 @@ export default function About() {
         {/* Stats */}
         <section className="py-16">
           <div className="max-w-7xl mx-auto px-6">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-8 max-w-2xl mx-auto">
               {stats.map((stat, i) => (
                 <motion.div
                   key={stat.label}
@@ -173,18 +171,18 @@ export default function About() {
               <h2 className="text-4xl font-bold tracking-tight">Our Story</h2>
               <div className="space-y-4 text-muted-foreground leading-relaxed text-lg">
                 <p>
-                  Nexio was born from a simple observation: too many businesses struggle to leverage 
-                  technology effectively. While large enterprises have dedicated technology teams, 
+                  Nexio was born from a simple observation: too many businesses struggle to leverage
+                  technology effectively. While large enterprises have dedicated technology teams,
                   growing businesses often lack the expertise to make the right technology decisions.
                 </p>
                 <p>
-                  We set out to change that. By assembling a team of experienced engineers, architects, 
-                  and consultants from across the globe, we created a company that delivers enterprise-level 
+                  We set out to change that. By assembling a team of experienced engineers, architects,
+                  and consultants from across the globe, we created a company that delivers enterprise-level
                   technology solutions with the agility and personal attention of a dedicated partner.
                 </p>
                 <p>
-                  Today, we serve clients across 15+ countries, helping them build scalable applications, 
-                  implement AI solutions, migrate to the cloud, and secure their digital assets. 
+                  Today, we serve clients across 15+ countries, helping them build scalable applications,
+                  implement AI solutions, migrate to the cloud, and secure their digital assets.
                   Every project we take on is a partnership. We succeed when our clients succeed.
                 </p>
               </div>
