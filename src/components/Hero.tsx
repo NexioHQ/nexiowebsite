@@ -1,186 +1,87 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Monitor, Cpu, Cloud, ShieldCheck } from "lucide-react";
-import heroBg from "@/assets/download_1784735577002.jpg";
-
-const serviceCards = [
-  {
-    Icon: Monitor,
-    label: "Digital Solutions",
-    desc: "Web apps, SaaS and custom software",
-    color: "from-blue-500/25 to-blue-600/5",
-    iconColor: "text-blue-400",
-    glow: "rgba(59,130,246,0.22)",
-    float: [0, -12, 0] as [number, number, number],
-    floatDuration: 6,
-    delay: 0,
-  },
-  {
-    Icon: Cpu,
-    label: "AI and Automation",
-    desc: "Intelligent workflows and AI integrations",
-    color: "from-violet-500/25 to-violet-600/5",
-    iconColor: "text-violet-400",
-    glow: "rgba(139,92,246,0.22)",
-    float: [0, 14, 0] as [number, number, number],
-    floatDuration: 7,
-    delay: 1,
-  },
-  {
-    Icon: Cloud,
-    label: "Cloud Infrastructure",
-    desc: "Scalable DevOps and managed hosting",
-    color: "from-cyan-500/25 to-cyan-600/5",
-    iconColor: "text-cyan-400",
-    glow: "rgba(6,182,212,0.22)",
-    float: [0, -10, 0] as [number, number, number],
-    floatDuration: 8,
-    delay: 2,
-  },
-  {
-    Icon: ShieldCheck,
-    label: "Cybersecurity",
-    desc: "Assessments, pen testing and managed security",
-    color: "from-emerald-500/25 to-emerald-600/5",
-    iconColor: "text-emerald-400",
-    glow: "rgba(16,185,129,0.22)",
-    float: [0, 16, 0] as [number, number, number],
-    floatDuration: 6.5,
-    delay: 1.5,
-  },
-];
+import { ArrowRight } from "lucide-react";
+import { Link } from "wouter";
+import bgImage from "../assets/bg.jpg";
 
 export function Hero() {
   return (
-    <section
-      className="relative min-h-[100dvh] pt-28 sm:pt-32 pb-16 sm:pb-20 flex items-center overflow-hidden"
-      id="home"
-    >
-      {/* Background image */}
+    <section className="relative min-h-[100dvh] pt-28 sm:pt-32 pb-16 sm:pb-20 flex items-center overflow-hidden bg-[#0B1120]" id="home">
       <div className="absolute inset-0 z-0">
-        <img
-          src={heroBg}
-          alt=""
-          className="w-full h-full object-cover object-center"
-          aria-hidden="true"
-        />
-        {/* Dark gradient overlay for text legibility */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#010d1e]/95 via-[#031428]/85 to-[#010d1e]/60" />
-      </div>
-
-      {/* Radial glow */}
-      <div className="absolute top-1/3 left-1/3 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[120px] pointer-events-none z-0" />
-
-      <div className="max-w-7xl mx-auto px-5 sm:px-6 w-full relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-
-          {/* Left Column */}
-          <div className="flex flex-col items-start text-left space-y-6 sm:space-y-8">
-            <motion.h1
-              initial={{ opacity: 0, y: 24 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7 }}
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.08] tracking-tight"
-            >
-              Transforming <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">
-                Businesses
-              </span>{" "}
-              <br />
-              Through Technology
-            </motion.h1>
-
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.15 }}
-              className="text-base sm:text-lg lg:text-xl text-white/70 max-w-lg leading-relaxed"
-            >
-              We help businesses build, automate, secure, and scale through
-              intelligent digital solutions.
-            </motion.p>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.28 }}
-              className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 pt-2 w-full sm:w-auto"
-            >
-              <button
-                onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
-                className="bg-primary hover:bg-primary/90 text-white px-8 py-4 rounded-full font-medium transition-all hover:scale-105 shadow-[0_8px_30px_rgba(37,99,235,0.4)] flex items-center justify-center gap-2 w-full sm:w-auto"
-              >
-                Book a Consultation
-                <ArrowRight size={18} />
-              </button>
-              <button
-                onClick={() => document.getElementById("services")?.scrollIntoView({ behavior: "smooth" })}
-                className="bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 text-white px-8 py-4 rounded-full font-medium transition-all w-full sm:w-auto"
-              >
-                Explore Services
-              </button>
-            </motion.div>
-          </div>
-
-          {/* Right Column — 2x2 service cards */}
-          <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.35 }}
-            className="hidden md:grid grid-cols-2 gap-5 relative"
+        {/* Background image with dark overlay for text readability */}
+        <div className="absolute inset-0">
+          <img
+            src={bgImage}
+            alt=""
+            className="w-full h-full object-cover"
+            style={{ opacity: 0.7 }}
+          />
+          <div className="absolute inset-0 bg-[#0B1120]/40" />
+        </div>
+        {/* SVG patterns and effects on top */}
+        <div className="absolute inset-0 overflow-hidden">
+          <svg
+            className="absolute inset-0 w-full h-full opacity-[0.12] animate-grid-shift"
+            xmlns="http://www.w3.org/2000/svg"
+            width="100%"
+            height="100%"
           >
-            <div className="absolute inset-0 bg-primary/5 rounded-3xl blur-3xl pointer-events-none" />
-
-            {serviceCards.map((card) => (
-              <motion.div
-                key={card.label}
-                animate={{ y: card.float }}
-                transition={{
-                  duration: card.floatDuration,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  delay: card.delay,
-                }}
-                whileHover={{ scale: 1.04, y: -6 }}
-                className="relative group cursor-default"
-                style={{ filter: `drop-shadow(0 8px 32px ${card.glow})` }}
-              >
-                <div
-                  className="relative rounded-2xl overflow-hidden border border-white/15 h-full flex flex-col p-6"
-                  style={{
-                    background:
-                      "linear-gradient(135deg, rgba(255,255,255,0.09) 0%, rgba(255,255,255,0.03) 100%)",
-                    backdropFilter: "blur(22px)",
-                    WebkitBackdropFilter: "blur(22px)",
-                  }}
-                >
-                  <div
-                    className={`absolute top-0 left-0 w-24 h-24 bg-gradient-to-br ${card.color} rounded-br-full opacity-60 blur-xl pointer-events-none`}
-                  />
-
-                  <div
-                    className="relative w-12 h-12 rounded-xl flex items-center justify-center mb-4 flex-shrink-0"
-                    style={{
-                      background: "rgba(255,255,255,0.10)",
-                      border: "1px solid rgba(255,255,255,0.18)",
-                    }}
-                  >
-                    <card.Icon size={22} className={card.iconColor} strokeWidth={1.75} />
-                  </div>
-
-                  <h3 className="text-white font-semibold text-sm mb-1.5 leading-tight">
-                    {card.label}
-                  </h3>
-                  <p className="text-white/50 text-xs leading-relaxed">
-                    {card.desc}
-                  </p>
-
-                  <div className="absolute bottom-0 left-4 right-4 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
-                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white/5 pointer-events-none rounded-2xl" />
-                </div>
-              </motion.div>
-            ))}
+            <defs>
+              <pattern id="hero-grid" x="0" y="0" width="80" height="80" patternUnits="userSpaceOnUse">
+                <path d="M 80 0 L 0 0 0 80" fill="none" stroke="rgba(96, 165, 250, 0.3)" strokeWidth="0.5" />
+              </pattern>
+              <radialGradient id="hero-glow" cx="50%" cy="45%" r="55%">
+                <stop offset="0%" stopColor="rgba(37, 99, 235, 0.12)" />
+                <stop offset="50%" stopColor="rgba(37, 99, 235, 0.04)" />
+                <stop offset="100%" stopColor="rgba(11, 17, 32, 0)" />
+              </radialGradient>
+              <radialGradient id="corner-glow" cx="100%" cy="0%" r="60%">
+                <stop offset="0%" stopColor="rgba(96, 165, 250, 0.08)" />
+                <stop offset="100%" stopColor="rgba(11, 17, 32, 0)" />
+              </radialGradient>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#hero-grid)" />
+            <rect width="100%" height="100%" fill="url(#hero-glow)" />
+            <rect width="100%" height="100%" fill="url(#corner-glow)" />
+          </svg>
+          <div className="absolute top-1/4 right-1/4 w-64 h-64 border border-blue-500/10 rounded-full animate-float-slow" style={{ animationDelay: "0s" }} />
+          <div className="absolute bottom-1/3 left-1/4 w-48 h-48 border border-blue-400/8 rounded-full animate-float-slow" style={{ animationDelay: "-2s" }} />
+          <div className="absolute top-1/2 right-1/3 w-32 h-32 border border-sky-400/6 rounded-full animate-float-slow" style={{ animationDelay: "-4s" }} />
+          <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-[#0B1120] to-transparent" />
+        </div>
+      </div>
+      <div className="max-w-7xl mx-auto px-5 sm:px-6 w-full relative z-10">
+        <div className="max-w-4xl mx-auto text-center">
+          <motion.h1
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-[1.15] tracking-tight mb-6"
+          >
+            <span className="whitespace-nowrap">Transforming Businesses</span>
+            <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1d4ed8] via-[#38bdf8] to-[#60a5fa] drop-shadow-[0_0_20px_rgba(59,130,246,0.9)] drop-shadow-[0_0_45px_rgba(56,189,248,0.55)]">Through Technology</span>
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+            className="text-base sm:text-lg md:text-xl text-blue-100/60 max-w-2xl mx-auto leading-relaxed mb-10"
+          >
+            We help businesses build, automate, secure, and scale through intelligent digital solutions.
+          </motion.p>
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.35, ease: "easeOut" }}
+            className="flex items-center justify-center"
+          >
+            <Link href="/contact">
+              <span className="group inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white px-6 py-3 rounded-full text-sm font-medium transition-all duration-300 cursor-pointer shadow-lg shadow-blue-600/25 hover:shadow-blue-500/40 hover:scale-[1.02]">
+                Book a Consultation
+                <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" />
+              </span>
+            </Link>
           </motion.div>
-
         </div>
       </div>
     </section>
