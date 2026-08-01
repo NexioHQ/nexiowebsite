@@ -7,6 +7,8 @@ import About from '@/pages/About';
 import Resources from '@/pages/Resources';
 import Careers from '@/pages/Careers';
 import Contact from '@/pages/Contact';
+import PrivacyPolicy from '@/pages/PrivacyPolicy';
+import TermsOfService from '@/pages/TermsOfService';
 import DigitalSolutions from '@/pages/solutions/WebSoftwareDevelopment';
 import AIAutomation from '@/pages/solutions/AIAutomation';
 import Cybersecurity from '@/pages/solutions/Cybersecurity';
@@ -35,6 +37,8 @@ function Router() {
       <Route path="/resources" component={Resources} />
       <Route path="/careers" component={Careers} />
       <Route path="/contact" component={Contact} />
+      <Route path="/privacy-policy" component={PrivacyPolicy} />
+      <Route path="/terms-of-service" component={TermsOfService} />
       <Route component={NotFound} />
     </Switch>
   );

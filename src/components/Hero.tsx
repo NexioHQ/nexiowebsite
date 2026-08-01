@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Link } from "wouter";
-import bgImage from "../assets/bg2.png";
+import bgImage from "../assets/bg.jpg";
 
 export function Hero() {
   return (
@@ -13,9 +13,9 @@ export function Hero() {
             src={bgImage}
             alt=""
             className="w-full h-full object-cover"
-            style={{ opacity: 0.35 }}
+            style={{ opacity: 0.7 }}
           />
-          <div className="absolute inset-0 bg-[#0B1120]/70" />
+          <div className="absolute inset-0 bg-[#0B1120]/40" />
         </div>
         {/* SVG patterns and effects on top */}
         <div className="absolute inset-0 overflow-hidden">
@@ -55,13 +55,11 @@ export function Hero() {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-white leading-[1.05] tracking-tight mb-6"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-[1.15] tracking-tight mb-6"
           >
-            We Design & Build
+            <span className="whitespace-nowrap">Transforming Businesses</span>
             <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-blue-300 to-sky-300">
-              Digital Futures
-            </span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1d4ed8] via-[#38bdf8] to-[#60a5fa] drop-shadow-[0_0_20px_rgba(59,130,246,0.9)] drop-shadow-[0_0_45px_rgba(56,189,248,0.55)]">Through Technology</span>
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 16 }}
@@ -69,9 +67,7 @@ export function Hero() {
             transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
             className="text-base sm:text-lg md:text-xl text-blue-100/60 max-w-2xl mx-auto leading-relaxed mb-10"
           >
-            From high-performance software and intelligent automation to
-            enterprise-grade cybersecurity, we engineer the technology that
-            powers your next move.
+            We help businesses build, automate, secure, and scale through intelligent digital solutions.
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 16 }}
@@ -80,9 +76,9 @@ export function Hero() {
             className="flex items-center justify-center"
           >
             <Link href="/contact">
-              <span className="group inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white px-8 py-4 rounded-full font-medium transition-all duration-300 cursor-pointer shadow-lg shadow-blue-600/25 hover:shadow-blue-500/40 hover:scale-[1.02]">
+              <span className="group inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white px-6 py-3 rounded-full text-sm font-medium transition-all duration-300 cursor-pointer shadow-lg shadow-blue-600/25 hover:shadow-blue-500/40 hover:scale-[1.02]">
                 Book a Consultation
-                <ArrowRight size={18} className="transition-transform duration-300 group-hover:translate-x-1" />
+                <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" />
               </span>
             </Link>
           </motion.div>

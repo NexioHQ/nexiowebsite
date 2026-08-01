@@ -3,8 +3,9 @@
 ## Changes to Make
 
 - [x] Plan approved by user
-- [x] **Navbar.tsx**: Replace text "nexio." with logo.png image, fix solutions dropdown width
-- [x] **Footer.tsx**: Replace text "nexio" with logo.png image
-- [x] **Hero.tsx**: Add bg2.png as background image with dark overlay for text visibility
-- [x] Verify logo visibility on different backgrounds
-- [x] Verify all changes render correctly
+- [x] **Hero.tsx**: Heading on 2 lines - "Transforming Businesses" (white) / "Through Technology" (blue glowing gradient), responsive font sizes
+- [x] **Hero.tsx**: Increased bg image opacity to 0.5, adjusted overlay to bg-[#0B1120]/60 for better text readability
+- [x] **Hero.tsx**: Replaced description with "We help businesses build, automate, secure, and scale through intelligent digital solutions."
+- [x] **Navbar.tsx**: Reduced logo size to `h-5 sm:h-6`, kept original colors (no filters)
+- [x] **Navbar.tsx**: Solutions dropdown uses `w-max` - width fits content naturally, kept centered with `left-1/2 -translate-x-1/2`
+- [x] **Footer.tsx**: Uses logo.png image with original colors
