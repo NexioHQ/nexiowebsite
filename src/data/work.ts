@@ -42,7 +42,7 @@ export const workItems: WorkItem[] = [
     longDescription:
       "A leading enterprise required a comprehensive Governance, Risk, and Compliance (GRC) review to meet ISO 27001 certification standards. Our cybersecurity team conducted a deep-dive security posture assessment, identifying critical vulnerabilities and policy gaps across their infrastructure, access control, and incident response processes. We delivered a detailed risk register, remediation roadmap, and executive risk dashboard that gave leadership real-time visibility into compliance progress, accelerating their path to ISO 27001 certification.",
     stack: ["ISO 27001", "Python", "GRC Audit", "React"],
-    image: "https://images.unsplash.com/photo-1563986768609-322da13575f2?auto=format&fit=crop&w=1200&q=85",
+    image: "/assets/work/enterprise_grc_minimal.jpg",
     imageAlt:
       "Minimalist abstract representation of data security and ISO compliance",
   },
@@ -55,9 +55,9 @@ export const workItems: WorkItem[] = [
     longDescription:
       "A fast-growing business needed to capture and qualify leads around the clock without adding sales headcount. We built an autonomous WhatsApp AI agent powered by OpenAI GPT models that engages prospects in natural conversation, qualifies leads based on custom criteria, handles FAQs, and instantly syncs qualified contact data to their CRM via n8n workflow automation. The system operates 24/7, responds in under 3 seconds, and has helped reduce lead response time from hours to seconds, dramatically improving conversion rates.",
     stack: ["OpenAI", "WhatsApp Cloud API", "Node.js", "n8n"],
-    image: "/assets/work/whatsapp_ai_bot.png",
+    image: "/assets/work/whatsapp_minimal.jpg",
     imageAlt:
-      "AI chatbot conversation interface on a smartphone screen",
+      "Minimalist smartphone showing conversational AI interface",
   },
   {
     title: "Pulse Analytics Platform",
