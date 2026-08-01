@@ -72,7 +72,7 @@ export default function Resources() {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: i * 0.08 }}
                       >
-                        <WorkCard item={item} variant="full" />
+                        <WorkCard item={item} variant="expandable" />
                       </motion.div>
                     ))}
                   </div>

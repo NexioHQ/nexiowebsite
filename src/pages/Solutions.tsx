@@ -97,11 +97,14 @@ export default function Solutions() {
                             Learn more
                             <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform duration-200" />
                           </div>
+                        </div>
                       </div>
+                    </div>
                   </Link>
                 </motion.div>
               ))}
             </div>
+          </div>
         </section>
       </main>
       <Footer />
