@@ -42,9 +42,9 @@ export const workItems: WorkItem[] = [
     longDescription:
       "A leading enterprise required a comprehensive Governance, Risk, and Compliance (GRC) review to meet ISO 27001 certification standards. Our cybersecurity team conducted a deep-dive security posture assessment, identifying critical vulnerabilities and policy gaps across their infrastructure, access control, and incident response processes. We delivered a detailed risk register, remediation roadmap, and executive risk dashboard that gave leadership real-time visibility into compliance progress, accelerating their path to ISO 27001 certification.",
     stack: ["ISO 27001", "Python", "GRC Audit", "React"],
-    image: "/assets/work/enterprise_grc_dashboard_v2.png",
+    image: "https://images.unsplash.com/photo-1563986768609-322da13575f2?auto=format&fit=crop&w=1200&q=85",
     imageAlt:
-      "Cybersecurity dashboard showing system monitoring and risk metrics",
+      "Minimalist abstract representation of data security and ISO compliance",
   },
   {
     title: "WhatsApp Lead Automation AI Chatbot",
