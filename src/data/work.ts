@@ -21,11 +21,11 @@ export interface WorkItem {
 
 export const workItems: WorkItem[] = [
   {
-    title: "Tea Mount Forest Hotel Website",
+    title: "Hotel Website & Portal",
     type: "Website",
     category: "Digital Solutions",
     description:
-      "Hotel website & custom booking engine with real-time reservations and Stripe integration. Hotel is based in Nuwara Eliya, Sri Lanka.",
+      "Hotel website & custom booking engine with real-time reservations and payment gateway integration for a hotel based in Nuwara Eliya, Sri Lanka.",
     longDescription:
       "A luxury heritage hotel nestled in the misty mountains of Nuwara Eliya, Sri Lanka, needed a digital presence as elegant as the estate itself. We designed and engineered a fully bespoke hotel website with a custom real-time booking engine, interactive room availability calendars, and seamless Stripe payment integration. Guests can browse curated room packages, make instant reservations, and receive automated confirmation emails, all from a stunning, mobile-first interface that reflects the forest retreat's premium character.",
     stack: ["Next.js", "TypeScript", "Tailwind CSS", "Stripe API"],
