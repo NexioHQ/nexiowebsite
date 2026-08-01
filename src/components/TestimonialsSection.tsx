@@ -142,7 +142,7 @@ export function TestimonialsSection() {
             Trusted by Leaders Who Deliver
           </h2>
           <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            From fintech pioneers to enterprise global brands, our clients move faster, scale smarter, and build with confidence backed by Nexio engineering.
+            Our clients move faster, scale smarter, and build with confidence backed by Nexio engineering.
           </p>
         </motion.div>
 
