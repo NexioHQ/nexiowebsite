@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { Mail, Phone, MapPin, CheckCircle2, Loader2 } from "lucide-react";
+import { CONTACT_EMAIL_ADDRESS, createContactMailtoUrl } from "@/lib/contact-email";
 
 const services = [
   "Digital Solutions",
@@ -45,38 +46,13 @@ export default function Contact() {
       return;
     }
     setLoading(true);
-    try {
-      const response = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          access_key: "YOUR_WEB3FORMS_ACCESS_KEY",
-          subject: `[NexioGBL] New message from ${form.name}`,
-          from_name: form.name,
-          replyto: form.email,
-          email: form.email,
-          phone: form.phone || "Not provided",
-          country: form.country,
-          service: form.service,
-          message: form.message,
-        }),
-      });
-      const data = await response.json();
-      if (data.success) {
-        setSubmitted(true);
-      } else {
-        setErrors({ form: "Something went wrong. Please try again." });
-      }
-    } catch {
-      setErrors({ form: "Network error. Please try again later." });
-    } finally {
-      setLoading(false);
-    }
+    window.location.href = createContactMailtoUrl(form);
+    setSubmitted(true);
+    setLoading(false);
   };
 
   const inputClass = (field: string) =>
-    `w-full px-4 py-3 rounded-xl border text-sm bg-gray-50 dark:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-primary/40 transition-all ${
-      errors[field] ? "border-red-400" : "border-gray-200 dark:border-gray-800"
+    `w-full px-4 py-3 rounded-xl border text-sm bg-gray-50 dark:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-primary/40 transition-all ${errors[field] ? "border-red-400" : "border-gray-200 dark:border-gray-800"
     }`;
 
   return (
@@ -97,7 +73,7 @@ export default function Contact() {
                 Contact <span className="text-primary">Us</span>
               </h1>
               <p className="text-xl text-muted-foreground leading-relaxed">
-                Ready to transform your business? Let's discuss how we can help you 
+                Ready to transform your business? Let's discuss how we can help you
                 achieve your technology goals.
               </p>
             </motion.div>
@@ -118,11 +94,11 @@ export default function Contact() {
                 <div>
                   <h2 className="text-2xl font-bold mb-6">Get in Touch</h2>
                   <p className="text-muted-foreground leading-relaxed">
-                    Whether you have a project in mind or just want to explore possibilities, 
+                    Whether you have a project in mind or just want to explore possibilities,
                     our team is here to help.
                   </p>
                   <div className="mt-4 flex items-center gap-2.5 bg-primary/10 border border-primary/20 text-primary rounded-xl px-4 py-3 text-sm font-medium">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="flex-shrink-0"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="flex-shrink-0"><circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" /></svg>
                     <span>We typically respond within <span className="font-bold">24 hours</span></span>
                   </div>
                 </div>
@@ -133,10 +109,16 @@ export default function Contact() {
                       <Mail size={18} className="text-primary" />
                     </div>
                     <div>
-                      <p className="font-medium text-sm mb-0.5">Email</p>
-                      <p className="text-muted-foreground text-sm">info@nexiogbl.com</p>
+                       <p className="font-medium text-sm mb-0.5">Email</p>
+                       <a
+                         href={`mailto:${CONTACT_EMAIL_ADDRESS}`}
+                         className="text-muted-foreground text-sm hover:text-primary transition-colors"
+                       >
+                         {CONTACT_EMAIL_ADDRESS}
+                       </a>
                     </div>
                   </div>
+
 
                   <div className="flex items-start gap-4">
                     <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
@@ -144,20 +126,12 @@ export default function Contact() {
                     </div>
                     <div>
                       <p className="font-medium text-sm mb-0.5">Phone</p>
-                      <p className="text-muted-foreground text-sm">+94 77 123 4567</p>
+                      <p className="text-muted-foreground text-sm">+94 71 390 0047 / +94 71 493 9193</p>
                     </div>
                   </div>
 
-                  <div className="flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
-                      <MapPin size={18} className="text-primary" />
-                    </div>
-                    <div>
-                      <p className="font-medium text-sm mb-0.5">Location</p>
-                      <p className="text-muted-foreground text-sm">Colombo, Sri Lanka</p>
-                      <p className="text-muted-foreground text-sm">Serving clients globally</p>
-                    </div>
-                  </div>
+
+
                 </div>
               </motion.div>
 
@@ -174,9 +148,9 @@ export default function Contact() {
                       <div className="w-16 h-16 rounded-full bg-green-50 dark:bg-green-500/10 flex items-center justify-center mb-5">
                         <CheckCircle2 size={32} className="text-green-500" strokeWidth={1.75} />
                       </div>
-                      <h3 className="text-2xl font-bold mb-3">Message Sent!</h3>
+                      <h3 className="text-2xl font-bold mb-3">Email Draft Ready</h3>
                       <p className="text-muted-foreground text-sm leading-relaxed max-w-sm">
-                        Thank you for reaching out. Our team will be in touch within one business day.
+                        Your email app is opening with the message addressed to {CONTACT_EMAIL_ADDRESS}. Send it to reach our team.
                       </p>
                       <button
                         onClick={() => {
@@ -195,7 +169,7 @@ export default function Contact() {
                         Tell us about your project.
                       </p>
                       <div className="flex items-center gap-2 bg-primary/10 border border-primary/20 text-primary rounded-xl px-4 py-2.5 mb-7 text-sm font-medium">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="flex-shrink-0"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="flex-shrink-0"><circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" /></svg>
                         We'll get back to you within <span className="font-bold">24 hours</span>
                       </div>
 

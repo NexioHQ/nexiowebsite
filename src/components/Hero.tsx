@@ -104,9 +104,9 @@ export function Hero() {
             </div>
             <div>
               <div className="flex items-center justify-center h-8 sm:h-9">
-                <Earth size={26} className="text-sky-400" />
+                <div className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">Global</div>
               </div>
-              <div className="text-xs sm:text-sm text-blue-200/60 font-medium mt-0.5">Global Delivery</div>
+              <div className="text-xs sm:text-sm text-blue-200/60 font-medium mt-0.5">Delivery</div>
             </div>
             <div className="col-span-2 sm:col-span-1">
               <div className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">24/7</div>

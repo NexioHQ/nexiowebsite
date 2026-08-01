@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, CheckCircle2, Loader2 } from "lucide-react";
+import { CONTACT_EMAIL_ADDRESS, createContactMailtoUrl } from "@/lib/contact-email";
 
 const services = [
   "Digital Solutions",
@@ -48,31 +49,8 @@ export function ContactForm({ open, onClose }: ContactFormProps) {
       return;
     }
     setLoading(true);
-    try {
-      const response = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          access_key: "YOUR_WEB3FORMS_ACCESS_KEY",
-          subject: `[NexioGBL] New message from ${form.name}`,
-          from_name: form.name,
-          replyto: form.email,
-          email: form.email,
-          phone: form.phone || "Not provided",
-          country: form.country,
-          service: form.service,
-          message: form.message,
-        }),
-      });
-      const data = await response.json();
-      if (data.success) {
-        setSubmitted(true);
-      } else {
-        setErrors({ form: "Something went wrong. Please try again." });
-      }
-    } catch {
-      setErrors({ form: "Something went wrong. Please try again." });
-    }
+    window.location.href = createContactMailtoUrl(form);
+    setSubmitted(true);
     setLoading(false);
   };
 
@@ -129,9 +107,9 @@ export function ContactForm({ open, onClose }: ContactFormProps) {
                 <div className="w-16 h-16 rounded-full bg-green-50 dark:bg-green-500/10 flex items-center justify-center mb-5">
                   <CheckCircle2 size={32} className="text-green-500" strokeWidth={1.75} />
                 </div>
-                <h3 className="text-2xl font-bold mb-3">Message Sent</h3>
+                <h3 className="text-2xl font-bold mb-3">Email Draft Ready</h3>
                 <p className="text-muted-foreground text-sm leading-relaxed max-w-sm">
-                  Thank you for reaching out. Our team will be in touch within one business day.
+                  Your email app is opening with the message addressed to {CONTACT_EMAIL_ADDRESS}. Send it to reach our team.
                 </p>
                 <button
                   onClick={handleClose}
