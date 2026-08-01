@@ -5,7 +5,7 @@ import bgImage from "../assets/bg.jpg";
 
 export function Hero() {
   return (
-    <section className="relative min-h-[100dvh] pt-28 sm:pt-36 pb-16 sm:pb-20 flex items-center overflow-hidden bg-[#0B1120]" id="home">
+    <section className="relative min-h-[100dvh] pt-28 sm:pt-36 pb-16 sm:pb-20 flex items-center overflow-hidden bg-[#0B1120] rounded-b-[48px]" id="home">
       {/* Background with dark overlay & subtle gradient lighting */}
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0">

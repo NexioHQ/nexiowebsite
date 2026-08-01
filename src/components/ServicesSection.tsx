@@ -40,7 +40,7 @@ const services = [
 
 export function ServicesSection() {
   return (
-    <section className="py-16 lg:py-24 relative overflow-hidden bg-[#0B1120] rounded-b-[36px]" id="services">
+    <section className="py-16 lg:py-24 relative overflow-hidden bg-[#0B1120] rounded-b-[48px]" id="services">
       {/* Soft Ambient Background Lighting Effects */}
       <div className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-[140px] pointer-events-none" />
       <div className="absolute bottom-1/4 left-0 w-[500px] h-[500px] bg-violet-600/10 rounded-full blur-[140px] pointer-events-none" />
