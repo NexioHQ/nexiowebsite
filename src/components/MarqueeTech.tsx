@@ -46,8 +46,8 @@ function TechItem({ name, icon }: { name: string; icon: string }) {
 
 export function MarqueeTech() {
   return (
-    <section className="py-16 overflow-hidden bg-muted/30 border-y border-border relative">
-      <div className="max-w-7xl mx-auto px-6 mb-8 text-center">
+    <section className="py-12 overflow-hidden bg-muted/30 border-y border-border relative">
+      <div className="max-w-7xl mx-auto px-6 mb-6 text-center">
         <p className="text-xs font-bold uppercase tracking-widest text-muted-foreground/70">
           Platforms, Cloud Ecosystems & Security Vendors We Build With
         </p>

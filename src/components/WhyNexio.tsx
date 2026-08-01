@@ -1,9 +1,9 @@
 import { motion } from "framer-motion";
-import { Globe2, Code2, ShieldCheck, Cpu, Target, Users, Check } from "lucide-react";
+import { Earth, Code2, ShieldCheck, Cpu, Target, Users, Check } from "lucide-react";
 
 const reasons = [
   {
-    Icon: Globe2,
+    Icon: Earth,
     title: "Global Delivery Capability",
     desc: "Access top-tier engineering talent and cross-border delivery expertise built for worldwide scale.",
     color: "text-blue-500 dark:text-blue-400",
@@ -54,7 +54,7 @@ const reasons = [
 
 export function WhyNexio() {
   return (
-    <section className="py-20 lg:py-28 relative overflow-hidden bg-background" id="why-nexio">
+    <section className="py-16 lg:py-24 relative overflow-hidden bg-background" id="why-nexio">
       {/* Background Soft Glow Divider */}
       <div className="absolute top-1/2 left-0 w-96 h-96 bg-primary/5 rounded-full blur-[140px] pointer-events-none" />
 

@@ -1,11 +1,11 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Sparkles, Shield, Rocket, Network } from "lucide-react";
+import { ArrowRight, Earth } from "lucide-react";
 import { Link } from "wouter";
 import bgImage from "../assets/bg.jpg";
 
 export function Hero() {
   return (
-    <section className="relative min-h-[100dvh] pt-28 sm:pt-36 pb-20 sm:pb-28 flex items-center overflow-hidden bg-[#0B1120]" id="home">
+    <section className="relative min-h-[100dvh] pt-28 sm:pt-36 pb-16 sm:pb-20 flex items-center overflow-hidden bg-[#0B1120]" id="home">
       {/* Background with dark overlay & subtle gradient lighting */}
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0">
@@ -96,7 +96,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.5 }}
-            className="mt-14 sm:mt-16 pt-8 border-t border-white/10 grid grid-cols-2 sm:grid-cols-3 gap-6 max-w-3xl mx-auto text-center"
+            className="mt-10 sm:mt-12 pt-8 border-t border-white/10 grid grid-cols-2 sm:grid-cols-3 gap-6 max-w-3xl mx-auto text-center"
           >
             <div>
               <div className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">100%</div>
@@ -104,7 +104,7 @@ export function Hero() {
             </div>
             <div>
               <div className="flex items-center justify-center h-8 sm:h-9">
-                <Network size={26} className="text-sky-400" />
+                <Earth size={26} className="text-sky-400" />
               </div>
               <div className="text-xs sm:text-sm text-blue-200/60 font-medium mt-0.5">Global Delivery</div>
             </div>
