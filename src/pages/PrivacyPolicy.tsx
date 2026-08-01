@@ -111,7 +111,7 @@ export default function PrivacyPolicy() {
               className="space-y-10"
             >
               <div className="space-y-4">
-                <h2 className="text-2xl font-bold text-primary">Last Updated: January 2026</h2>
+                <h2 className="text-2xl font-bold text-primary">Last Updated: July 2026</h2>
                 <p className="text-muted-foreground leading-relaxed text-lg">
                   Nexio Global ("we", "our", or "us") is committed to protecting your privacy. This Privacy Policy describes how we collect, use, and safeguard the information you provide when using our website and services.
                 </p>

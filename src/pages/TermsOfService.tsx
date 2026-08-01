@@ -123,7 +123,7 @@ export default function TermsOfService() {
               className="space-y-10"
             >
               <div className="space-y-4">
-                <h2 className="text-2xl font-bold text-primary">Last Updated: January 2026</h2>
+                <h2 className="text-2xl font-bold text-primary">Last Updated: July 2026</h2>
                 <p className="text-muted-foreground leading-relaxed text-lg">
                   Welcome to Nexio Global. These Terms of Service govern your use of our website and the services we provide.
                 </p>

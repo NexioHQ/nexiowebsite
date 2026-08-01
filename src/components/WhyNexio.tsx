@@ -70,7 +70,7 @@ export function WhyNexio() {
           >
 
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-6 leading-tight">
-              Why Choose Nexio?
+              Why Choose nexio?
             </h2>
             <p className="text-base sm:text-lg text-muted-foreground mb-8 leading-relaxed">
               We don't just write software. We architect resilient systems that solve core complex business challenges and build enduring market advantage.
