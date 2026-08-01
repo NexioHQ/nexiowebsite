@@ -29,8 +29,7 @@ export const workItems: WorkItem[] = [
     longDescription:
       "A luxury heritage hotel nestled in the misty mountains of Nuwara Eliya, Sri Lanka, needed a digital presence as elegant as the estate itself. We designed and engineered a fully bespoke hotel website with a custom real-time booking engine, interactive room availability calendars, and seamless Stripe payment integration. Guests can browse curated room packages, make instant reservations, and receive automated confirmation emails, all from a stunning, mobile-first interface that reflects the forest retreat's premium character.",
     stack: ["Next.js", "TypeScript", "Tailwind CSS", "Stripe API"],
-    image:
-      "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=85",
+    image: "/assets/work/hotel_website.png",
     imageAlt:
       "Luxury resort hotel pool surrounded by tropical greenery",
   },
@@ -43,8 +42,7 @@ export const workItems: WorkItem[] = [
     longDescription:
       "A leading enterprise required a comprehensive Governance, Risk, and Compliance (GRC) review to meet ISO 27001 certification standards. Our cybersecurity team conducted a deep-dive security posture assessment, identifying critical vulnerabilities and policy gaps across their infrastructure, access control, and incident response processes. We delivered a detailed risk register, remediation roadmap, and executive risk dashboard that gave leadership real-time visibility into compliance progress, accelerating their path to ISO 27001 certification.",
     stack: ["ISO 27001", "Python", "GRC Audit", "React"],
-    image:
-      "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1200&q=85",
+    image: "/assets/work/enterprise_grc_dashboard_v2.png",
     imageAlt:
       "Cybersecurity dashboard showing system monitoring and risk metrics",
   },
@@ -57,8 +55,7 @@ export const workItems: WorkItem[] = [
     longDescription:
       "A fast-growing business needed to capture and qualify leads around the clock without adding sales headcount. We built an autonomous WhatsApp AI agent powered by OpenAI GPT models that engages prospects in natural conversation, qualifies leads based on custom criteria, handles FAQs, and instantly syncs qualified contact data to their CRM via n8n workflow automation. The system operates 24/7, responds in under 3 seconds, and has helped reduce lead response time from hours to seconds, dramatically improving conversion rates.",
     stack: ["OpenAI", "WhatsApp Cloud API", "Node.js", "n8n"],
-    image:
-      "https://images.unsplash.com/photo-1611746872915-64382b5c76da?auto=format&fit=crop&w=1200&q=85",
+    image: "/assets/work/whatsapp_ai_bot.png",
     imageAlt:
       "AI chatbot conversation interface on a smartphone screen",
   },
@@ -84,8 +81,7 @@ export const workItems: WorkItem[] = [
     longDescription:
       "Restful is a sleep health companion app designed for a wellness startup seeking to differentiate through meaningful health insights. We designed and built the full mobile experience, covering biometric data capture via wearable integrations through to an AI coaching engine that generates personalised sleep improvement plans. The app tracks sleep stages, snoring, heart rate variability, and ambient noise, presenting the data in beautifully designed nightly reports. Users receive actionable daily recommendations, bedtime reminders, and weekly trend analysis, making complex health data immediately understandable and actionable.",
     stack: ["React Native", "TensorFlow Lite", "HealthKit", "Node.js"],
-    image:
-      "https://images.unsplash.com/photo-1511295742362-92c96b1cf484?auto=format&fit=crop&w=1200&q=85",
+    image: "/assets/work/restful_sleep_app.png",
     imageAlt: "Peaceful sleep environment with soft ambient lighting and a smartphone displaying sleep data.",
   },
   {
@@ -97,8 +93,7 @@ export const workItems: WorkItem[] = [
     longDescription:
       "FreshMart is a mid-sized supermarket chain that had outgrown off-the-shelf retail software and needed a tailored solution that matched how their business actually operated. We designed and built a comprehensive supermarket management system from the ground up, featuring a fast, barcode-driven point-of-sale interface for cashier stations, real-time inventory tracking with low-stock alerts, automated supplier purchase order generation, and a management dashboard with live sales analytics, margin reports, and daily reconciliation tools. The system also includes staff scheduling, customer loyalty programme management, and expiry date tracking to reduce waste. Since launch, FreshMart has reduced stock-outs by 40% and cut manual administrative time by over 60%.",
     stack: ["React", "Node.js", "PostgreSQL", "Electron"],
-    image:
-      "https://images.unsplash.com/photo-1542838132-92c369d0db99?auto=format&fit=crop&w=1200&q=85",
+    image: "/assets/work/freshmart_erp.png",
     imageAlt: "Supermarket aisle with fresh produce and modern retail environment.",
   },
 ];

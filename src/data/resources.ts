@@ -63,4 +63,22 @@ export const blogPosts: BlogPost[] = [
     image: "https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?w=600&q=80",
     readTime: "6 min read",
   },
+  {
+    title: "Why Custom ERPs Outperform Off-the-Shelf Software",
+    excerpt: "Off-the-shelf software often forces you to change your business processes. Learn why mid-sized businesses are shifting towards bespoke ERP platforms.",
+    slug: "custom-erp-vs-off-the-shelf",
+    date: "2026-08-01",
+    category: "business",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80",
+    readTime: "5 min read",
+  },
+  {
+    title: "The Rise of Autonomous AI Agents in Customer Support",
+    excerpt: "How modern AI chatbots powered by LLMs are moving beyond simple FAQs to handle complex customer queries, book meetings, and sync with CRMs.",
+    slug: "autonomous-ai-agents-customer-support",
+    date: "2026-07-28",
+    category: "ai",
+    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&q=80",
+    readTime: "7 min read",
+  }
 ];

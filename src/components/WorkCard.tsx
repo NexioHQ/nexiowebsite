@@ -138,7 +138,7 @@ function ExpandableWorkCard({ item }: { item: WorkItem }) {
           />
 
           {/* Liquid-glass panel */}
-          <div className="relative z-10 w-full max-w-2xl overflow-hidden rounded-3xl border border-white/60 bg-white/70 shadow-[0_32px_80px_rgba(0,0,0,0.18)] backdrop-blur-2xl dark:border-white/10 dark:bg-card/90 dark:shadow-[0_32px_80px_rgba(0,0,0,0.5)]">
+          <div className="relative z-10 w-full max-w-2xl max-h-[90vh] overflow-y-auto overflow-x-hidden rounded-3xl border border-white/60 bg-white/70 shadow-[0_32px_80px_rgba(0,0,0,0.18)] backdrop-blur-2xl dark:border-white/10 dark:bg-card/90 dark:shadow-[0_32px_80px_rgba(0,0,0,0.5)]">
             {/* Close button */}
             <button
               onClick={() => setOpen(false)}
