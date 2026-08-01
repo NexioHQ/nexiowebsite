@@ -31,14 +31,16 @@ function TechItem({ name, icon }: { name: string; icon: string }) {
 
 export function MarqueeTech() {
   return (
-    <section className="py-16 overflow-hidden bg-gray-50/50 dark:bg-background border-y border-gray-100 dark:border-gray-900">
+    <section className="py-16 overflow-hidden bg-muted/30 border-y border-border relative">
       <div className="max-w-7xl mx-auto px-6 mb-8 text-center">
-        <p className="text-sm font-semibold uppercase tracking-widest text-muted-foreground/60">
-          Technologies we work with
+        <p className="text-xs font-bold uppercase tracking-widest text-muted-foreground/70">
+          Powered by Industry-Leading Technologies & Tools
         </p>
       </div>
-      <div className="overflow-hidden">
-        <div className="flex gap-3 w-max animate-marquee">
+
+      {/* Gradient Mask Overlays for Edge Fading */}
+      <div className="relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
+        <div className="flex gap-4 w-max animate-marquee py-1">
           {doubled.map((item, i) => (
             <TechItem key={`${item.name}-${i}`} name={item.name} icon={item.icon} />
           ))}
@@ -47,3 +49,4 @@ export function MarqueeTech() {
     </section>
   );
 }
+

@@ -124,24 +124,25 @@ export function TestimonialsSection() {
   const visible = testimonials.slice(page * PER_PAGE, page * PER_PAGE + PER_PAGE);
 
   return (
-    <section className="py-16 sm:py-24 relative overflow-hidden" id="testimonials">
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/3 to-transparent pointer-events-none" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-primary/5 rounded-full blur-[100px] pointer-events-none" />
+    <section className="py-20 lg:py-28 relative overflow-hidden bg-background" id="testimonials">
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/[0.03] to-transparent pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-primary/5 rounded-full blur-[140px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-5 sm:px-6 relative z-10">
         {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-14"
+          transition={{ duration: 0.6 }}
+          className="text-center mb-14 sm:mb-16 max-w-3xl mx-auto"
         >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-5">
+
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-5 leading-tight">
             Trusted by Leaders Who Deliver
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            From fintech to retail, our clients move faster, scale smarter, and
-            grow with confidence because Nexio is behind the technology.
+          <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+            From fintech pioneers to enterprise global brands, our clients move faster, scale smarter, and build with confidence backed by Nexio engineering.
           </p>
         </motion.div>
 
@@ -177,9 +178,8 @@ export function TestimonialsSection() {
               <button
                 key={i}
                 onClick={() => setPage(i)}
-                className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                  i === page ? "bg-primary w-6" : "bg-gray-300 dark:bg-gray-600"
-                }`}
+                className={`w-2 h-2 rounded-full transition-all duration-300 ${i === page ? "bg-primary w-6" : "bg-gray-300 dark:bg-gray-600"
+                  }`}
                 aria-label={`Page ${i + 1}`}
               />
             ))}
