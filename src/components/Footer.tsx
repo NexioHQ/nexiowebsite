@@ -16,7 +16,7 @@ export function Footer() {
               Transforming Businesses Through Technology. We build scalable, secure, and intelligent digital solutions.
             </p>
             <div className="space-y-1.5 text-sm text-foreground font-medium">
-              <p>hello@nexiogbl.com</p>
+              <p>info@nexiogbl.com</p>
               <p>www.nexiogbl.com</p>
             </div>
           </div>

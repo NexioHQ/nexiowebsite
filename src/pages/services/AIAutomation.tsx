@@ -12,7 +12,7 @@ const data: ServiceData = {
   stats: [
     { value: "60%", label: "Average reduction in manual workflows" },
     { value: "4x", label: "Faster decision-making cycles" },
-    { value: "30+", label: "AI integrations delivered" },
+    { value: "10+", label: "AI integrations delivered" },
   ],
   features: [
     { title: "Custom LLM Integrations", desc: "Production-grade integrations with GPT-4, Claude, Gemini, and open-source models tailored to your use case." },
@@ -32,7 +32,7 @@ const data: ServiceData = {
   why: [
     "Practical AI focus. We build tools that work, not demos that impress but fail in production",
     "Experience across GPT, Claude, open-source, and fine-tuned models",
-    "ROI-first framing: every project is justified by measurable business outcomes",
+    "Every project is justified by measurable business outcomes",
     "Ongoing model maintenance and performance monitoring included",
   ],
 };

@@ -44,7 +44,7 @@ const sections = [
     content: [
       "You have the right to access, update, or delete the personal information we hold about you.",
       "You may also object to or restrict certain processing of your data, and you have the right to data portability where applicable.",
-      "To exercise any of these rights, please contact us at hello@nexiogbl.com.",
+      "To exercise any of these rights, please contact us at info@nexiogbl.com.",
     ],
   },
   {
@@ -71,7 +71,7 @@ const sections = [
   {
     title: "10. Contact Us",
     content: [
-      "If you have any questions or concerns about this Privacy Policy or our data practices, please contact us at hello@nexiogbl.com or visit www.nexiogbl.com.",
+      "If you have any questions or concerns about this Privacy Policy or our data practices, please contact us at info@nexiogbl.com or visit www.nexiogbl.com.",
     ],
   },
 ];

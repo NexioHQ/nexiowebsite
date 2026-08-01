@@ -19,7 +19,7 @@ const solutions = [
     icon: Cpu,
     title: "AI & Automation",
     description: "Intelligent systems that reduce manual effort, accelerate decisions, and unlock new revenue streams for your organisation.",
-    features: ["AI-powered workflow automation", "Custom LLM integrations", "Predictive analytics solutions", "Natural language processing"],
+    features: ["AI-powered workflow automation", "AI assistants", "Predictive analytics solutions", "Natural language processing"],
     accent: "from-violet-500 to-violet-600",
     iconBg: "bg-violet-50 dark:bg-violet-500/10",
     iconColor: "text-violet-600 dark:text-violet-400",

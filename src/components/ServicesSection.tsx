@@ -17,7 +17,7 @@ const services = [
   {
     Icon: Cpu,
     title: "AI and Automation",
-    desc: "Intelligent autonomous workflows, LLM integrations, and predictive systems that eliminate repetitive tasks and unlock new revenue.",
+    desc: "Intelligent autonomous workflows,  AI assistants, and predictive systems that eliminate repetitive tasks and unlock new revenue.",
     tags: ["Workflow Automation", "AI Assistants and Content Tools", "CRM & Lead Automation"],
     accent: "from-violet-500/20 via-fuchsia-500/10 to-transparent",
     borderGlow: "group-hover:border-violet-500/40",

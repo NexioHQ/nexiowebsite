@@ -10,9 +10,9 @@ const data: ServiceData = {
   iconBg: "bg-blue-50 dark:bg-blue-500/10",
   iconColor: "text-blue-600 dark:text-blue-400",
   stats: [
-    { value: "98%", label: "On-time delivery rate" },
+    { value: "100%", label: "On-time delivery rate" },
     { value: "3x", label: "Average performance improvement" },
-    { value: "50+", label: "Digital products shipped" },
+    { value: "30+", label: "Digital products shipped" },
   ],
   features: [
     { title: "Custom Web Applications", desc: "Scalable, performant web apps built with modern frameworks like React, Vue, and Next.js." },
