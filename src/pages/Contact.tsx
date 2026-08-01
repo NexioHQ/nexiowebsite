@@ -13,23 +13,6 @@ const services = [
   "Other",
 ];
 
-const countries = [
-  "Sri Lanka",
-  "Australia",
-  "Canada",
-  "Germany",
-  "India",
-  "Japan",
-  "New Zealand",
-  "Nigeria",
-  "Singapore",
-  "South Africa",
-  "United Arab Emirates",
-  "United Kingdom",
-  "United States",
-  "Other",
-];
-
 export default function Contact() {
   const [form, setForm] = useState({
     name: "",
@@ -48,7 +31,7 @@ export default function Contact() {
     if (!form.name.trim()) e.name = "Name is required";
     if (!form.email.trim()) e.email = "Email is required";
     else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) e.email = "Enter a valid email";
-    if (!form.country) e.country = "Please select your country";
+    if (!form.country.trim()) e.country = "Country is required";
     if (!form.service) e.service = "Please select a service";
     if (!form.message.trim()) e.message = "Message is required";
     return e;
@@ -136,8 +119,12 @@ export default function Contact() {
                   <h2 className="text-2xl font-bold mb-6">Get in Touch</h2>
                   <p className="text-muted-foreground leading-relaxed">
                     Whether you have a project in mind or just want to explore possibilities, 
-                    our team is here to help. We typically respond within one business day.
+                    our team is here to help.
                   </p>
+                  <div className="mt-4 flex items-center gap-2.5 bg-primary/10 border border-primary/20 text-primary rounded-xl px-4 py-3 text-sm font-medium">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="flex-shrink-0"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    <span>We typically respond within <span className="font-bold">24 hours</span></span>
+                  </div>
                 </div>
 
                 <div className="space-y-5">
@@ -204,9 +191,13 @@ export default function Contact() {
                   ) : (
                     <>
                       <h3 className="text-2xl font-bold mb-1">Let's Talk</h3>
-                      <p className="text-muted-foreground text-sm mb-7">
-                        Tell us about your project and we'll get back to you within 24 hours.
+                      <p className="text-muted-foreground text-sm mb-3">
+                        Tell us about your project.
                       </p>
+                      <div className="flex items-center gap-2 bg-primary/10 border border-primary/20 text-primary rounded-xl px-4 py-2.5 mb-7 text-sm font-medium">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="flex-shrink-0"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                        We'll get back to you within <span className="font-bold">24 hours</span>
+                      </div>
 
                       <form onSubmit={handleSubmit} noValidate className="space-y-4">
                         <div className="grid md:grid-cols-2 gap-4">
@@ -237,16 +228,13 @@ export default function Contact() {
                         <div className="grid md:grid-cols-2 gap-4">
                           <div>
                             <label className="block text-sm font-medium text-foreground mb-1.5">Country</label>
-                            <select
+                            <input
+                              type="text"
                               value={form.country}
                               onChange={(e) => { setForm({ ...form, country: e.target.value }); setErrors({ ...errors, country: "" }); }}
-                              className={inputClass("country") + " appearance-none"}
-                            >
-                              <option value="">Select country</option>
-                              {countries.map((c) => (
-                                <option key={c} value={c}>{c}</option>
-                              ))}
-                            </select>
+                              placeholder="Enter your country"
+                              className={inputClass("country")}
+                            />
                             {errors.country && <p className="text-red-500 text-xs mt-1">{errors.country}</p>}
                           </div>
                           <div>

@@ -19,10 +19,10 @@ const fallbackStyles: Record<string, string> = {
 
 /* Shared liquid-glass card shell classes */
 const glassCard =
-  "h-full overflow-hidden rounded-2xl border border-white/60 bg-white/40 shadow-[0_8px_32px_rgba(0,0,0,0.08)] ring-1 ring-black/5 backdrop-blur-xl";
+  "h-full overflow-hidden rounded-2xl border border-white/60 bg-white/40 shadow-[0_8px_32px_rgba(0,0,0,0.08)] ring-1 ring-black/5 backdrop-blur-xl dark:border-white/10 dark:bg-card/80 dark:shadow-[0_8px_32px_rgba(0,0,0,0.3)] dark:ring-white/10";
 
 const glassHover =
-  "transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_20px_48px_rgba(0,0,0,0.14)] hover:ring-primary/30 hover:border-primary/25";
+  "transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_20px_48px_rgba(0,0,0,0.14)] hover:ring-primary/30 hover:border-primary/25 dark:hover:shadow-[0_20px_48px_rgba(0,0,0,0.4)] dark:hover:ring-primary/40";
 
 function ProjectImage({ item }: { item: WorkItem }) {
   const [imageFailed, setImageFailed] = useState(false);
@@ -34,19 +34,19 @@ function ProjectImage({ item }: { item: WorkItem }) {
       <div
         role="img"
         aria-label={`${item.title} project preview`}
-        className={`relative flex h-full w-full flex-col justify-between overflow-hidden bg-gradient-to-br ${gradient} p-6`}
+        className={`relative flex h-full w-full flex-col justify-between overflow-hidden bg-gradient-to-br ${gradient} p-6 dark:opacity-80`}
       >
         <div className="relative flex items-center justify-between">
-          <Layers size={26} aria-hidden="true" className="text-slate-400" />
-          <span className="rounded-full border border-black/8 bg-white/50 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-slate-500">
+          <Layers size={26} aria-hidden="true" className="text-slate-400 dark:text-slate-500" />
+          <span className="rounded-full border border-black/8 bg-white/50 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-slate-500 dark:border-white/15 dark:bg-white/10 dark:text-slate-300">
             Nexio
           </span>
         </div>
         <div className="relative max-w-[85%]">
-          <p className="text-[11px] font-semibold uppercase tracking-widest text-slate-400 mb-2">
+          <p className="text-[11px] font-semibold uppercase tracking-widest text-slate-400 mb-2 dark:text-slate-500">
             {item.category}
           </p>
-          <p className="text-xl font-bold leading-tight text-slate-700">
+          <p className="text-xl font-bold leading-tight text-slate-700 dark:text-slate-200">
             {item.title}
           </p>
         </div>
@@ -113,7 +113,7 @@ function ExpandableWorkCard({ item }: { item: WorkItem }) {
               {item.stack.map((tech) => (
                 <span
                   key={tech}
-                  className="rounded-full border border-black/8 bg-white/60 px-2.5 py-0.5 text-[11px] font-medium text-slate-600 backdrop-blur-sm"
+                  className="rounded-full border border-black/8 bg-white/60 px-2.5 py-0.5 text-[11px] font-medium text-slate-600 backdrop-blur-sm dark:border-white/15 dark:bg-white/10 dark:text-slate-300"
                 >
                   {tech}
                 </span>
@@ -138,12 +138,12 @@ function ExpandableWorkCard({ item }: { item: WorkItem }) {
           />
 
           {/* Liquid-glass panel */}
-          <div className="relative z-10 w-full max-w-2xl overflow-hidden rounded-3xl border border-white/60 bg-white/70 shadow-[0_32px_80px_rgba(0,0,0,0.18)] backdrop-blur-2xl">
+          <div className="relative z-10 w-full max-w-2xl overflow-hidden rounded-3xl border border-white/60 bg-white/70 shadow-[0_32px_80px_rgba(0,0,0,0.18)] backdrop-blur-2xl dark:border-white/10 dark:bg-card/90 dark:shadow-[0_32px_80px_rgba(0,0,0,0.5)]">
             {/* Close button */}
             <button
               onClick={() => setOpen(false)}
               aria-label="Close"
-              className="absolute right-4 top-4 z-20 flex h-9 w-9 items-center justify-center rounded-full bg-black/8 text-slate-600 transition hover:bg-black/14 hover:text-slate-900"
+              className="absolute right-4 top-4 z-20 flex h-9 w-9 items-center justify-center rounded-full bg-black/8 text-slate-600 transition hover:bg-black/14 hover:text-slate-900 dark:bg-white/10 dark:text-slate-300 dark:hover:bg-white/20 dark:hover:text-white"
             >
               <X size={18} />
             </button>
@@ -165,14 +165,14 @@ function ExpandableWorkCard({ item }: { item: WorkItem }) {
 
             {/* Content */}
             <div className="p-6 sm:p-8">
-              <h2 className="mb-4 text-2xl font-bold text-slate-900">{item.title}</h2>
-              <p className="text-base leading-relaxed text-slate-600">
+              <h2 className="mb-4 text-2xl font-bold text-slate-900 dark:text-foreground">{item.title}</h2>
+              <p className="text-base leading-relaxed text-slate-600 dark:text-muted-foreground">
                 {item.longDescription || item.description}
               </p>
 
               {/* Stack */}
               <div className="mt-6">
-                <p className="mb-2.5 text-xs font-semibold uppercase tracking-widest text-slate-400">
+                <p className="mb-2.5 text-xs font-semibold uppercase tracking-widest text-slate-400 dark:text-slate-500">
                   Tech Stack
                 </p>
                 <div className="flex flex-wrap gap-2">
@@ -180,7 +180,7 @@ function ExpandableWorkCard({ item }: { item: WorkItem }) {
                     <Badge
                       key={tech}
                       variant="outline"
-                      className="border-black/10 bg-white/60 px-3 py-1 text-xs font-medium text-slate-600 backdrop-blur-sm"
+                      className="border-black/10 bg-white/60 px-3 py-1 text-xs font-medium text-slate-600 backdrop-blur-sm dark:border-white/15 dark:bg-white/10 dark:text-slate-300"
                     >
                       {tech}
                     </Badge>
@@ -229,7 +229,7 @@ export function WorkCard({ item, variant = "full" }: WorkCardProps) {
               {item.stack.map((tech) => (
                 <span
                   key={tech}
-                  className="rounded-full border border-black/8 bg-white/60 px-2.5 py-0.5 text-[11px] font-medium text-slate-600 backdrop-blur-sm"
+                  className="rounded-full border border-black/8 bg-white/60 px-2.5 py-0.5 text-[11px] font-medium text-slate-600 backdrop-blur-sm dark:border-white/15 dark:bg-white/10 dark:text-slate-300"
                 >
                   {tech}
                 </span>
