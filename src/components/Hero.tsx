@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Earth } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Link } from "wouter";
 import bgImage from "../assets/bg.jpg";
 
@@ -14,6 +14,7 @@ export function Hero() {
             alt=""
             className="w-full h-full object-cover"
             style={{ opacity: 0.65 }}
+            fetchPriority="high"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-[#0B1120]/70 via-[#0B1120]/50 to-[#0B1120]" />
         </div>

@@ -4,9 +4,9 @@ import logo from "../assets/logo2.png";
 
 export function Footer() {
   return (
-    <footer className="bg-white dark:bg-card border-t border-border pt-16 pb-8">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8 mb-12">
+<footer className="bg-white dark:bg-card border-t border-border pt-16 pb-8">
+      <div className="max-w-7xl mx-auto px-5 sm:px-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 lg:gap-8 mb-12">
           {/* Col 1 */}
           <div className="space-y-5">
             <Link href="/">

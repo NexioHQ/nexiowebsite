@@ -17,6 +17,17 @@ export default defineConfig({
   build: {
     outDir: 'dist',
     emptyOutDir: true,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          react: ['react', 'react-dom'],
+          motion: ['framer-motion'],
+          wouter: ['wouter'],
+          firebase: ['firebase/app'],
+          icons: ['lucide-react'],
+        },
+      },
+    },
   },
   server: {
     port: 5173,

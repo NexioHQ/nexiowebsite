@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Quote, Star, ChevronLeft, ChevronRight } from "lucide-react";
 
@@ -71,8 +71,6 @@ const testimonials = [
   },
 ];
 
-const PER_PAGE = 3;
-
 function TestimonialCard({ t, i }: { t: typeof testimonials[0]; i: number }) {
   return (
     <motion.div
@@ -118,10 +116,34 @@ function TestimonialCard({ t, i }: { t: typeof testimonials[0]; i: number }) {
   );
 }
 
+function usePerPage() {
+  const [perPage, setPerPage] = useState(3);
+
+  useEffect(() => {
+    const update = () => {
+      const w = window.innerWidth;
+      if (w < 640) {
+        setPerPage(1);
+      } else if (w < 1024) {
+        setPerPage(2);
+      } else {
+        setPerPage(3);
+      }
+    };
+    update();
+    window.addEventListener("resize", update);
+    return () => window.removeEventListener("resize", update);
+  }, []);
+
+  return perPage;
+}
+
 export function TestimonialsSection() {
   const [page, setPage] = useState(0);
-  const totalPages = Math.ceil(testimonials.length / PER_PAGE);
-  const visible = testimonials.slice(page * PER_PAGE, page * PER_PAGE + PER_PAGE);
+  const perPage = usePerPage();
+  const totalPages = Math.ceil(testimonials.length / perPage);
+  const safePage = Math.min(page, totalPages - 1);
+  const visible = testimonials.slice(safePage * perPage, safePage * perPage + perPage);
 
   return (
     <section className="py-16 lg:py-24 relative overflow-hidden bg-background" id="testimonials">
@@ -137,6 +159,7 @@ export function TestimonialsSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-10 sm:mb-12 max-w-3xl mx-auto"
         >
+
 
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-5 leading-tight">
             Trusted by Leaders Who Deliver
@@ -162,11 +185,11 @@ export function TestimonialsSection() {
           </motion.div>
         </AnimatePresence>
 
-        {/* Navigation */}
+{/* Navigation */}
         <div className="flex items-center justify-center gap-4 mt-8">
           <button
             onClick={() => setPage((p) => Math.max(0, p - 1))}
-            disabled={page === 0}
+            disabled={safePage === 0}
             className="w-10 h-10 rounded-full border border-gray-200 dark:border-gray-700 flex items-center justify-center text-foreground/60 hover:text-primary hover:border-primary disabled:opacity-30 disabled:cursor-not-allowed transition-all"
             aria-label="Previous"
           >
@@ -178,7 +201,7 @@ export function TestimonialsSection() {
               <button
                 key={i}
                 onClick={() => setPage(i)}
-                className={`w-2 h-2 rounded-full transition-all duration-300 ${i === page ? "bg-primary w-6" : "bg-gray-300 dark:bg-gray-600"
+                className={`w-2 h-2 rounded-full transition-all duration-300 ${i === safePage ? "bg-primary w-6" : "bg-gray-300 dark:bg-gray-600"
                   }`}
                 aria-label={`Page ${i + 1}`}
               />
@@ -187,7 +210,7 @@ export function TestimonialsSection() {
 
           <button
             onClick={() => setPage((p) => Math.min(totalPages - 1, p + 1))}
-            disabled={page === totalPages - 1}
+            disabled={safePage === totalPages - 1}
             className="w-10 h-10 rounded-full border border-gray-200 dark:border-gray-700 flex items-center justify-center text-foreground/60 hover:text-primary hover:border-primary disabled:opacity-30 disabled:cursor-not-allowed transition-all"
             aria-label="Next"
           >

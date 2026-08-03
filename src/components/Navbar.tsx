@@ -70,7 +70,7 @@ export function Navbar() {
         <Link href="/">
           <img src={logo} alt="Nexio" className="h-5 sm:h-6 w-auto cursor-pointer" />
         </Link>
-        <div className="hidden lg:flex items-center gap-5 xl:gap-7">
+        <div className="hidden md:flex items-center gap-4 lg:gap-5 xl:gap-7">
           {navLinks.map((link) => {
             const isActive = location === link.href || (link.href !== "/" && location.startsWith(link.href));
             if (link.hasDropdown) {
@@ -117,7 +117,7 @@ export function Navbar() {
             );
           })}
         </div>
-        <div className="hidden lg:flex items-center gap-4">
+        <div className="hidden md:flex items-center gap-4">
           <button
             onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
             className={`p-2 rounded-full transition-colors ${scrolled || !isHome ? "text-gray-400 hover:text-white hover:bg-white/5" : "text-blue-200/70 hover:text-white hover:bg-white/5"}`}
@@ -133,7 +133,7 @@ export function Navbar() {
             </Link>
           )}
         </div>
-        <div className="lg:hidden flex items-center gap-4">
+        <div className="md:hidden flex items-center gap-4">
           <button
             onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
             className={`p-2 rounded-full ${scrolled || !isHome ? "text-gray-400" : "text-blue-200/70"}`}
@@ -154,7 +154,7 @@ export function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden border-t border-blue-900/20 bg-[#0B1120]/95 backdrop-blur-lg"
+            className="md:hidden border-t border-blue-900/20 bg-[#0B1120]/95 backdrop-blur-lg"
           >
             <div className="flex flex-col py-4 px-6 gap-1">
               {navLinks.map((link) => {
