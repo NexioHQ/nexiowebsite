@@ -1,0 +1,15 @@
+# humans.txt — Nexio Global
+# https://nexiogbl.com/humans.txt
+
+## TEAM
+Nexio Global Engineering Team
+Contact: info@nexiogbl.com
+Location: Colombo, Sri Lanka (Remote-first)
+
+## THANKS
+Built with React, TypeScript, Vite, and Tailwind CSS.
+
+## SITE
+Last update: 2026-08-03
+Language: English
+Standards: HTML5, CSS3, WCAG 2.1

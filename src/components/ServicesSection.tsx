@@ -63,7 +63,7 @@ export function ServicesSection() {
           </p>
         </motion.div>
 
-<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {services.map((service, i) => (
             <motion.div
               key={service.title}
@@ -76,7 +76,7 @@ export function ServicesSection() {
             >
               <Link href={service.href}>
                 <div
-                  className={`group relative h-full bg-slate-900/60 backdrop-blur-xl border border-white/[0.08] rounded-3xl p-7 sm:p-8 flex flex-col justify-between transition-all duration-500 cursor-pointer overflow-hidden shadow-2xl hover:shadow-[0_20px_50px_rgba(0,0,0,0.5)] ${service.borderGlow}`}
+                  className={`group relative h-full bg-slate-900/60 backdrop-blur-xl border border-white/[0.08] rounded-3xl p-6 sm:p-8 flex flex-col justify-between transition-all duration-500 cursor-pointer overflow-hidden shadow-2xl hover:shadow-[0_20px_50px_rgba(0,0,0,0.5)] ${service.borderGlow}`}
                 >
                   {/* Subtle Background Soft Glow on Hover */}
                   <div

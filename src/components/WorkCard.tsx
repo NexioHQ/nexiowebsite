@@ -58,6 +58,8 @@ function ProjectImage({ item }: { item: WorkItem }) {
     <img
       src={item.image}
       alt={item.imageAlt}
+      width={1600}
+      height={900}
       style={{ width: "100%", height: "100%" }}
       className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
       loading="lazy"
@@ -153,6 +155,8 @@ function ExpandableWorkCard({ item }: { item: WorkItem }) {
               <img
                 src={item.image}
                 alt={item.imageAlt}
+                width={1600}
+                height={900}
                 className="h-full w-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-white/60 via-white/10 to-transparent" />

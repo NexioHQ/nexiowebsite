@@ -1,0 +1,10 @@
+# Security Contact
+Contact: mailto:info@nexiogbl.com
+Contact: https://nexiogbl.com/contact
+
+# Policy
+Preferred-Languages: en
+Canonical: https://nexiogbl.com/.well-known/security.txt
+
+# Expiry
+Expires: 2027-08-03T00:00:00.000Z

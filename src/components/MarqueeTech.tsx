@@ -38,7 +38,7 @@ const doubled = [...techStack, ...techStack];
 function TechItem({ name, icon }: { name: string; icon: string }) {
   return (
     <div className="flex items-center gap-3 px-5 py-3 rounded-2xl bg-white dark:bg-card border border-gray-200/80 dark:border-white/10 shadow-sm flex-shrink-0 select-none hover:border-primary/40 transition-colors">
-      <img src={icon} alt={name} className="w-5 h-5 object-contain" loading="lazy" referrerPolicy="no-referrer" />
+      <img src={icon} alt={name} width={20} height={20} className="w-5 h-5 object-contain" loading="lazy" fetchPriority="low" referrerPolicy="no-referrer" />
       <span className="text-sm font-medium text-foreground/80 whitespace-nowrap">{name}</span>
     </div>
   );

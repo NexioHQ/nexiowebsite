@@ -1,7 +1,10 @@
 import { motion } from "framer-motion";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { Target, Eye, Users, Award, Globe, Lightbulb } from "lucide-react";
+import { useSeo } from "@/lib/seo";
+import { organizationSchema, webPageSchema } from "@/lib/schema";
 
 const values = [
   {
@@ -42,14 +45,35 @@ const stats = [
 ];
 
 export default function About() {
+  useSeo({
+    title: "About Us",
+    description:
+      "Learn about Nexio Global — a technology company transforming businesses through digital solutions, AI automation, and cybersecurity. Discover our mission, vision, values, and story.",
+    path: "/about",
+    schema: [
+      organizationSchema(),
+      webPageSchema({
+        name: "About Nexio Global",
+        description:
+          "Learn about Nexio Global — a technology company transforming businesses through digital solutions, AI automation, and cybersecurity.",
+        path: "/about",
+        breadcrumbs: [
+          { name: "Home", path: "/" },
+          { name: "About Us", path: "/about" },
+        ],
+      }),
+    ],
+  });
+
   return (
     <div className="min-h-screen bg-background text-foreground font-sans">
       <Navbar />
-      <main>
+      <main id="main-content">
         {/* Hero Section */}
         <section className="pt-32 pb-20 relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-violet-500/5" />
           <div className="max-w-7xl mx-auto px-6 relative">
+            <Breadcrumbs items={[{ name: "About Us", path: "/about" }]} />
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}

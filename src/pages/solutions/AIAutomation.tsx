@@ -1,10 +1,13 @@
 import { motion } from "framer-motion";
-import { BrainCircuit, MessageSquareText, Workflow, Bot, BarChart3, ArrowLeft, CheckCircle2 } from "lucide-react";
+import { BrainCircuit, MessageSquareText, Workflow, Bot, BarChart3, ArrowLeft, CheckCircle2, ChevronDown } from "lucide-react";
 import { Link } from "wouter";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { useState } from "react";
 import { ContactForm } from "@/components/ContactForm";
+import { useSeo } from "@/lib/seo";
+import { serviceSchema, faqSchema, webPageSchema } from "@/lib/schema";
 
 const serviceGroups = [
   {
@@ -74,17 +77,76 @@ const whyItems = [
   "Ongoing model maintenance and performance monitoring included",
 ];
 
+const faqs = [
+  {
+    question: "What AI automation solutions do you offer?",
+    answer:
+      "We build AI assistants, chatbots, intelligent workflow automation, lead generation systems, CRM automation, predictive analytics, and business intelligence dashboards tailored to your operations.",
+  },
+  {
+    question: "How long does it take to implement AI automation?",
+    answer:
+      "A proof of concept typically takes 2 weeks. Full production deployments generally take 4–10 weeks depending on complexity, data readiness, and integration requirements.",
+  },
+  {
+    question: "Do I need to have existing data or technical infrastructure?",
+    answer:
+      "Not necessarily. We assess your current data and systems, then build the necessary pipelines. We can work with minimal data and help you collect and organise it over time.",
+  },
+  {
+    question: "How do you ensure AI models perform well in production?",
+    answer:
+      "We use rigorous testing, continuous monitoring, and regular model retraining. Every deployment includes performance metrics and improvement loops to ensure the AI keeps delivering value.",
+  },
+];
+
 export default function AIAutomation() {
   const [formOpen, setFormOpen] = useState(false);
+  const [openFaq, setOpenFaq] = useState<number | null>(0);
+
+  useSeo({
+    title: "AI & Automation",
+    description:
+      "Intelligent AI automation solutions from Nexio Global — AI assistants, workflow automation, predictive analytics, and business intelligence that reduce manual effort and unlock new revenue.",
+    path: "/solutions/ai-automation",
+    schema: [
+      serviceSchema({
+        name: "AI & Automation",
+        description:
+          "Intelligent AI automation solutions including AI assistants, workflow automation, predictive analytics, and business intelligence.",
+        path: "/solutions/ai-automation",
+        offers: true,
+      }),
+      faqSchema(faqs),
+      webPageSchema({
+        name: "AI & Automation — Nexio Global",
+        description:
+          "Intelligent AI automation solutions from Nexio Global — AI assistants, workflow automation, predictive analytics, and business intelligence.",
+        path: "/solutions/ai-automation",
+        breadcrumbs: [
+          { name: "Home", path: "/" },
+          { name: "Solutions", path: "/solutions/ai-automation" },
+          { name: "AI & Automation", path: "/solutions/ai-automation" },
+        ],
+      }),
+    ],
+  });
 
   return (
     <div className="min-h-screen bg-background text-foreground font-sans">
       <Navbar />
+      <main id="main-content">
 
       {/* Hero */}
       <section className="pt-28 sm:pt-36 pb-14 sm:pb-20 relative overflow-hidden">
         <div className="absolute top-0 left-0 w-[600px] h-[400px] bg-gradient-to-br from-violet-500 to-violet-600 opacity-10 rounded-full blur-[120px] pointer-events-none" />
         <div className="max-w-5xl mx-auto px-6 relative z-10">
+          <Breadcrumbs
+            items={[
+              { name: "Solutions", path: "/solutions/ai-automation" },
+              { name: "AI & Automation", path: "/solutions/ai-automation" },
+            ]}
+          />
           <Link href="/">
             <button className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors mb-8">
               <ArrowLeft size={15} />
@@ -136,7 +198,7 @@ export default function AIAutomation() {
       {/* Overview */}
       <section className="py-20">
         <div className="max-w-5xl mx-auto px-6">
-          <div className="grid lg:grid-cols-2 gap-16 items-start">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-start">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -242,6 +304,49 @@ export default function AIAutomation() {
         </div>
       </section>
 
+      {/* FAQ */}
+      <section className="py-20 bg-gray-50/70 dark:bg-card/20">
+        <div className="max-w-3xl mx-auto px-6">
+          <motion.h2
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-3xl font-bold mb-10 text-center"
+          >
+            Frequently Asked Questions
+          </motion.h2>
+          <div className="space-y-3">
+            {faqs.map((faq, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 12 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.06 }}
+                className="bg-white dark:bg-card border border-border rounded-xl overflow-hidden"
+              >
+                <button
+                  onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                  className="w-full flex items-center justify-between gap-4 p-5 text-left font-semibold hover:bg-gray-50 dark:hover:bg-card/60 transition-colors"
+                  aria-expanded={openFaq === i}
+                >
+                  {faq.question}
+                  <ChevronDown
+                    size={18}
+                    className={`flex-shrink-0 text-muted-foreground transition-transform duration-200 ${openFaq === i ? "rotate-180" : ""}`}
+                  />
+                </button>
+                {openFaq === i && (
+                  <div className="px-5 pb-5 text-sm text-muted-foreground leading-relaxed">
+                    {faq.answer}
+                  </div>
+                )}
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="py-16 px-6">
         <div className="max-w-3xl mx-auto text-center">
@@ -258,6 +363,7 @@ export default function AIAutomation() {
         </div>
       </section>
 
+      </main>
       <Footer />
       <ContactForm open={formOpen} onClose={() => setFormOpen(false)} />
     </div>

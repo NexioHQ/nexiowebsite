@@ -1,17 +1,39 @@
 import { motion } from "framer-motion";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { WorkCard } from "@/components/WorkCard";
 import { blogPosts } from "@/data/resources";
 import { workItems } from "@/data/work";
 import { Calendar, Clock, ArrowRight } from "lucide-react";
+import { useSeo } from "@/lib/seo";
+import { webPageSchema } from "@/lib/schema";
 
 export default function Resources() {
+  useSeo({
+    title: "Resources",
+    description:
+      "Explore Nexio Global's portfolio of products and insights on technology, engineering, and digital strategy. Stay ahead with our latest work and blog articles.",
+    path: "/resources",
+    schema: [
+      webPageSchema({
+        name: "Resources — Nexio Global",
+        description:
+          "Explore Nexio Global's portfolio of products and insights on technology, engineering, and digital strategy.",
+        path: "/resources",
+        breadcrumbs: [
+          { name: "Home", path: "/" },
+          { name: "Resources", path: "/resources" },
+        ],
+      }),
+    ],
+  });
+
   return (
     <div className="min-h-screen bg-background text-foreground font-sans">
       <Navbar />
-      <main>
+      <main id="main-content">
         {/* Hero */}
         <section className="pt-32 pb-16 relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-emerald-500/5" />
@@ -98,8 +120,11 @@ export default function Resources() {
                         <img
                           src={post.image}
                           alt={post.title}
+                          width={1600}
+                          height={900}
                           className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                           loading="lazy"
+                          decoding="async"
                           referrerPolicy="no-referrer"
                         />
                       </div>

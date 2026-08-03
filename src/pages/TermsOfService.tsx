@@ -1,6 +1,9 @@
 import { motion } from "framer-motion";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { useSeo } from "@/lib/seo";
+import { webPageSchema } from "@/lib/schema";
 
 const sections = [
   {
@@ -89,14 +92,39 @@ const sections = [
 ];
 
 export default function TermsOfService() {
+  useSeo({
+    title: "Terms of Service",
+    description:
+      "Read the Terms of Service for Nexio Global. Understand the terms governing your use of our website and the digital solutions, AI automation, and cybersecurity services we provide.",
+    path: "/terms-of-service",
+    schema: [
+      webPageSchema({
+        name: "Terms of Service — Nexio Global",
+        description:
+          "Read the Terms of Service for Nexio Global. Understand the terms governing your use of our website and the digital solutions, AI automation, and cybersecurity services we provide.",
+        path: "/terms-of-service",
+        breadcrumbs: [
+          { name: "Home", path: "/" },
+          { name: "Terms of Service", path: "/terms-of-service" },
+        ],
+      }),
+    ],
+  });
+
   return (
     <div className="min-h-screen bg-background text-foreground font-sans">
       <Navbar />
-      <main>
+      <main id="main-content">
         {/* Hero Section */}
         <section className="pt-32 pb-16 relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-violet-500/5" />
           <div className="max-w-7xl mx-auto px-6 relative">
+            <Breadcrumbs
+              items={[
+                { name: "Home", path: "/" },
+                { name: "Terms of Service", path: "/terms-of-service" },
+              ]}
+            />
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}

@@ -1,5 +1,23 @@
+# Nexio Global robots.txt
+# https://nexiogbl.com
+
 User-agent: *
 Allow: /
+Disallow: /assets/work/
+Disallow: /*?*
 
+# Google-specific rules
+User-agent: Googlebot
+Allow: /
+Disallow: /assets/work/
+
+User-agent: Googlebot-Image
+Allow: /assets/work/
+
+User-agent: Bingbot
+Allow: /
+
+# Sitemaps
 Sitemap: https://nexiogbl.com/sitemap.xml
+Sitemap: https://nexiogbl.com/sitemap-images.xml
 

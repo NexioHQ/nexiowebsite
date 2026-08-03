@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://nexiogbl.com/</loc>
+    <image:image>
+      <image:loc>https://nexiogbl.com/assets/work/hotel_website.png</image:loc>
+      <image:title>Luxury hotel website and booking portal built by Nexio Global</image:title>
+      <image:caption>Custom hotel website with real-time booking engine and payment gateway integration</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://nexiogbl.com/assets/work/grc.jpg</image:loc>
+      <image:title>Enterprise GRC and ISO 27001 compliance review dashboard</image:title>
+      <image:caption>Governance, Risk, and Compliance assessment with ISO 27001 auditing</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://nexiogbl.com/assets/work/whatsapp_minimal.jpg</image:loc>
+      <image:title>WhatsApp AI lead automation chatbot</image:title>
+      <image:caption>Autonomous 24/7 WhatsApp AI agent for lead qualification and CRM syncing</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://nexiogbl.com/assets/work/restful_sleep_app.png</image:loc>
+      <image:title>Restful sleep monitoring mobile app</image:title>
+      <image:caption>Smart sleep health app with AI coaching and biometric tracking</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://nexiogbl.com/assets/work/freshmart_erp.png</image:loc>
+      <image:title>FreshMart supermarket management system</image:title>
+      <image:caption>Custom ERP-style management platform for supermarket chains</image:caption>
+    </image:image>
+  </url>
+</urlset>

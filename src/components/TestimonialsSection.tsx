@@ -177,7 +177,7 @@ export function TestimonialsSection() {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -30 }}
             transition={{ duration: 0.35 }}
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 min-h-[320px]"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 min-h-[280px] sm:min-h-[320px]"
           >
             {visible.map((t, i) => (
               <TestimonialCard key={t.name} t={t} i={i} />

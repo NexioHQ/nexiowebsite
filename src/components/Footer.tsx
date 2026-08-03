@@ -45,7 +45,7 @@ export function Footer() {
           {/* Col 4 */}
           <div>
             <h4 className="font-semibold mb-5 text-sm">Connect</h4>
-            <div className="flex gap-3 mb-7">
+            <div className="flex flex-wrap gap-3 mb-7">
               <a href="https://www.linkedin.com/company/nexioglobal" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="w-9 h-9 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center text-foreground hover:bg-primary hover:text-white transition-colors">
                 <Linkedin size={16} />
               </a>
@@ -56,7 +56,7 @@ export function Footer() {
                 <Instagram size={16} />
               </a>
             </div>
-            <div className="flex gap-4 text-sm text-muted-foreground">
+            <div className="flex flex-wrap gap-x-4 gap-y-2 text-sm text-muted-foreground">
               <Link href="/privacy-policy"><span className="hover:text-foreground transition-colors cursor-pointer">Privacy Policy</span></Link>
               <span className="text-muted-foreground/30">|</span>
               <Link href="/terms-of-service"><span className="hover:text-foreground transition-colors cursor-pointer">Terms of Service</span></Link>

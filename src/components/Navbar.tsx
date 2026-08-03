@@ -70,7 +70,7 @@ export function Navbar() {
         <Link href="/">
           <img src={logo} alt="Nexio" className="h-5 sm:h-6 w-auto cursor-pointer" />
         </Link>
-        <div className="hidden md:flex items-center gap-4 lg:gap-5 xl:gap-7">
+        <div className="hidden lg:flex items-center gap-4 xl:gap-7">
           {navLinks.map((link) => {
             const isActive = location === link.href || (link.href !== "/" && location.startsWith(link.href));
             if (link.hasDropdown) {
@@ -80,6 +80,8 @@ export function Navbar() {
                     onClick={() => setSolutionsOpen(!solutionsOpen)}
                     onMouseEnter={() => setSolutionsOpen(true)}
                     className={`${linkClass(isActive)} inline-flex items-center gap-1`}
+                    aria-haspopup="true"
+                    aria-expanded={solutionsOpen}
                   >
                     {link.name}
                     <ChevronDown size={14} className={`transition-transform duration-200 ${solutionsOpen ? "rotate-180" : ""}`} />
@@ -117,7 +119,7 @@ export function Navbar() {
             );
           })}
         </div>
-        <div className="hidden md:flex items-center gap-4">
+        <div className="hidden lg:flex items-center gap-4">
           <button
             onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
             className={`p-2 rounded-full transition-colors ${scrolled || !isHome ? "text-gray-400 hover:text-white hover:bg-white/5" : "text-blue-200/70 hover:text-white hover:bg-white/5"}`}
@@ -133,16 +135,19 @@ export function Navbar() {
             </Link>
           )}
         </div>
-        <div className="md:hidden flex items-center gap-4">
+        <div className="lg:hidden flex items-center gap-4">
           <button
             onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
             className={`p-2 rounded-full ${scrolled || !isHome ? "text-gray-400" : "text-blue-200/70"}`}
+            aria-label="Toggle theme"
           >
             {theme === "dark" ? <Sun size={20} /> : <Moon size={20} />}
           </button>
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className={`p-2 ${scrolled || !isHome ? "text-gray-400" : "text-blue-200/70"}`}
+            aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
+            aria-expanded={mobileMenuOpen}
           >
             {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -154,9 +159,9 @@ export function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden border-t border-blue-900/20 bg-[#0B1120]/95 backdrop-blur-lg"
+            className="lg:hidden border-t border-blue-900/20 bg-[#0B1120]/95 backdrop-blur-lg"
           >
-            <div className="flex flex-col py-4 px-6 gap-1">
+            <div className="flex flex-col py-4 px-6 gap-1 max-h-[calc(100dvh-80px)] overflow-y-auto">
               {navLinks.map((link) => {
                 if (link.hasDropdown) {
                   return (
@@ -164,6 +169,8 @@ export function Navbar() {
                       <button
                         onClick={() => setMobileSolutionsOpen(!mobileSolutionsOpen)}
                         className="flex items-center justify-between w-full text-left text-lg font-medium text-gray-300 hover:text-white py-2"
+                        aria-haspopup="true"
+                        aria-expanded={mobileSolutionsOpen}
                       >
                         {link.name}
                         <ChevronDown size={16} className={`transition-transform duration-200 ${mobileSolutionsOpen ? "rotate-180" : ""}`} />

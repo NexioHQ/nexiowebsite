@@ -15,6 +15,7 @@ export function Hero() {
             className="w-full h-full object-cover"
             style={{ opacity: 0.65 }}
             fetchPriority="high"
+            decoding="async"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-[#0B1120]/70 via-[#0B1120]/50 to-[#0B1120]" />
         </div>
@@ -97,21 +98,21 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.5 }}
-            className="mt-10 sm:mt-12 pt-8 border-t border-white/10 grid grid-cols-2 sm:grid-cols-3 gap-6 max-w-3xl mx-auto text-center"
+            className="mt-10 sm:mt-12 pt-8 border-t border-white/10 grid grid-cols-3 gap-4 sm:gap-6 max-w-3xl mx-auto text-center"
           >
             <div>
-              <div className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">100%</div>
-              <div className="text-xs sm:text-sm text-blue-200/60 font-medium mt-0.5">Reliability & Uptime</div>
+              <div className="text-lg sm:text-2xl md:text-3xl font-extrabold text-white tracking-tight">100%</div>
+              <div className="text-[10px] sm:text-xs md:text-sm text-blue-200/60 font-medium mt-0.5">Reliability & Uptime</div>
             </div>
             <div>
-              <div className="flex items-center justify-center h-8 sm:h-9">
-                <div className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">Global</div>
+              <div className="flex items-center justify-center h-7 sm:h-8 md:h-9">
+                <div className="text-lg sm:text-2xl md:text-3xl font-extrabold text-white tracking-tight">Global</div>
               </div>
-              <div className="text-xs sm:text-sm text-blue-200/60 font-medium mt-0.5">Delivery</div>
+              <div className="text-[10px] sm:text-xs md:text-sm text-blue-200/60 font-medium mt-0.5">Delivery</div>
             </div>
-            <div className="col-span-2 sm:col-span-1">
-              <div className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">24/7</div>
-              <div className="text-xs sm:text-sm text-blue-200/60 font-medium mt-0.5">Dedicated Support</div>
+            <div>
+              <div className="text-lg sm:text-2xl md:text-3xl font-extrabold text-white tracking-tight">24/7</div>
+              <div className="text-[10px] sm:text-xs md:text-sm text-blue-200/60 font-medium mt-0.5">Dedicated Support</div>
             </div>
           </motion.div>
         </div>

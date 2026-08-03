@@ -2,8 +2,11 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { Mail, Phone, MapPin, CheckCircle2, Loader2 } from "lucide-react";
 import { CONTACT_EMAIL_ADDRESS, createContactMailtoUrl } from "@/lib/contact-email";
+import { useSeo } from "@/lib/seo";
+import { contactPageSchema, webPageSchema } from "@/lib/schema";
 
 const services = [
   "Digital Solutions",
@@ -15,6 +18,26 @@ const services = [
 ];
 
 export default function Contact() {
+  useSeo({
+    title: "Contact Us",
+    description:
+      "Contact Nexio Global to discuss your digital transformation, AI automation, or cybersecurity needs. We typically respond within 24 hours.",
+    path: "/contact",
+    schema: [
+      contactPageSchema(),
+      webPageSchema({
+        name: "Contact Us — Nexio Global",
+        description:
+          "Contact Nexio Global to discuss your digital transformation, AI automation, or cybersecurity needs.",
+        path: "/contact",
+        breadcrumbs: [
+          { name: "Home", path: "/" },
+          { name: "Contact Us", path: "/contact" },
+        ],
+      }),
+    ],
+  });
+
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -58,7 +81,7 @@ export default function Contact() {
   return (
     <div className="min-h-screen bg-background text-foreground font-sans">
       <Navbar />
-      <main>
+      <main id="main-content">
         {/* Hero */}
         <section className="pt-32 pb-16 relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-violet-500/5" />
@@ -83,7 +106,7 @@ export default function Contact() {
         {/* Contact Content */}
         <section className="pb-24">
           <div className="max-w-7xl mx-auto px-6">
-            <div className="grid lg:grid-cols-3 gap-12">
+            <div className="grid lg:grid-cols-3 gap-8 lg:gap-12">
               {/* Contact Info */}
               <motion.div
                 initial={{ opacity: 0, x: -20 }}
@@ -142,7 +165,7 @@ export default function Contact() {
                 transition={{ duration: 0.5, delay: 0.3 }}
                 className="lg:col-span-2"
               >
-                <div className="bg-white dark:bg-card border border-gray-100 dark:border-gray-800 rounded-2xl p-8">
+                <div className="bg-white dark:bg-card border border-gray-100 dark:border-gray-800 rounded-2xl p-6 sm:p-8">
                   {submitted ? (
                     <div className="flex flex-col items-center justify-center py-16 text-center">
                       <div className="w-16 h-16 rounded-full bg-green-50 dark:bg-green-500/10 flex items-center justify-center mb-5">

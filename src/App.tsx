@@ -62,6 +62,12 @@ function App() {
     <ThemeProvider defaultTheme="light" storageKey="nexio-theme">
       <QueryClientProvider client={queryClient}>
         <TooltipProvider>
+          <a
+            href="#main-content"
+            className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[200] focus:bg-primary focus:text-white focus:px-5 focus:py-3 focus:rounded-full focus:text-sm focus:font-semibold focus:shadow-lg"
+          >
+            Skip to main content
+          </a>
           <WouterRouter base={import.meta.env.BASE_URL.replace(/\/$/, '')}>
             <ScrollToTop />
             <Router />

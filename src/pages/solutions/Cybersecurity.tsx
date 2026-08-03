@@ -1,10 +1,13 @@
 import { motion } from "framer-motion";
-import { ShieldHalf, Search, Lock, GraduationCap, ClipboardCheck, ArrowLeft, CheckCircle2 } from "lucide-react";
+import { ShieldHalf, Search, Lock, GraduationCap, ClipboardCheck, ArrowLeft, CheckCircle2, ChevronDown } from "lucide-react";
 import { Link } from "wouter";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { useState } from "react";
 import { ContactForm } from "@/components/ContactForm";
+import { useSeo } from "@/lib/seo";
+import { serviceSchema, faqSchema, webPageSchema } from "@/lib/schema";
 
 const serviceGroups = [
   {
@@ -66,17 +69,76 @@ const whyItems = [
   "Ongoing monitoring partnerships available post-assessment",
 ];
 
+const faqs = [
+  {
+    question: "What cybersecurity services do you offer?",
+    answer:
+      "We provide security assessments, penetration testing, vulnerability management, website and network hardening, GRC compliance reviews, security awareness training, and ongoing security monitoring.",
+  },
+  {
+    question: "How long does a security assessment take?",
+    answer:
+      "A typical security assessment takes 2–6 weeks depending on the size and complexity of your environment. We provide a detailed timeline after the initial scoping call.",
+  },
+  {
+    question: "Do you help with compliance requirements like ISO 27001 or GDPR?",
+    answer:
+      "Yes. Our GRC compliance review covers ISO 27001, GDPR, and other relevant frameworks. We assess your current posture, identify gaps, and provide a roadmap to achieve compliance.",
+  },
+  {
+    question: "What happens after a vulnerability is found?",
+    answer:
+      "We provide prioritised remediation guidance with clear technical instructions. For critical issues, we can also provide direct engineering support to fix vulnerabilities quickly.",
+  },
+];
+
 export default function Cybersecurity() {
   const [formOpen, setFormOpen] = useState(false);
+  const [openFaq, setOpenFaq] = useState<number | null>(0);
+
+  useSeo({
+    title: "Cybersecurity",
+    description:
+      "Enterprise-grade cybersecurity from Nexio Global — penetration testing, vulnerability management, GRC compliance, security hardening, and ongoing monitoring to protect your business.",
+    path: "/solutions/cybersecurity",
+    schema: [
+      serviceSchema({
+        name: "Cybersecurity",
+        description:
+          "Enterprise-grade cybersecurity including penetration testing, vulnerability management, GRC compliance, security hardening, and ongoing monitoring.",
+        path: "/solutions/cybersecurity",
+        offers: true,
+      }),
+      faqSchema(faqs),
+      webPageSchema({
+        name: "Cybersecurity — Nexio Global",
+        description:
+          "Enterprise-grade cybersecurity from Nexio Global — penetration testing, vulnerability management, GRC compliance, security hardening, and ongoing monitoring.",
+        path: "/solutions/cybersecurity",
+        breadcrumbs: [
+          { name: "Home", path: "/" },
+          { name: "Solutions", path: "/solutions/cybersecurity" },
+          { name: "Cybersecurity", path: "/solutions/cybersecurity" },
+        ],
+      }),
+    ],
+  });
 
   return (
     <div className="min-h-screen bg-background text-foreground font-sans">
       <Navbar />
+      <main id="main-content">
 
       {/* Hero */}
       <section className="pt-28 sm:pt-36 pb-14 sm:pb-20 relative overflow-hidden">
         <div className="absolute top-0 left-0 w-[600px] h-[400px] bg-gradient-to-br from-emerald-500 to-emerald-600 opacity-10 rounded-full blur-[120px] pointer-events-none" />
         <div className="max-w-5xl mx-auto px-6 relative z-10">
+          <Breadcrumbs
+            items={[
+              { name: "Solutions", path: "/solutions/cybersecurity" },
+              { name: "Cybersecurity", path: "/solutions/cybersecurity" },
+            ]}
+          />
           <Link href="/">
             <button className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors mb-8">
               <ArrowLeft size={15} />
@@ -128,7 +190,7 @@ export default function Cybersecurity() {
       {/* Overview */}
       <section className="py-20">
         <div className="max-w-5xl mx-auto px-6">
-          <div className="grid lg:grid-cols-2 gap-16 items-start">
+<div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-start">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -234,6 +296,49 @@ export default function Cybersecurity() {
         </div>
       </section>
 
+      {/* FAQ */}
+      <section className="py-20 bg-gray-50/70 dark:bg-card/20">
+        <div className="max-w-3xl mx-auto px-6">
+          <motion.h2
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-3xl font-bold mb-10 text-center"
+          >
+            Frequently Asked Questions
+          </motion.h2>
+          <div className="space-y-3">
+            {faqs.map((faq, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 12 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.06 }}
+                className="bg-white dark:bg-card border border-border rounded-xl overflow-hidden"
+              >
+                <button
+                  onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                  className="w-full flex items-center justify-between gap-4 p-5 text-left font-semibold hover:bg-gray-50 dark:hover:bg-card/60 transition-colors"
+                  aria-expanded={openFaq === i}
+                >
+                  {faq.question}
+                  <ChevronDown
+                    size={18}
+                    className={`flex-shrink-0 text-muted-foreground transition-transform duration-200 ${openFaq === i ? "rotate-180" : ""}`}
+                  />
+                </button>
+                {openFaq === i && (
+                  <div className="px-5 pb-5 text-sm text-muted-foreground leading-relaxed">
+                    {faq.answer}
+                  </div>
+                )}
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="py-16 px-6">
         <div className="max-w-3xl mx-auto text-center">
@@ -250,6 +355,7 @@ export default function Cybersecurity() {
         </div>
       </section>
 
+      </main>
       <Footer />
       <ContactForm open={formOpen} onClose={() => setFormOpen(false)} />
     </div>

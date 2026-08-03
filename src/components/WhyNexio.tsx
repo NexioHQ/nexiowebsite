@@ -59,14 +59,14 @@ export function WhyNexio() {
       <div className="absolute top-1/2 left-0 w-96 h-96 bg-primary/5 rounded-full blur-[140px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-5 sm:px-6 relative z-10">
-        <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-start">
+        <div className="flex flex-col md:flex-row gap-8 md:gap-10 lg:gap-16 items-start">
           {/* Left Column Header */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="lg:w-5/12 lg:sticky lg:top-32"
+            className="md:w-5/12 md:sticky md:top-32"
           >
 
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-6 leading-tight">
@@ -92,7 +92,7 @@ export function WhyNexio() {
           </motion.div>
 
           {/* Right Column Reason Cards Grid */}
-          <div className="lg:w-7/12 grid sm:grid-cols-2 gap-5 w-full">
+          <div className="md:w-7/12 grid sm:grid-cols-2 gap-5 w-full">
             {reasons.map((reason, i) => (
               <motion.div
                 key={reason.title}

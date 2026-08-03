@@ -1,9 +1,12 @@
 import { motion } from "framer-motion";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { cultureValues } from "@/data/careers";
 import { Globe, BookOpen, Rocket, Heart, ArrowRight, Inbox } from "lucide-react";
 import { Link } from "wouter";
+import { useSeo } from "@/lib/seo";
+import { webPageSchema } from "@/lib/schema";
 
 const iconMap: Record<string, typeof Globe> = {
   globe: Globe,
@@ -13,10 +16,29 @@ const iconMap: Record<string, typeof Globe> = {
 };
 
 export default function Careers() {
+  useSeo({
+    title: "Careers",
+    description:
+      "Join Nexio Global and build the future of technology with a global team of passionate engineers, designers, and strategists. Explore career opportunities with us.",
+    path: "/careers",
+    schema: [
+      webPageSchema({
+        name: "Careers — Nexio Global",
+        description:
+          "Join Nexio Global and build the future of technology with a global team of passionate engineers, designers, and strategists.",
+        path: "/careers",
+        breadcrumbs: [
+          { name: "Home", path: "/" },
+          { name: "Careers", path: "/careers" },
+        ],
+      }),
+    ],
+  });
+
   return (
     <div className="min-h-screen bg-background text-foreground font-sans">
       <Navbar />
-      <main>
+      <main id="main-content">
         {/* Hero */}
         <section className="pt-32 pb-20 relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-amber-500/5" />

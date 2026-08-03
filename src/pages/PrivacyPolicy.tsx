@@ -1,6 +1,9 @@
 import { motion } from "framer-motion";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { useSeo } from "@/lib/seo";
+import { webPageSchema } from "@/lib/schema";
 
 const sections = [
   {
@@ -77,10 +80,29 @@ const sections = [
 ];
 
 export default function PrivacyPolicy() {
+  useSeo({
+    title: "Privacy Policy",
+    description:
+      "Learn how Nexio Global collects, uses, and protects your personal information. Read our privacy policy to understand your rights and our data practices.",
+    path: "/privacy-policy",
+    schema: [
+      webPageSchema({
+        name: "Privacy Policy — Nexio Global",
+        description:
+          "Learn how Nexio Global collects, uses, and protects your personal information.",
+        path: "/privacy-policy",
+        breadcrumbs: [
+          { name: "Home", path: "/" },
+          { name: "Privacy Policy", path: "/privacy-policy" },
+        ],
+      }),
+    ],
+  });
+
   return (
     <div className="min-h-screen bg-background text-foreground font-sans">
       <Navbar />
-      <main>
+      <main id="main-content">
         {/* Hero Section */}
         <section className="pt-32 pb-16 relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-violet-500/5" />
