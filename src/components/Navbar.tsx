@@ -1,7 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { useTheme } from "./theme-provider";
 import { Moon, Sun, Menu, X, ChevronDown } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
 import { Link, useLocation } from "wouter";
 import logo from "../assets/logo.png";
 
@@ -60,12 +59,7 @@ export function Navbar() {
       : `text-sm font-medium transition-colors ${active ? "text-blue-300" : "text-blue-100/70 hover:text-white"}`;
 
   return (
-    <motion.nav
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out ${scrolled || !isHome ? "bg-[#0B1120]/90 backdrop-blur-lg border-b border-blue-900/20 py-3 shadow-lg shadow-black/10" : "bg-transparent py-5"}`}
-    >
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out ${scrolled || !isHome ? "bg-[#0B1120]/90 backdrop-blur-lg border-b border-blue-900/20 py-3 shadow-lg shadow-black/10" : "bg-transparent py-5"}`}>
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         <Link href="/">
           <img src={logo} alt="Nexio" className="h-5 sm:h-6 w-auto cursor-pointer" />
@@ -86,27 +80,21 @@ export function Navbar() {
                     {link.name}
                     <ChevronDown size={14} className={`transition-transform duration-200 ${solutionsOpen ? "rotate-180" : ""}`} />
                   </button>
-                  <AnimatePresence>
-                    {solutionsOpen && (
-                      <motion.div
-                        initial={{ opacity: 0, y: 8 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: 8 }}
-                        transition={{ duration: 0.15 }}
-                        onMouseEnter={() => setSolutionsOpen(true)}
-                        onMouseLeave={() => setSolutionsOpen(false)}
-                        className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-max bg-[#0D1528] border border-blue-900/30 rounded-xl shadow-2xl shadow-black/30 py-2 z-50"
-                      >
-                        {solutionLinks.map((sl) => (
-                          <Link key={sl.href} href={sl.href} className="block w-max">
-                            <span className="block w-max px-3 py-2 text-sm text-gray-300 hover:bg-blue-500/10 hover:text-blue-300 transition-colors cursor-pointer whitespace-nowrap">
-                              {sl.name}
-                            </span>
-                          </Link>
-                        ))}
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
+                  {solutionsOpen && (
+                    <div
+                      onMouseEnter={() => setSolutionsOpen(true)}
+                      onMouseLeave={() => setSolutionsOpen(false)}
+                      className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-max bg-[#0D1528] border border-blue-900/30 rounded-xl shadow-2xl shadow-black/30 py-2 z-50"
+                    >
+                      {solutionLinks.map((sl) => (
+                        <Link key={sl.href} href={sl.href} className="block w-max">
+                          <span className="block w-max px-3 py-2 text-sm text-gray-300 hover:bg-blue-500/10 hover:text-blue-300 transition-colors cursor-pointer whitespace-nowrap">
+                            {sl.name}
+                          </span>
+                        </Link>
+                      ))}
+                    </div>
+                  )}
                 </div>
               );
             }
@@ -153,66 +141,50 @@ export function Navbar() {
           </button>
         </div>
       </div>
-      <AnimatePresence>
-        {mobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden border-t border-blue-900/20 bg-[#0B1120]/95 backdrop-blur-lg"
-          >
-            <div className="flex flex-col py-4 px-6 gap-1 max-h-[calc(100dvh-80px)] overflow-y-auto">
-              {navLinks.map((link) => {
-                if (link.hasDropdown) {
-                  return (
-                    <div key={link.name}>
-                      <button
-                        onClick={() => setMobileSolutionsOpen(!mobileSolutionsOpen)}
-                        className="flex items-center justify-between w-full text-left text-lg font-medium text-gray-300 hover:text-white py-2"
-                        aria-haspopup="true"
-                        aria-expanded={mobileSolutionsOpen}
-                      >
-                        {link.name}
-                        <ChevronDown size={16} className={`transition-transform duration-200 ${mobileSolutionsOpen ? "rotate-180" : ""}`} />
-                      </button>
-                      <AnimatePresence>
-                        {mobileSolutionsOpen && (
-                          <motion.div
-                            initial={{ opacity: 0, height: 0 }}
-                            animate={{ opacity: 1, height: "auto" }}
-                            exit={{ opacity: 0, height: 0 }}
-                            className="pl-4 space-y-1"
-                          >
-                            {solutionLinks.map((sl) => (
-                              <Link key={sl.href} href={sl.href}>
-                                <span className="block text-base text-gray-400 hover:text-blue-300 py-1.5 cursor-pointer">
-                                  {sl.name}
-                                </span>
-                              </Link>
-                            ))}
-                          </motion.div>
-                        )}
-                      </AnimatePresence>
-                    </div>
-                  );
-                }
-                return (
-                  <Link key={link.name} href={link.href}>
-                    <span className="block text-lg font-medium text-gray-300 hover:text-white py-2 cursor-pointer">
-                      {link.name}
-                    </span>
-                  </Link>
-                );
-              })}
-              <Link href="/contact">
-                <span className="block bg-blue-600 text-white px-5 py-3 rounded-full text-base font-medium mt-4 w-full text-center cursor-pointer hover:bg-blue-500 transition-colors">
-                  Book a Consultation
+      <div
+        className={`lg:hidden border-t border-blue-900/20 bg-[#0B1120]/95 backdrop-blur-lg overflow-hidden transition-[max-height,opacity] duration-300 ease-out ${mobileMenuOpen ? "max-h-[calc(100dvh-80px)] opacity-100" : "max-h-0 opacity-0 pointer-events-none"}`}
+      >
+        <div className="flex flex-col py-4 px-6 gap-1 max-h-[calc(100dvh-80px)] overflow-y-auto">
+          {navLinks.map((link) => {
+            if (link.hasDropdown) {
+              return (
+                <div key={link.name}>
+                  <button
+                    onClick={() => setMobileSolutionsOpen(!mobileSolutionsOpen)}
+                    className="flex items-center justify-between w-full text-left text-lg font-medium text-gray-300 hover:text-white py-2"
+                    aria-haspopup="true"
+                    aria-expanded={mobileSolutionsOpen}
+                  >
+                    {link.name}
+                    <ChevronDown size={16} className={`transition-transform duration-200 ${mobileSolutionsOpen ? "rotate-180" : ""}`} />
+                  </button>
+                  <div className={`pl-4 space-y-1 overflow-hidden transition-[max-height,opacity] duration-300 ease-out ${mobileSolutionsOpen ? "max-h-40 opacity-100" : "max-h-0 opacity-0"}`}>
+                    {solutionLinks.map((sl) => (
+                      <Link key={sl.href} href={sl.href}>
+                        <span className="block text-base text-gray-400 hover:text-blue-300 py-1.5 cursor-pointer">
+                          {sl.name}
+                        </span>
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              );
+            }
+            return (
+              <Link key={link.name} href={link.href}>
+                <span className="block text-lg font-medium text-gray-300 hover:text-white py-2 cursor-pointer">
+                  {link.name}
                 </span>
               </Link>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </motion.nav>
+            );
+          })}
+          <Link href="/contact">
+            <span className="block bg-blue-600 text-white px-5 py-3 rounded-full text-base font-medium mt-4 w-full text-center cursor-pointer hover:bg-blue-500 transition-colors">
+              Book a Consultation
+            </span>
+          </Link>
+        </div>
+      </div>
+    </nav>
   );
 }
