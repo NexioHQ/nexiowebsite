@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { useTheme } from "./theme-provider";
 import { Moon, Sun, Menu, X, ChevronDown } from "lucide-react";
 import { Link, useLocation } from "wouter";
+import { AnimatePresence, motion } from "framer-motion";
 import logo from "../assets/logo.png";
 
 const solutionLinks = [
@@ -141,10 +142,17 @@ export function Navbar() {
           </button>
         </div>
       </div>
-      <div
-        className={`lg:hidden border-t border-blue-900/20 bg-[#0B1120]/95 backdrop-blur-lg overflow-hidden transition-[max-height,opacity] duration-300 ease-out ${mobileMenuOpen ? "max-h-[calc(100dvh-80px)] opacity-100" : "max-h-0 opacity-0 pointer-events-none"}`}
-      >
-        <div className="flex flex-col py-4 px-6 gap-1 max-h-[calc(100dvh-80px)] overflow-y-auto">
+      <AnimatePresence>
+        {mobileMenuOpen && (
+        <motion.div
+          initial={{ height: 0, opacity: 0 }}
+          animate={{ height: "auto", opacity: 1 }}
+          exit={{ height: 0, opacity: 0 }}
+          transition={{ duration: 0.25, ease: "easeOut" }}
+          className="lg:hidden border-t border-blue-900/20 bg-[#0B1120]/98 overflow-hidden"
+          aria-hidden={!mobileMenuOpen}
+        >
+          <div className="flex flex-col py-4 px-6 gap-1 max-h-[calc(100dvh-80px)] overflow-y-auto">
           {navLinks.map((link) => {
             if (link.hasDropdown) {
               return (
@@ -158,15 +166,17 @@ export function Navbar() {
                     {link.name}
                     <ChevronDown size={16} className={`transition-transform duration-200 ${mobileSolutionsOpen ? "rotate-180" : ""}`} />
                   </button>
-                  <div className={`pl-4 space-y-1 overflow-hidden transition-[max-height,opacity] duration-300 ease-out ${mobileSolutionsOpen ? "max-h-40 opacity-100" : "max-h-0 opacity-0"}`}>
-                    {solutionLinks.map((sl) => (
-                      <Link key={sl.href} href={sl.href}>
-                        <span className="block text-base text-gray-400 hover:text-blue-300 py-1.5 cursor-pointer">
-                          {sl.name}
-                        </span>
-                      </Link>
-                    ))}
-                  </div>
+                  {mobileSolutionsOpen && (
+                    <div className="pl-4 space-y-1">
+                      {solutionLinks.map((sl) => (
+                        <Link key={sl.href} href={sl.href}>
+                          <span className="block text-base text-gray-400 hover:text-blue-300 py-1.5 cursor-pointer">
+                            {sl.name}
+                          </span>
+                        </Link>
+                      ))}
+                    </div>
+                  )}
                 </div>
               );
             }
@@ -183,8 +193,10 @@ export function Navbar() {
               Book a Consultation
             </span>
           </Link>
-        </div>
-      </div>
+          </div>
+        </motion.div>
+        )}
+      </AnimatePresence>
     </nav>
   );
 }

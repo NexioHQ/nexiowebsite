@@ -85,6 +85,12 @@ const whyItems = [
   "Post-launch support and iterative improvement included",
 ];
 
+const breadcrumbs = [
+  { name: "Home", path: "/" },
+  { name: "Solutions", path: "/solutions" },
+  { name: "Digital Solutions", path: "/solutions/digital-solutions" },
+];
+
 const faqs = [
   {
     question: "How long does it take to build a website or web application?",
@@ -131,11 +137,7 @@ export default function DigitalSolutions() {
         description:
           "High-performance websites, web applications, mobile apps, and enterprise software built by Nexio Global.",
         path: "/solutions/digital-solutions",
-        breadcrumbs: [
-          { name: "Home", path: "/" },
-          { name: "Solutions", path: "/solutions/digital-solutions" },
-          { name: "Digital Solutions", path: "/solutions/digital-solutions" },
-        ],
+        breadcrumbs,
       }),
     ],
   });
@@ -150,10 +152,7 @@ export default function DigitalSolutions() {
         <div className="absolute top-0 left-0 w-[600px] h-[400px] bg-gradient-to-br from-blue-500 to-blue-600 opacity-10 rounded-full blur-[120px] pointer-events-none" />
         <div className="max-w-5xl mx-auto px-6 relative z-10">
           <Breadcrumbs
-            items={[
-              { name: "Solutions", path: "/solutions/digital-solutions" },
-              { name: "Digital Solutions", path: "/solutions/digital-solutions" },
-            ]}
+            items={breadcrumbs.slice(1)}
           />
           <Link href="/">
             <button className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors mb-8">

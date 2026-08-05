@@ -125,7 +125,7 @@ export default function AIAutomation() {
         path: "/solutions/ai-automation",
         breadcrumbs: [
           { name: "Home", path: "/" },
-          { name: "Solutions", path: "/solutions/ai-automation" },
+          { name: "Solutions", path: "/solutions" },
           { name: "AI & Automation", path: "/solutions/ai-automation" },
         ],
       }),
@@ -143,7 +143,7 @@ export default function AIAutomation() {
         <div className="max-w-5xl mx-auto px-6 relative z-10">
           <Breadcrumbs
             items={[
-              { name: "Solutions", path: "/solutions/ai-automation" },
+              { name: "Solutions", path: "/solutions" },
               { name: "AI & Automation", path: "/solutions/ai-automation" },
             ]}
           />

@@ -12,11 +12,19 @@ const About = lazy(() => import('@/pages/About'));
 const Resources = lazy(() => import('@/pages/Resources'));
 const Careers = lazy(() => import('@/pages/Careers'));
 const Contact = lazy(() => import('@/pages/Contact'));
+const Solutions = lazy(() => import('@/pages/Solutions'));
 const PrivacyPolicy = lazy(() => import('@/pages/PrivacyPolicy'));
 const TermsOfService = lazy(() => import('@/pages/TermsOfService'));
 const DigitalSolutions = lazy(() => import('@/pages/solutions/WebSoftwareDevelopment'));
 const AIAutomation = lazy(() => import('@/pages/solutions/AIAutomation'));
 const Cybersecurity = lazy(() => import('@/pages/solutions/Cybersecurity'));
+const ServicesDigitalSolutions = lazy(() => import('@/pages/services/DigitalSolutions'));
+const ServicesAIAutomation = lazy(() => import('@/pages/services/AIAutomation'));
+const ServicesCloudSolutions = lazy(() => import('@/pages/services/CloudSolutions'));
+const ServicesCybersecurity = lazy(() => import('@/pages/services/Cybersecurity'));
+const ServicesTechnologyConsulting = lazy(() => import('@/pages/services/TechnologyConsulting'));
+const BlogPost = lazy(() => import('@/pages/BlogPost'));
+const WorkDetail = lazy(() => import('@/pages/WorkDetail'));
 const NotFound = lazy(() => import('@/pages/not-found'));
 
 function ScrollToTop() {
@@ -43,10 +51,18 @@ function Router() {
       <Switch>
         <Route path="/" component={Home} />
         <Route path="/about" component={About} />
+        <Route path="/solutions" component={Solutions} />
         <Route path="/solutions/digital-solutions" component={DigitalSolutions} />
         <Route path="/solutions/ai-automation" component={AIAutomation} />
         <Route path="/solutions/cybersecurity" component={Cybersecurity} />
+        <Route path="/services/digital-solutions" component={ServicesDigitalSolutions} />
+        <Route path="/services/ai-automation" component={ServicesAIAutomation} />
+        <Route path="/services/cloud-solutions" component={ServicesCloudSolutions} />
+        <Route path="/services/cybersecurity" component={ServicesCybersecurity} />
+        <Route path="/services/technology-consulting" component={ServicesTechnologyConsulting} />
         <Route path="/resources" component={Resources} />
+        <Route path="/resources/work/:slug" component={WorkDetail} />
+        <Route path="/resources/:slug" component={BlogPost} />
         <Route path="/careers" component={Careers} />
         <Route path="/contact" component={Contact} />
         <Route path="/privacy-policy" component={PrivacyPolicy} />

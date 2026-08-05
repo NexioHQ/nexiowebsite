@@ -1,5 +1,6 @@
 export interface WorkItem {
   title: string;
+  slug: string;
   type?: "Web App" | "Website" | "Dashboard" | "Mobile App";
   category: string;
   description: string;
@@ -22,6 +23,7 @@ export interface WorkItem {
 export const workItems: WorkItem[] = [
   {
     title: "Hotel Website & Portal",
+    slug: "hotel-website-portal",
     type: "Website",
     category: "Digital Solutions",
     description:
@@ -35,6 +37,7 @@ export const workItems: WorkItem[] = [
   },
   {
     title: "Enterprise GRC & Compliance Review",
+    slug: "enterprise-grc-compliance-review",
     type: "Dashboard",
     category: "Cybersecurity",
     description:
@@ -48,6 +51,7 @@ export const workItems: WorkItem[] = [
   },
   {
     title: "WhatsApp Lead Automation AI Chatbot",
+    slug: "whatsapp-lead-automation-ai-chatbot",
     type: "Web App",
     category: "AI & Automation",
     description:
@@ -61,6 +65,7 @@ export const workItems: WorkItem[] = [
   },
   {
     title: "Pulse Analytics Platform",
+    slug: "pulse-analytics-platform",
     type: "Dashboard",
     category: "Digital Solutions",
     description:
@@ -74,6 +79,7 @@ export const workItems: WorkItem[] = [
   },
   {
     title: "Restful Sleep Monitoring App",
+    slug: "restful-sleep-monitoring-app",
     type: "Mobile App",
     category: "Digital Solutions",
     description:
@@ -86,6 +92,7 @@ export const workItems: WorkItem[] = [
   },
   {
     title: "FreshMart Supermarket Management System",
+    slug: "freshmart-supermarket-management-system",
     type: "Web App",
     category: "Digital Solutions",
     description:

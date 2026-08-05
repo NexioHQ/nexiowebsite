@@ -1,66 +1,183 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://nexiogbl.com/</loc>
-    <lastmod>2026-08-03</lastmod>
+    <lastmod>2026-08-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://nexiogbl.com/about</loc>
-    <lastmod>2026-08-03</lastmod>
+    <lastmod>2026-08-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://nexiogbl.com/solutions</loc>
+    <lastmod>2026-08-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://nexiogbl.com/solutions/digital-solutions</loc>
-    <lastmod>2026-08-03</lastmod>
+    <lastmod>2026-08-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://nexiogbl.com/solutions/ai-automation</loc>
-    <lastmod>2026-08-03</lastmod>
+    <lastmod>2026-08-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://nexiogbl.com/solutions/cybersecurity</loc>
-    <lastmod>2026-08-03</lastmod>
+    <lastmod>2026-08-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://nexiogbl.com/services/digital-solutions</loc>
+    <lastmod>2026-08-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://nexiogbl.com/services/ai-automation</loc>
+    <lastmod>2026-08-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://nexiogbl.com/services/cloud-solutions</loc>
+    <lastmod>2026-08-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://nexiogbl.com/services/cybersecurity</loc>
+    <lastmod>2026-08-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://nexiogbl.com/services/technology-consulting</loc>
+    <lastmod>2026-08-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://nexiogbl.com/resources</loc>
-    <lastmod>2026-08-03</lastmod>
+    <lastmod>2026-08-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://nexiogbl.com/resources/ai-reshaping-enterprise-workflow</loc>
+    <lastmod>2026-07-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://nexiogbl.com/resources/zero-trust-architecture-guide</loc>
+    <lastmod>2026-07-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://nexiogbl.com/resources/multi-cloud-strategies-vendor-lockin</loc>
+    <lastmod>2026-06-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://nexiogbl.com/resources/scalable-saas-modern-architectures</loc>
+    <lastmod>2026-06-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://nexiogbl.com/resources/digital-transformation-roi</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://nexiogbl.com/resources/devops-best-practices-cicd</loc>
+    <lastmod>2026-06-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://nexiogbl.com/resources/custom-erp-vs-off-the-shelf</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://nexiogbl.com/resources/autonomous-ai-agents-customer-support</loc>
+    <lastmod>2026-07-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://nexiogbl.com/resources/work/hotel-website-portal</loc>
+    <lastmod>2026-08-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://nexiogbl.com/resources/work/enterprise-grc-compliance-review</loc>
+    <lastmod>2026-08-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://nexiogbl.com/resources/work/whatsapp-lead-automation-ai-chatbot</loc>
+    <lastmod>2026-08-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://nexiogbl.com/resources/work/pulse-analytics-platform</loc>
+    <lastmod>2026-08-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://nexiogbl.com/resources/work/restful-sleep-monitoring-app</loc>
+    <lastmod>2026-08-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://nexiogbl.com/resources/work/freshmart-supermarket-management-system</loc>
+    <lastmod>2026-08-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://nexiogbl.com/careers</loc>
-    <lastmod>2026-08-03</lastmod>
+    <lastmod>2026-08-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://nexiogbl.com/contact</loc>
-    <lastmod>2026-08-03</lastmod>
+    <lastmod>2026-08-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nexiogbl.com/privacy-policy</loc>
-    <lastmod>2026-08-03</lastmod>
+    <lastmod>2026-08-04</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://nexiogbl.com/terms-of-service</loc>
-    <lastmod>2026-08-03</lastmod>
+    <lastmod>2026-08-04</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
 </urlset>
-

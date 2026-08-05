@@ -7,6 +7,7 @@ import { WorkCard } from "@/components/WorkCard";
 import { blogPosts } from "@/data/resources";
 import { workItems } from "@/data/work";
 import { Calendar, Clock, ArrowRight } from "lucide-react";
+import { Link } from "wouter";
 import { useSeo } from "@/lib/seo";
 import { webPageSchema } from "@/lib/schema";
 
@@ -89,12 +90,15 @@ export default function Resources() {
                   <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
                     {workItems.map((item, i) => (
                       <motion.div
-                        key={item.title}
+                        key={item.slug}
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: i * 0.08 }}
+                        className="h-full"
                       >
-                        <WorkCard item={item} variant="expandable" />
+                        <Link href={`/resources/work/${item.slug}`} className="block h-full">
+                          <WorkCard item={item} variant="full" />
+                        </Link>
                       </motion.div>
                     ))}
                   </div>
@@ -109,26 +113,28 @@ export default function Resources() {
                   className="grid gap-6 md:grid-cols-2 lg:grid-cols-3"
                 >
                   {blogPosts.map((post, i) => (
-                    <motion.article
+                    <motion.div
                       key={post.slug}
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: i * 0.08 }}
-                      className="group cursor-pointer overflow-hidden rounded-2xl border border-gray-100 bg-white transition-all duration-300 hover:border-gray-300 hover:shadow-xl dark:border-gray-800 dark:bg-card dark:hover:border-gray-700"
+                      className="h-full"
                     >
-                      <div className="aspect-[16/9] overflow-hidden bg-gray-100 dark:bg-gray-800">
-                        <img
-                          src={post.image}
-                          alt={post.title}
-                          width={1600}
-                          height={900}
-                          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                          loading="lazy"
-                          decoding="async"
-                          referrerPolicy="no-referrer"
-                        />
-                      </div>
-                      <div className="p-6">
+                      <Link href={`/resources/${post.slug}`} className="block h-full">
+                        <article className="group h-full cursor-pointer overflow-hidden rounded-2xl border border-gray-100 bg-white transition-all duration-300 hover:border-primary/40 hover:shadow-xl dark:border-gray-800 dark:bg-card dark:hover:border-gray-700">
+                          <div className="aspect-[16/9] overflow-hidden bg-gray-100 dark:bg-gray-800">
+                            <img
+                              src={post.image}
+                              alt={post.title}
+                              width={1600}
+                              height={900}
+                              className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                              loading="lazy"
+                              decoding="async"
+                              referrerPolicy="no-referrer"
+                            />
+                          </div>
+                          <div className="p-6">
                         <div className="mb-3 flex items-center gap-3">
                           <span className="rounded-full bg-primary/10 px-2.5 py-1 text-xs font-semibold uppercase tracking-wider text-primary">
                             {post.category}
@@ -155,8 +161,10 @@ export default function Resources() {
                             className="text-primary opacity-0 transition-all duration-200 group-hover:translate-x-1 group-hover:opacity-100"
                           />
                         </div>
-                      </div>
-                    </motion.article>
+                          </div>
+                        </article>
+                      </Link>
+                    </motion.div>
                   ))}
                 </motion.div>
               </TabsContent>

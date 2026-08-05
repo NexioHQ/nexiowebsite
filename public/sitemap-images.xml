@@ -1,32 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://nexiogbl.com/</loc>
     <image:image>
       <image:loc>https://nexiogbl.com/assets/work/hotel_website.png</image:loc>
-      <image:title>Luxury hotel website and booking portal built by Nexio Global</image:title>
-      <image:caption>Custom hotel website with real-time booking engine and payment gateway integration</image:caption>
+      <image:title>Hotel Website &amp; Portal</image:title>
+      <image:caption>Luxury hotel website and booking engine with real-time reservations.</image:caption>
     </image:image>
     <image:image>
       <image:loc>https://nexiogbl.com/assets/work/grc.jpg</image:loc>
-      <image:title>Enterprise GRC and ISO 27001 compliance review dashboard</image:title>
-      <image:caption>Governance, Risk, and Compliance assessment with ISO 27001 auditing</image:caption>
+      <image:title>Enterprise GRC &amp; Compliance Review</image:title>
+      <image:caption>Governance, risk, and compliance dashboard for ISO 27001 readiness.</image:caption>
     </image:image>
     <image:image>
       <image:loc>https://nexiogbl.com/assets/work/whatsapp_minimal.jpg</image:loc>
-      <image:title>WhatsApp AI lead automation chatbot</image:title>
-      <image:caption>Autonomous 24/7 WhatsApp AI agent for lead qualification and CRM syncing</image:caption>
+      <image:title>WhatsApp Lead Automation AI Chatbot</image:title>
+      <image:caption>Autonomous WhatsApp AI agent for lead qualification and CRM syncing.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://nexiogbl.com/resources</loc>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&amp;q=80</image:loc>
+      <image:title>How AI is Reshaping Enterprise Workflow Automation</image:title>
+      <image:caption>Article preview image for AI workflow automation insights.</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://nexiogbl.com/assets/work/restful_sleep_app.png</image:loc>
-      <image:title>Restful sleep monitoring mobile app</image:title>
-      <image:caption>Smart sleep health app with AI coaching and biometric tracking</image:caption>
+      <image:loc>https://images.unsplash.com/photo-1563986768609-322da13575f2?w=600&amp;q=80</image:loc>
+      <image:title>Zero Trust Architecture: A Practical Implementation Guide</image:title>
+      <image:caption>Article preview image for zero trust security guidance.</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://nexiogbl.com/assets/work/freshmart_erp.png</image:loc>
-      <image:title>FreshMart supermarket management system</image:title>
-      <image:caption>Custom ERP-style management platform for supermarket chains</image:caption>
+      <image:loc>https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&amp;q=80</image:loc>
+      <image:title>Multi-Cloud Strategies: Avoiding Vendor Lock-In</image:title>
+      <image:caption>Article preview image for multi-cloud strategy insights.</image:caption>
     </image:image>
   </url>
 </urlset>

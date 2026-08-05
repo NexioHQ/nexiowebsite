@@ -1,12 +1,29 @@
 import path from 'path';
+import { mkdirSync, writeFileSync } from 'fs';
 import react from '@vitejs/plugin-react';
 import tailwindcss from '@tailwindcss/vite';
 import { defineConfig } from 'vite';
+import { buildHumansTxt, buildImageSitemapXml, buildRobotsTxt, buildSitemapXml } from './src/lib/site';
+
+function seoArtifactsPlugin() {
+  return {
+    name: 'seo-artifacts',
+    closeBundle() {
+      const distDir = path.resolve(import.meta.dirname, 'dist');
+      mkdirSync(path.resolve(distDir, '.well-known'), { recursive: true });
+      writeFileSync(path.resolve(distDir, 'robots.txt'), buildRobotsTxt(), 'utf8');
+      writeFileSync(path.resolve(distDir, 'sitemap.xml'), buildSitemapXml(), 'utf8');
+      writeFileSync(path.resolve(distDir, 'sitemap-images.xml'), buildImageSitemapXml(), 'utf8');
+      writeFileSync(path.resolve(distDir, 'humans.txt'), buildHumansTxt(), 'utf8');
+    },
+  };
+}
 
 export default defineConfig({
   plugins: [
     react(),
     tailwindcss(),
+    seoArtifactsPlugin(),
   ],
   resolve: {
     alias: {

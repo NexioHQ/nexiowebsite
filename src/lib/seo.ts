@@ -1,12 +1,23 @@
-import { useEffect } from "react";
+import { useLayoutEffect } from "react";
+import {
+  SITE_URL,
+  SITE_NAME,
+  SITE_DEFAULT_DESCRIPTION,
+  SITE_DEFAULT_TITLE,
+  SITE_DEFAULT_IMAGE,
+  SITE_TWITTER_HANDLE,
+  SITE_LOCALE,
+  SITE_LANGUAGE,
+} from "./site";
 
-export const SITE_URL = "https://nexiogbl.com";
-export const SITE_NAME = "Nexio Global";
-export const SITE_DEFAULT_DESCRIPTION =
-  "Nexio Global — Transforming Businesses Through Technology. We deliver enterprise-grade digital solutions, AI automation, cloud infrastructure, and cybersecurity services.";
-export const SITE_DEFAULT_TITLE = "Nexio Global | Digital Solutions, AI Automation & Cybersecurity";
-export const SITE_TWITTER_HANDLE = "@nexiogbl";
-export const SITE_LOGO_URL = `${SITE_URL}/favicon.png`;
+export {
+  SITE_URL,
+  SITE_NAME,
+  SITE_DEFAULT_DESCRIPTION,
+  SITE_DEFAULT_TITLE,
+  SITE_DEFAULT_IMAGE,
+  SITE_TWITTER_HANDLE,
+};
 
 export interface SeoOptions {
   title: string;
@@ -14,6 +25,7 @@ export interface SeoOptions {
   path: string;
   type?: "website" | "article" | "profile";
   image?: string;
+  imageAlt?: string;
   noindex?: boolean;
   schema?: object[];
 }
@@ -47,23 +59,48 @@ function upsertJsonLd(schema: object) {
 }
 
 function removeJsonLd() {
-  document.head.querySelectorAll<HTMLScriptElement>('script[data-seo-json-ld="true"]').forEach((s) => s.remove());
+  document.head
+    .querySelectorAll<HTMLScriptElement>('script[data-seo-json-ld="true"]')
+    .forEach((s) => s.remove());
 }
 
 /**
  * Reusable SEO hook — sets unique title, meta description, canonical URL,
  * Open Graph, Twitter Card, robots directives, and injects JSON-LD schema.
- * All metadata is cleaned up on unmount so each route gets fresh tags.
+ * The work happens in a layout effect so metadata is committed as early as
+ * possible in the client render path.
  */
-export function useSeo({ title, description, path, type = "website", image, noindex = false, schema = [] }: SeoOptions) {
-  useEffect(() => {
+export function useSeo({
+  title,
+  description,
+  path,
+  type = "website",
+  image,
+  imageAlt,
+  noindex = false,
+  schema = [],
+}: SeoOptions) {
+  useLayoutEffect(() => {
     const fullTitle = title === SITE_NAME ? title : `${title} | ${SITE_NAME}`;
     const canonicalUrl = `${SITE_URL}${path === "/" ? "/" : path}`;
-    const ogImage = image ?? SITE_LOGO_URL;
+    const ogImage = image ?? SITE_DEFAULT_IMAGE;
 
+    document.documentElement.lang = SITE_LANGUAGE;
     document.title = fullTitle;
+
     upsertMeta("name", "description", description);
-    upsertMeta("name", "robots", noindex ? "noindex, nofollow" : "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1");
+    upsertMeta(
+      "name",
+      "robots",
+      noindex
+        ? "noindex, nofollow"
+        : "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    );
+    upsertMeta("name", "application-name", SITE_NAME);
+    upsertMeta("name", "apple-mobile-web-app-title", SITE_NAME);
+    upsertMeta("name", "referrer", "strict-origin-when-cross-origin");
+    upsertMeta("name", "format-detection", "telephone=no,email=no,address=no");
+    upsertMeta("name", "color-scheme", "light dark");
     upsertLink("canonical", canonicalUrl);
 
     // Open Graph
@@ -73,21 +110,25 @@ export function useSeo({ title, description, path, type = "website", image, noin
     upsertMeta("property", "og:type", type);
     upsertMeta("property", "og:url", canonicalUrl);
     upsertMeta("property", "og:image", ogImage);
-    upsertMeta("property", "og:locale", "en_US");
+    upsertMeta("property", "og:image:alt", imageAlt ?? description);
+    upsertMeta("property", "og:image:width", "1200");
+    upsertMeta("property", "og:image:height", "630");
+    upsertMeta("property", "og:locale", SITE_LOCALE);
 
     // Twitter / X Card
     upsertMeta("name", "twitter:card", "summary_large_image");
     upsertMeta("name", "twitter:site", SITE_TWITTER_HANDLE);
+    upsertMeta("name", "twitter:creator", SITE_TWITTER_HANDLE);
     upsertMeta("name", "twitter:title", fullTitle);
     upsertMeta("name", "twitter:description", description);
     upsertMeta("name", "twitter:image", ogImage);
+    upsertMeta("name", "twitter:image:alt", imageAlt ?? description);
 
-    // JSON-LD structured data
     removeJsonLd();
     schema.forEach(upsertJsonLd);
 
     return () => {
       removeJsonLd();
     };
-  }, [title, description, path, type, image, noindex, schema]);
+  }, [title, description, path, type, image, imageAlt, noindex, schema]);
 }

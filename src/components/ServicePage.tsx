@@ -1,10 +1,13 @@
 import { motion } from "framer-motion";
-import { ArrowLeft, CheckCircle2, type LucideIcon } from "lucide-react";
+import { ArrowLeft, CheckCircle2, ArrowRight, type LucideIcon } from "lucide-react";
 import { Link } from "wouter";
 import { Navbar } from "./Navbar";
 import { Footer } from "./Footer";
+import { Breadcrumbs, type Crumb } from "./Breadcrumbs";
 import { useState } from "react";
 import { ContactForm } from "./ContactForm";
+import { useSeo, type SeoOptions } from "@/lib/seo";
+import { serviceSchema, webPageSchema } from "@/lib/schema";
 
 export interface ServiceData {
   title: string;
@@ -18,10 +21,70 @@ export interface ServiceData {
   process: { step: string; title: string; desc: string }[];
   stats: { value: string; label: string }[];
   why: string[];
+  seo?: SeoOptions;
+  breadcrumbs?: Crumb[];
+  related?: { title: string; description: string; href: string; accent: string }[];
 }
+
+const DEFAULT_RELATED_SERVICES = [
+  {
+    title: "Digital Solutions",
+    description:
+      "High-performance websites, enterprise web apps, native mobile applications, and scalable cloud architectures.",
+    href: "/solutions/digital-solutions",
+    accent: "from-blue-500 to-blue-600",
+  },
+  {
+    title: "AI & Automation",
+    description:
+      "Intelligent autonomous workflows, AI assistants, and predictive systems that eliminate repetitive tasks.",
+    href: "/solutions/ai-automation",
+    accent: "from-violet-500 to-violet-600",
+  },
+  {
+    title: "Cybersecurity",
+    description:
+      "Enterprise-grade threat protection, penetration testing, compliance readiness, and zero-trust architectures.",
+    href: "/solutions/cybersecurity",
+    accent: "from-emerald-500 to-emerald-600",
+  },
+];
 
 export function ServicePage({ data }: { data: ServiceData }) {
   const [formOpen, setFormOpen] = useState(false);
+
+  useSeo(
+    data.seo ?? {
+      title: data.title,
+      description: data.tagline,
+      path: data.breadcrumbs?.length
+        ? data.breadcrumbs[data.breadcrumbs.length - 1].path
+        : "/solutions",
+      schema: [
+        serviceSchema({
+          name: data.title,
+          description: data.description,
+          path: data.breadcrumbs?.length
+            ? data.breadcrumbs[data.breadcrumbs.length - 1].path
+            : "/solutions",
+        }),
+        webPageSchema({
+          name: `${data.title} — Nexio Global`,
+          description: data.tagline,
+          path: data.breadcrumbs?.length
+            ? data.breadcrumbs[data.breadcrumbs.length - 1].path
+            : "/solutions",
+          breadcrumbs: data.breadcrumbs ?? [
+            { name: "Home", path: "/" },
+            { name: "Solutions", path: "/solutions" },
+            { name: data.title, path: "/solutions/" + data.title.toLowerCase().replace(/[^a-z0-9]+/g, "-") },
+          ],
+        }),
+      ],
+    }
+  );
+
+  const relatedServices = data.related ?? DEFAULT_RELATED_SERVICES;
 
   return (
     <div className="min-h-screen bg-background text-foreground font-sans">
@@ -31,6 +94,7 @@ export function ServicePage({ data }: { data: ServiceData }) {
       <section className="pt-28 sm:pt-36 pb-14 sm:pb-20 relative overflow-hidden">
         <div className={`absolute top-0 left-0 w-[600px] h-[400px] bg-gradient-to-br ${data.accent} opacity-10 rounded-full blur-[120px] pointer-events-none`} />
         <div className="max-w-5xl mx-auto px-6 relative z-10">
+          {data.breadcrumbs && <Breadcrumbs items={data.breadcrumbs} />}
           <Link href="/">
             <button className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors mb-8">
               <ArrowLeft size={15} />
@@ -160,6 +224,46 @@ export function ServicePage({ data }: { data: ServiceData }) {
                   <h3 className="font-semibold mb-1">{step.title}</h3>
                   <p className="text-sm text-muted-foreground leading-relaxed">{step.desc}</p>
                 </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Related Services (Internal Linking) */}
+      <section className="py-16 bg-gray-50/70 dark:bg-card/20">
+        <div className="max-w-5xl mx-auto px-6">
+          <motion.h2
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-3xl font-bold mb-4"
+          >
+            Explore More Solutions
+          </motion.h2>
+          <p className="text-muted-foreground mb-10 max-w-2xl">
+            Complement your {data.title.toLowerCase()} strategy with our other enterprise-grade services.
+          </p>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {relatedServices.map((svc, i) => (
+              <motion.div
+                key={svc.href}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.06 }}
+              >
+                <Link href={svc.href}>
+                  <div className="group h-full bg-white dark:bg-card border border-border rounded-2xl p-6 hover:border-primary/40 hover:shadow-lg transition-all duration-300 cursor-pointer">
+                    <div className={`w-8 h-1 bg-gradient-to-r ${svc.accent} rounded-full mb-4`} />
+                    <h3 className="font-semibold mb-2 group-hover:text-primary transition-colors">{svc.title}</h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed mb-4">{svc.description}</p>
+                    <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary">
+                      Learn more
+                      <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform duration-200" />
+                    </span>
+                  </div>
+                </Link>
               </motion.div>
             ))}
           </div>

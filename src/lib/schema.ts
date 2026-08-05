@@ -1,7 +1,5 @@
-import { SITE_URL, SITE_NAME, SITE_DEFAULT_DESCRIPTION, SITE_LOGO_URL } from "./seo";
+import { SITE_URL, SITE_NAME, SITE_DEFAULT_DESCRIPTION, SITE_DEFAULT_IMAGE, CONTACT_EMAIL, CONTACT_PHONE, SITE_ADDRESS } from "./site";
 
-export const CONTACT_EMAIL = "info@nexiogbl.com";
-export const CONTACT_PHONE = "+94713900047";
 export const CONTACT_PHONE_2 = "+94714939193";
 export const ADDRESS = {
   streetAddress: "Colombo",
@@ -21,8 +19,8 @@ export function organizationSchema() {
     "@id": `${SITE_URL}/#organization`,
     name: SITE_NAME,
     url: SITE_URL,
-    logo: SITE_LOGO_URL,
-    image: SITE_LOGO_URL,
+    logo: SITE_DEFAULT_IMAGE,
+    image: SITE_DEFAULT_IMAGE,
     description: SITE_DEFAULT_DESCRIPTION,
     email: CONTACT_EMAIL,
     telephone: CONTACT_PHONE,
@@ -47,14 +45,6 @@ export function websiteSchema() {
     url: SITE_URL,
     publisher: { "@id": `${SITE_URL}/#organization` },
     inLanguage: "en-US",
-    potentialAction: {
-      "@type": "SearchAction",
-      target: {
-        "@type": "EntryPoint",
-        urlTemplate: `${SITE_URL}/resources?q={search_term_string}`,
-      },
-      "query-input": "required name=search_term_string",
-    },
   };
 }
 
@@ -126,15 +116,133 @@ export function contactPageSchema() {
     url: `${SITE_URL}/contact`,
     description: "Contact Nexio Global to discuss your digital transformation, AI automation, or cybersecurity needs.",
     mainEntity: {
-      "@type": "Organization",
+      "@type": "LocalBusiness",
+      "@id": `${SITE_URL}/#localbusiness`,
       name: SITE_NAME,
       email: CONTACT_EMAIL,
       telephone: CONTACT_PHONE,
+      image: SITE_DEFAULT_IMAGE,
+      logo: SITE_DEFAULT_IMAGE,
+      url: SITE_URL,
       address: {
         "@type": "PostalAddress",
-        ...ADDRESS,
+        ...SITE_ADDRESS,
       },
     },
+  };
+}
+
+export function localBusinessSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "@id": `${SITE_URL}/#localbusiness`,
+    name: SITE_NAME,
+    url: SITE_URL,
+    image: SITE_DEFAULT_IMAGE,
+    logo: SITE_DEFAULT_IMAGE,
+    description: SITE_DEFAULT_DESCRIPTION,
+    email: CONTACT_EMAIL,
+    telephone: CONTACT_PHONE,
+    priceRange: "$$$",
+    areaServed: "Worldwide",
+    address: {
+      "@type": "PostalAddress",
+      ...SITE_ADDRESS,
+    },
+    contactPoint: [
+      {
+        "@type": "ContactPoint",
+        contactType: "customer support",
+        email: CONTACT_EMAIL,
+        telephone: CONTACT_PHONE,
+        availableLanguage: ["en"],
+      },
+    ],
+    sameAs: [
+      "https://www.linkedin.com/company/nexioglobal",
+      "https://www.facebook.com/nexiogbl",
+      "https://www.instagram.com/nexiogbl",
+    ],
+  };
+}
+
+export function collectionPageSchema(opts: {
+  name: string;
+  description: string;
+  path: string;
+  breadcrumbs: { name: string; path: string }[];
+  items: { name: string; url: string }[];
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "@id": `${SITE_URL}${opts.path}#collection`,
+    name: opts.name,
+    description: opts.description,
+    url: `${SITE_URL}${opts.path}`,
+    isPartOf: { "@id": `${SITE_URL}/#website` },
+    about: { "@id": `${SITE_URL}/#organization` },
+    breadcrumb: {
+      "@type": "BreadcrumbList",
+      itemListElement: opts.breadcrumbs.map((item, i) => ({
+        "@type": "ListItem",
+        position: i + 1,
+        name: item.name,
+        item: `${SITE_URL}${item.path}`,
+      })),
+    },
+    mainEntity: {
+      "@type": "ItemList",
+      itemListElement: opts.items.map((item, i) => ({
+        "@type": "ListItem",
+        position: i + 1,
+        name: item.name,
+        url: item.url,
+      })),
+    },
+  };
+}
+
+export function itemListSchema(items: { name: string; url: string }[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    itemListElement: items.map((item, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: item.name,
+      url: item.url,
+    })),
+  };
+}
+
+export function articleSchema(opts: {
+  title: string;
+  description: string;
+  path: string;
+  image?: string;
+  datePublished?: string;
+  dateModified?: string;
+  author?: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "@id": `${SITE_URL}${opts.path}#article`,
+    headline: opts.title,
+    description: opts.description,
+    image: opts.image ?? SITE_DEFAULT_IMAGE,
+    datePublished: opts.datePublished,
+    dateModified: opts.dateModified ?? opts.datePublished,
+    author: {
+      "@type": "Organization",
+      name: SITE_NAME,
+      url: SITE_URL,
+    },
+    publisher: { "@id": `${SITE_URL}/#organization` },
+    mainEntityOfPage: `${SITE_URL}${opts.path}`,
+    inLanguage: "en-US",
   };
 }
 

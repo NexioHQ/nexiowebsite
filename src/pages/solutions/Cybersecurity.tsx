@@ -117,7 +117,7 @@ export default function Cybersecurity() {
         path: "/solutions/cybersecurity",
         breadcrumbs: [
           { name: "Home", path: "/" },
-          { name: "Solutions", path: "/solutions/cybersecurity" },
+          { name: "Solutions", path: "/solutions" },
           { name: "Cybersecurity", path: "/solutions/cybersecurity" },
         ],
       }),
@@ -135,7 +135,7 @@ export default function Cybersecurity() {
         <div className="max-w-5xl mx-auto px-6 relative z-10">
           <Breadcrumbs
             items={[
-              { name: "Solutions", path: "/solutions/cybersecurity" },
+              { name: "Solutions", path: "/solutions" },
               { name: "Cybersecurity", path: "/solutions/cybersecurity" },
             ]}
           />
