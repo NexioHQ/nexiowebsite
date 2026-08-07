@@ -40,3 +40,11 @@
 - [x] WorkDetail.tsx: Remove category tag (e.g. Digital Solutions, Cybersecurity, AI & Automation) under "Back to Resources"
 - [x] BlogPost.tsx: Remove duplicate "Home" from visible breadcrumbs
 - [x] BlogPost.tsx: Remove category tag under "Back to Resources"
+
+## Blog Refresh — Services-Aligned Articles
+- [x] resources.ts: Reduce to 6 articles mapped to Nexio services; add unique `content` field; update titles/excerpts/slugs/dates/images/readTime; remove category field
+- [x] BlogPost.tsx: Render unique per-article body from `post.content`
+- [x] Resources.tsx: Remove category badge from blog cards
+- [x] Verify with type check
+- [x] Ensure every blog article/card has a valid image (all 6 use Unsplash URLs)
+- [x] Remove all emdashes and semicolons from blog content (replaced with commas/rephrased)

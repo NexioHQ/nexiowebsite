@@ -133,25 +133,18 @@ export default function BlogPost() {
               className="prose prose-lg dark:prose-invert max-w-none"
             >
               <p className="text-xl text-muted-foreground leading-relaxed mb-8">{post.excerpt}</p>
-              <p className="leading-relaxed text-foreground/80 mb-6">
-                At Nexio Global, we help organisations navigate the fast-changing landscape of enterprise
-                technology. This article explores key considerations, proven strategies, and practical
-                steps to help you make informed decisions for your business.
-              </p>
-              <p className="leading-relaxed text-foreground/80 mb-6">
-                Whether you're exploring {post.category === "ai" ? "intelligent automation" : post.category === "security" ? "zero-trust security" : post.category === "cloud" ? "cloud architecture" : post.category === "engineering" ? "modern software engineering" : "digital transformation"} or
-                looking to benchmark your current approach, the insights below are drawn from real-world
-                engagements across industries.
-              </p>
-              <p className="leading-relaxed text-foreground/80 mb-6">
-                The key to success is aligning technology investments with business outcomes. Start with a
-                clear understanding of your goals, then build a roadmap that delivers measurable value at
-                every stage.
-              </p>
-              <p className="leading-relaxed text-foreground/80">
-                Ready to put these ideas into action? Our team of engineers and consultants can help you
-                design a solution tailored to your organisation.
-              </p>
+              {post.content.map((paragraph, i) => (
+                <p
+                  key={i}
+                  className={
+                    i === post.content.length - 1
+                      ? "leading-relaxed text-foreground/80"
+                      : "leading-relaxed text-foreground/80 mb-6"
+                  }
+                >
+                  {paragraph}
+                </p>
+              ))}
             </motion.article>
           </div>
         </section>
@@ -177,9 +170,6 @@ export default function BlogPost() {
                       />
                     </div>
                     <div className="p-5">
-                      <span className="rounded-full bg-primary/10 px-2.5 py-1 text-xs font-semibold uppercase tracking-wider text-primary">
-                        {related.category}
-                      </span>
                       <h3 className="mt-3 mb-2 line-clamp-2 text-base font-bold group-hover:text-primary transition-colors">
                         {related.title}
                       </h3>

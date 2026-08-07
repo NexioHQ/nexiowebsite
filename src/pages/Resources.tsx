@@ -136,9 +136,6 @@ export default function Resources() {
                           </div>
                           <div className="p-6">
                         <div className="mb-3 flex items-center gap-3">
-                          <span className="rounded-full bg-primary/10 px-2.5 py-1 text-xs font-semibold uppercase tracking-wider text-primary">
-                            {post.category}
-                          </span>
                           <div className="flex items-center gap-1 text-xs text-muted-foreground">
                             <Clock size={12} aria-hidden="true" />
                             {post.readTime}
