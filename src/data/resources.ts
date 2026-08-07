@@ -6,6 +6,7 @@ export interface BlogPost {
   image: string;
   readTime: string;
   content: string[];
+  keywords: string[];
 }
 
 export const blogPosts: BlogPost[] = [
@@ -18,6 +19,14 @@ export const blogPosts: BlogPost[] = [
     image:
       "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1200&q=85",
     readTime: "7 min read",
+    keywords: [
+      "AI automation",
+      "generative AI",
+      "AI agents",
+      "enterprise automation",
+      "large language models",
+      "machine learning",
+    ],
     content: [
       "For years, automation meant wiring up predictable, rule-based tasks. Today, the conversation has shifted to autonomous AI agents, systems that don't just follow a script but observe context, make decisions, and take action with minimal human oversight. For organisations exploring AI and Automation services, this shift is unlocking entirely new levels of operational efficiency.",
       "Unlike traditional chatbots that answer a fixed set of questions, modern agents are built on large language models that can reason across unstructured inputs. They can qualify leads in natural conversation, update records in a CRM, escalate complex cases to human teams, and even trigger downstream workflows in tools like n8n or Zapier, all without a developer writing a single conditional rule.",
@@ -35,6 +44,14 @@ export const blogPosts: BlogPost[] = [
     image:
       "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=85",
     readTime: "6 min read",
+    keywords: [
+      "cloud computing",
+      "multi-cloud strategy",
+      "edge computing",
+      "cloud migration",
+      "hybrid cloud",
+      "cloud infrastructure",
+    ],
     content: [
       "The cloud of 2026 is no longer a single, centralised data centre. It is a distributed fabric that spans hyperscaler regions, edge locations, and on-premise environments, chosen deliberately to put compute as close to the user as possible. For businesses thinking about Cloud Solutions, understanding this landscape is the difference between a smooth, fast experience and one riddled with latency.",
       "Edge computing is the biggest driver of this change. By processing data near the source, whether that is a retail storefront, a factory floor, or a mobile app user, organisations can cut latency dramatically and improve reliability even when central connectivity is interrupted. This is especially valuable for real-time applications like IoT, video, and interactive experiences.",
@@ -52,6 +69,14 @@ export const blogPosts: BlogPost[] = [
     image:
       "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=85",
     readTime: "8 min read",
+    keywords: [
+      "cybersecurity",
+      "zero trust architecture",
+      "ISO 27001",
+      "data protection",
+      "network security",
+      "identity access management",
+    ],
     content: [
       "The perimeter-based security model, one that trusts the network and then everyone inside it, has been obsolete for years. Yet many organisations still rely on it. In 2026, with increasingly sophisticated attacks and tightening compliance requirements, Zero Trust has moved from a recommended best practice to a fundamental expectation for any serious Cybersecurity program.",
       "Zero Trust operates on a simple but powerful principle, never trust, always verify. Every request, whether it originates inside or outside the network, must be authenticated, authorised, and continuously validated. Access is granted on a least-privilege basis, micro-segmentation limits lateral movement, and every action is logged for audit.",
@@ -69,6 +94,14 @@ export const blogPosts: BlogPost[] = [
     image:
       "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=85",
     readTime: "7 min read",
+    keywords: [
+      "SaaS development",
+      "software architecture",
+      "microservices",
+      "cloud-native",
+      "system scalability",
+      "event-driven architecture",
+    ],
     content: [
       "Scaling a SaaS product is about much more than adding servers. It is about designing an architecture that can absorb growth gracefully, whether in users, in features, or in data, without forcing a painful rewrite at the worst possible moment. For teams building Digital Solutions, getting this right from day one is the difference between scaling and stalling.",
       "Multi-tenancy is the foundation. The way you isolate tenant data, whether through separate databases, separate schemas, or shared tables with row-level security, shapes everything from upgrade complexity to compliance. Each model has trade-offs between cost, isolation, and operational simplicity, and there is no single right answer for every product.",
@@ -86,6 +119,14 @@ export const blogPosts: BlogPost[] = [
     image:
       "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=85",
     readTime: "6 min read",
+    keywords: [
+      "large language models",
+      "generative AI",
+      "AI integration",
+      "prompt engineering",
+      "AI production",
+      "LLM deployment",
+    ],
     content: [
       "The gap between a promising AI demo and a dependable production system is wide, and it is where many AI initiatives quietly stall. Moving an LLM integration from a prototype to something customers rely on daily requires more than prompt engineering. It demands rigorous evaluation, thoughtful guardrails, and continuous monitoring. This is where AI and Automation expertise becomes essential.",
       "The first step is defining what good looks like. Without a clear evaluation set, with realistic inputs and expected outputs, you cannot know whether a change improved the system or quietly degraded it. Building a small but representative golden dataset early gives your team a faster, more reliable signal during development than gut feel or anecdotal testing.",
@@ -103,6 +144,14 @@ export const blogPosts: BlogPost[] = [
     image:
       "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=85",
     readTime: "5 min read",
+    keywords: [
+      "digital transformation",
+      "business strategy",
+      "technology consulting",
+      "digital strategy",
+      "IT roadmap",
+      "business innovation",
+    ],
     content: [
       "Digital transformation has become one of the most used and most misunderstood phrases in business. Too often it is treated as a technology project, buy the right tools, modernise the stack, and success follows. In reality, the organisations that succeed in 2026 treat transformation as a business strategy first, with technology as the enabler. That insight is at the heart of effective Technology Consulting.",
       "The most common failure is starting with a technology solution instead of a clear business outcome. Teams begin with a new platform or tool and then hunt for ways to justify it. The more effective approach is the reverse, define the concrete outcome you want, such as faster time-to-market, lower operating cost, or better customer experience, and then let that outcome drive every technology decision.",

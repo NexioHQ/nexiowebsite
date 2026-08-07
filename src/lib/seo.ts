@@ -27,6 +27,7 @@ export interface SeoOptions {
   image?: string;
   imageAlt?: string;
   noindex?: boolean;
+  keywords?: string[];
   schema?: object[];
 }
 
@@ -78,6 +79,7 @@ export function useSeo({
   image,
   imageAlt,
   noindex = false,
+  keywords,
   schema = [],
 }: SeoOptions) {
   useLayoutEffect(() => {
@@ -89,6 +91,9 @@ export function useSeo({
     document.title = fullTitle;
 
     upsertMeta("name", "description", description);
+    if (keywords && keywords.length > 0) {
+      upsertMeta("name", "keywords", keywords.join(", "));
+    }
     upsertMeta(
       "name",
       "robots",
@@ -130,5 +135,5 @@ export function useSeo({
     return () => {
       removeJsonLd();
     };
-  }, [title, description, path, type, image, imageAlt, noindex, schema]);
+  }, [title, description, path, type, image, imageAlt, noindex, keywords, schema]);
 }

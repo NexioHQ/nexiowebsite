@@ -26,6 +26,7 @@ export default function WorkDetail() {
     path: `/resources/work/${slug}`,
     image: item?.image,
     imageAlt: item?.imageAlt,
+    keywords: item?.keywords,
     schema: item
       ? [
           webPageSchema({

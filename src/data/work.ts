@@ -8,6 +8,7 @@ export interface WorkItem {
   stack: string[];
   image: string;
   imageAlt: string;
+  keywords: string[];
   // Digital Solutions
   industry?: string;
   businessOutcome?: string;
@@ -34,6 +35,14 @@ export const workItems: WorkItem[] = [
     image: "/assets/work/hotel_website.png",
     imageAlt:
       "Luxury resort hotel pool surrounded by tropical greenery",
+    keywords: [
+      "hotel website design",
+      "booking engine",
+      "web development",
+      "payment gateway integration",
+      "travel technology",
+      "hospitality digital solutions",
+    ],
   },
   {
     title: "Enterprise GRC & Compliance Review",
@@ -48,6 +57,14 @@ export const workItems: WorkItem[] = [
     image: "/assets/work/grc.jpg",
     imageAlt:
       "Minimalist abstract representation of data security and ISO compliance",
+    keywords: [
+      "cybersecurity",
+      "GRC",
+      "ISO 27001",
+      "compliance audit",
+      "risk management",
+      "governance risk compliance",
+    ],
   },
   {
     title: "WhatsApp Lead Automation AI Chatbot",
@@ -62,6 +79,14 @@ export const workItems: WorkItem[] = [
     image: "/assets/work/whatsapp_minimal.jpg",
     imageAlt:
       "Minimalist smartphone showing conversational AI interface",
+    keywords: [
+      "AI chatbot",
+      "WhatsApp automation",
+      "lead generation",
+      "CRM integration",
+      "conversational AI",
+      "sales automation",
+    ],
   },
   {
     title: "Pulse Analytics Platform",
@@ -76,6 +101,14 @@ export const workItems: WorkItem[] = [
     image:
       "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=85",
     imageAlt: "Analytics dashboard with performance charts and KPI visualizations.",
+    keywords: [
+      "business intelligence",
+      "data analytics",
+      "real-time dashboard",
+      "KPI tracking",
+      "data visualization",
+      "operational intelligence",
+    ],
   },
   {
     title: "Restful Sleep Monitoring App",
@@ -89,6 +122,14 @@ export const workItems: WorkItem[] = [
     stack: ["React Native", "TensorFlow Lite", "HealthKit", "Node.js"],
     image: "/assets/work/restful_sleep_app.png",
     imageAlt: "Peaceful sleep environment with soft ambient lighting and a smartphone displaying sleep data.",
+    keywords: [
+      "mobile app development",
+      "health app",
+      "AI coaching",
+      "wearable integration",
+      "sleep tracking",
+      "wellness technology",
+    ],
   },
   {
     title: "FreshMart Supermarket Management System",
@@ -102,5 +143,13 @@ export const workItems: WorkItem[] = [
     stack: ["React", "Node.js", "PostgreSQL", "Electron"],
     image: "/assets/work/freshmart_erp.png",
     imageAlt: "Supermarket aisle with fresh produce and modern retail environment.",
+    keywords: [
+      "ERP software",
+      "supermarket management",
+      "POS system",
+      "inventory management",
+      "custom software development",
+      "retail technology",
+    ],
   },
 ];

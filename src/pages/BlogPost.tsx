@@ -27,6 +27,7 @@ export default function BlogPost() {
     type: "article",
     image: post?.image,
     imageAlt: post?.title,
+    keywords: post?.keywords,
     schema: post
       ? [
           articleSchema({
