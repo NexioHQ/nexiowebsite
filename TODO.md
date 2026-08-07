@@ -34,3 +34,9 @@
 - [x] 404 page
 - [x] Phase 3: Accessibility & Internal Linking (skip-to-content, aria labels, form associations, dialog semantics)
 - [x] Phase 4: Verification & Final Polish (typecheck passed, build succeeded, dist contains sitemap/robots/manifest)
+
+## UX Fix — Breadcrumb & Category Tags
+- [x] WorkDetail.tsx: Remove duplicate "Home" from visible breadcrumbs (component already renders Home)
+- [x] WorkDetail.tsx: Remove category tag (e.g. Digital Solutions, Cybersecurity, AI & Automation) under "Back to Resources"
+- [x] BlogPost.tsx: Remove duplicate "Home" from visible breadcrumbs
+- [x] BlogPost.tsx: Remove category tag under "Back to Resources"

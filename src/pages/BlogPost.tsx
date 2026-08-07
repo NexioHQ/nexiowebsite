@@ -81,7 +81,6 @@ export default function BlogPost() {
           <div className="max-w-4xl mx-auto px-6 relative">
             <Breadcrumbs
               items={[
-                { name: "Home", path: "/" },
                 { name: "Resources", path: "/resources" },
                 { name: post.title, path: `/resources/${post.slug}` },
               ]}
@@ -93,9 +92,6 @@ export default function BlogPost() {
               </span>
             </Link>
             <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-              <span className="rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-primary mb-4 inline-block">
-                {post.category}
-              </span>
               <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-6">{post.title}</h1>
               <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground mb-8">
                 <span className="inline-flex items-center gap-1.5">

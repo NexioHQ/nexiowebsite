@@ -80,7 +80,6 @@ export default function WorkDetail() {
           <div className="max-w-5xl mx-auto px-6 relative">
             <Breadcrumbs
               items={[
-                { name: "Home", path: "/" },
                 { name: "Resources", path: "/resources" },
                 { name: "Our Work", path: "/resources" },
                 { name: item.title, path: `/resources/work/${item.slug}` },
@@ -93,9 +92,6 @@ export default function WorkDetail() {
               </span>
             </Link>
             <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-              <span className="rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-primary mb-4 inline-block">
-                {item.category}
-              </span>
               <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-6">{item.title}</h1>
               <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed max-w-3xl">{item.description}</p>
             </motion.div>
