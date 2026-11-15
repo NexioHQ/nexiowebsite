@@ -152,7 +152,6 @@ function FeaturedAssessment({ onRequest }: { onRequest: () => void }) {
     <section className="nri-feature-section" id="featured-assessment">
       <div className="nri-feature-wrap">
         <div className="nri-feature-panel">
-          <br></br>
           <div className="nri-feature-grid">
             <div className="nri-feature-copy">
               <h2>Security Assessment for AI Generated Applications</h2>
@@ -179,7 +178,6 @@ function FeaturedAssessment({ onRequest }: { onRequest: () => void }) {
               </ul>
             </aside>
           </div>
-          <br></br>
         </div>
         <div className="nri-feature-shadow" aria-hidden="true" />
       </div>

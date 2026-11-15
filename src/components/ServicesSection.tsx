@@ -4,6 +4,17 @@ import { Link } from "wouter";
 
 const services = [
   {
+    Icon: ShieldCheck,
+    title: "Cyber Security",
+    desc: "Security assessments and practical protection that help keep your applications, data, and operations resilient.",
+    tags: ["Security Assessments & Penetration Testing", "GRC Compliance Review", "Vulnerability Management"],
+    accent: "from-emerald-500/20 via-teal-500/10 to-transparent",
+    borderGlow: "group-hover:border-emerald-500/40",
+    iconBg: "bg-emerald-500/10 border-emerald-500/20 text-emerald-400 group-hover:bg-emerald-500 group-hover:text-white group-hover:shadow-[0_0_25px_rgba(16,185,129,0.5)]",
+    tagBg: "bg-emerald-500/10 text-emerald-300 border-emerald-500/20",
+    href: "/solutions/cybersecurity",
+  },
+  {
     Icon: Code2,
     title: "Digital Solutions",
     desc: "High-performance websites, enterprise web apps, native mobile applications, and scalable cloud architectures tailored for high growth.",
@@ -16,7 +27,7 @@ const services = [
   },
   {
     Icon: Cpu,
-    title: "AI and Automation",
+    title: "AI & Automation",
     desc: "Intelligent autonomous workflows,  AI assistants, and predictive systems that eliminate repetitive tasks and unlock new revenue.",
     tags: ["Workflow Automation", "AI Assistants and Content Tools", "CRM & Lead Automation"],
     accent: "from-violet-500/20 via-fuchsia-500/10 to-transparent",
@@ -24,17 +35,6 @@ const services = [
     iconBg: "bg-violet-500/10 border-violet-500/20 text-violet-400 group-hover:bg-violet-500 group-hover:text-white group-hover:shadow-[0_0_25px_rgba(139,92,246,0.5)]",
     tagBg: "bg-violet-500/10 text-violet-300 border-violet-500/20",
     href: "/solutions/ai-automation",
-  },
-  {
-    Icon: ShieldCheck,
-    title: "Cybersecurity",
-    desc: "Enterprise-grade threat protection, penetration testing, compliance readiness, and zero-trust architectures to safeguard operations.",
-    tags: ["Security Assessments & Penetration Testing", "GRC Compliance Review", "Vulnerability Management"],
-    accent: "from-emerald-500/20 via-teal-500/10 to-transparent",
-    borderGlow: "group-hover:border-emerald-500/40",
-    iconBg: "bg-emerald-500/10 border-emerald-500/20 text-emerald-400 group-hover:bg-emerald-500 group-hover:text-white group-hover:shadow-[0_0_25px_rgba(16,185,129,0.5)]",
-    tagBg: "bg-emerald-500/10 text-emerald-300 border-emerald-500/20",
-    href: "/solutions/cybersecurity",
   },
 ];
 
@@ -56,10 +56,10 @@ export function ServicesSection() {
         >
 
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight mb-5 leading-tight">
-            Everything You Need to Scale
+            Our Technology Services
           </h2>
           <p className="text-base sm:text-lg text-blue-100/60 leading-relaxed max-w-2xl mx-auto">
-            Comprehensive technology capabilities engineered to power your digital transformation, from architecture to enterprise deployment.
+            Build. Automate. Stay secure.
           </p>
         </motion.div>
 
