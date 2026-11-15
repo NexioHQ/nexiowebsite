@@ -28,7 +28,7 @@ import {
   HeroArchitectureVisual,
 } from "@/components/cybersecurity/CyberVisuals";
 import { useSeo } from "@/lib/seo";
-import { breadcrumbSchema, serviceSchema, webPageSchema } from "@/lib/schema";
+import { breadcrumbSchema, faqSchema, serviceSchema, webPageSchema } from "@/lib/schema";
 
 
 /* -------------------------------------------------------------------------- */
@@ -633,14 +633,14 @@ function FinalCta({ onRequest }: { onRequest: () => void }) {
 /* -------------------------------------------------------------------------- */
 
 const PAGE_DESCRIPTION =
-  "Nexio Global provides cybersecurity assessments, web application security testing, vulnerability assessments, API security testing and security services for modern digital applications.";
+  "Nexio Global provides cybersecurity services, application security testing, vulnerability assessments, API security testing and practical protection for modern digital products.";
 
 export default function Cybersecurity() {
   const [formOpen, setFormOpen] = useState(false);
   const openForm = () => setFormOpen(true);
 
   useSeo({
-    title: "Cybersecurity Services",
+    title: "Cybersecurity Services & Application Security Testing",
     description: PAGE_DESCRIPTION,
     path: "/solutions/cybersecurity",
     keywords: [
@@ -653,15 +653,19 @@ export default function Cybersecurity() {
       "AI-Built Applications",
       "Vibe-Coded Application Security Assessment",
       "Security Assessment",
+      "Penetration Testing",
+      "API Security Assessment",
+      "Application Security Assessment",
     ],
     schema: [
       serviceSchema({
-        name: "Cybersecurity Services",
+        name: "Cybersecurity Services & Application Security Testing",
         description: PAGE_DESCRIPTION,
         path: "/solutions/cybersecurity",
       }),
+      faqSchema(FAQS.map(({ q, a }) => ({ question: q, answer: a }))),
       webPageSchema({
-        name: "Cybersecurity Services — Nexio Global",
+        name: "Cybersecurity Services & Application Security Testing — Nexio Global",
         description: PAGE_DESCRIPTION,
         path: "/solutions/cybersecurity",
         breadcrumbs: [

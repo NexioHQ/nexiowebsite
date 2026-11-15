@@ -105,23 +105,30 @@ export default function AIAutomation() {
   const [openFaq, setOpenFaq] = useState<number | null>(0);
 
   useSeo({
-    title: "AI & Automation",
+    title: "AI Automation Services & Intelligent Workflows",
     description:
-      "Intelligent AI automation solutions from Nexio Global — AI assistants, workflow automation, predictive analytics, and business intelligence that reduce manual effort and unlock new revenue.",
+      "Nexio Global delivers AI automation services, AI assistants, workflow automation, predictive analytics, and intelligent business systems that reduce manual effort.",
     path: "/solutions/ai-automation",
+    keywords: [
+      "AI Automation Services",
+      "Workflow Automation",
+      "AI Assistants",
+      "Business Process Automation",
+      "Predictive Analytics",
+      "Artificial Intelligence Solutions",
+    ],
     schema: [
       serviceSchema({
-        name: "AI & Automation",
+        name: "AI Automation Services & Intelligent Workflows",
         description:
-          "Intelligent AI automation solutions including AI assistants, workflow automation, predictive analytics, and business intelligence.",
+          "AI automation services including AI assistants, workflow automation, predictive analytics, and intelligent business systems.",
         path: "/solutions/ai-automation",
-        offers: true,
       }),
       faqSchema(faqs),
       webPageSchema({
-        name: "AI & Automation — Nexio Global",
+        name: "AI Automation Services & Intelligent Workflows — Nexio Global",
         description:
-          "Intelligent AI automation solutions from Nexio Global — AI assistants, workflow automation, predictive analytics, and business intelligence.",
+          "Nexio Global delivers AI automation services, AI assistants, workflow automation, predictive analytics, and intelligent business systems.",
         path: "/solutions/ai-automation",
         breadcrumbs: [
           { name: "Home", path: "/" },

@@ -5,7 +5,7 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { Monitor, Cpu, ShieldCheck, ArrowRight } from "lucide-react";
 import { Link } from "wouter";
 import { useSeo } from "@/lib/seo";
-import { organizationSchema, webPageSchema } from "@/lib/schema";
+import { itemListSchema, organizationSchema, webPageSchema } from "@/lib/schema";
 
 const solutions = [
   {
@@ -42,16 +42,29 @@ const solutions = [
 
 export default function Solutions() {
   useSeo({
-    title: "Solutions Overview",
+    title: "Technology Solutions for Modern Businesses",
     description:
-      "Explore Nexio Global's software development, AI automation, cloud, and cybersecurity solutions for modern businesses.",
+      "Explore Nexio Global's digital solutions, AI automation services, and cybersecurity services for modern businesses.",
     path: "/solutions",
+    keywords: [
+      "Technology Solutions",
+      "Digital Solutions",
+      "AI Automation Services",
+      "Cybersecurity Services",
+      "Custom Software Development",
+    ],
     schema: [
       organizationSchema(),
+      itemListSchema(
+        solutions.map((solution) => ({
+          name: solution.title,
+          url: `https://nexiogbl.com${solution.href}`,
+        }))
+      ),
       webPageSchema({
-        name: "Solutions Overview — Nexio Global",
+        name: "Technology Solutions for Modern Businesses — Nexio Global",
         description:
-          "Explore Nexio Global's software development, AI automation, cloud, and cybersecurity solutions for modern businesses.",
+          "Explore Nexio Global's digital solutions, AI automation services, and cybersecurity services for modern businesses.",
         path: "/solutions",
         breadcrumbs: [
           { name: "Home", path: "/" },

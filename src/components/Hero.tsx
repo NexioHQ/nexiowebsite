@@ -49,16 +49,16 @@ export function Hero() {
 
           {/* Main Title */}
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.12] tracking-tight mb-6">
-            Transforming Businesses
+            Technology for
             <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-sky-300 to-indigo-300 drop-shadow-[0_0_35px_rgba(56,189,248,0.4)]">
-              Through Technology
+              What&rsquo;s Next
             </span>
           </h1>
 
           {/* Subtitle */}
           <p className="text-base sm:text-lg md:text-xl text-blue-100/70 max-w-2xl mx-auto leading-relaxed mb-10">
-            We help ambitious businesses build, automate, secure, and scale high-impact digital systems with enterprise-grade precision.
+            Digital solutions, intelligent automation, and cybersecurity for ambitious businesses.
           </p>
 
           {/* CTA Buttons & Stats/Trust Highlights */}

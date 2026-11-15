@@ -67,33 +67,33 @@ export const PUBLIC_ROUTES: SiteRoute[] = [
   },
   {
     path: "/solutions",
-    title: "Solutions Overview",
+    title: "Technology Solutions for Modern Businesses",
     description:
-      "Explore Nexio Global's software development, AI automation, cloud, and cybersecurity solutions for modern businesses.",
+      "Explore Nexio Global's digital solutions, AI automation services, and cybersecurity services for modern businesses.",
     changefreq: "monthly",
     priority: 0.9,
   },
   {
     path: "/solutions/digital-solutions",
-    title: "Digital Solutions",
+    title: "Digital Solutions & Custom Software Development",
     description:
-      "High-performance websites, web applications, mobile apps, and enterprise software built by Nexio Global.",
+      "Nexio Global builds high-performance websites, web applications, mobile apps, SaaS products, and custom enterprise software.",
     changefreq: "monthly",
     priority: 0.9,
   },
   {
     path: "/solutions/ai-automation",
-    title: "AI & Automation",
+    title: "AI Automation Services & Intelligent Workflows",
     description:
-      "Intelligent AI automation solutions from Nexio Global — AI assistants, workflow automation, predictive analytics, and business intelligence.",
+      "Nexio Global delivers AI automation services, AI assistants, workflow automation, predictive analytics, and intelligent business systems.",
     changefreq: "monthly",
     priority: 0.9,
   },
   {
     path: "/solutions/cybersecurity",
-    title: "Cybersecurity",
+    title: "Cybersecurity Services & Application Security Testing",
     description:
-      "Enterprise-grade cybersecurity from Nexio Global — penetration testing, vulnerability management, GRC compliance, security hardening, and monitoring.",
+      "Nexio Global provides cybersecurity services, application security testing, vulnerability assessments, API security testing, and practical protection.",
     changefreq: "monthly",
     priority: 0.9,
   },

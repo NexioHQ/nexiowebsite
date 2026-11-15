@@ -119,23 +119,31 @@ export default function DigitalSolutions() {
   const [openFaq, setOpenFaq] = useState<number | null>(0);
 
   useSeo({
-    title: "Digital Solutions",
+    title: "Digital Solutions & Custom Software Development",
     description:
-      "High-performance websites, web applications, mobile apps, and enterprise software built by Nexio Global. Custom digital products that scale with your business.",
+      "Nexio Global builds high-performance websites, web applications, mobile apps, SaaS products, and custom enterprise software that scales with your business.",
     path: "/solutions/digital-solutions",
+    keywords: [
+      "Digital Solutions",
+      "Custom Software Development",
+      "Web Application Development",
+      "Website Development",
+      "SaaS Product Development",
+      "Mobile App Development",
+      "Enterprise Software",
+    ],
     schema: [
       serviceSchema({
-        name: "Digital Solutions",
+        name: "Digital Solutions & Custom Software Development",
         description:
-          "High-performance websites, web applications, mobile apps, and enterprise software built by Nexio Global.",
+          "High-performance websites, web applications, mobile apps, SaaS products, and custom enterprise software built by Nexio Global.",
         path: "/solutions/digital-solutions",
-        offers: true,
       }),
       faqSchema(faqs),
       webPageSchema({
-        name: "Digital Solutions — Nexio Global",
+        name: "Digital Solutions & Custom Software Development — Nexio Global",
         description:
-          "High-performance websites, web applications, mobile apps, and enterprise software built by Nexio Global.",
+          "Nexio Global builds high-performance websites, web applications, mobile apps, SaaS products, and custom enterprise software that scales with your business.",
         path: "/solutions/digital-solutions",
         breadcrumbs,
       }),
