@@ -49,11 +49,11 @@ export function Hero() {
 
           {/* Main Title */}
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.12] tracking-tight mb-6">
-            Technology for
-            <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-sky-300 to-indigo-300 drop-shadow-[0_0_35px_rgba(56,189,248,0.4)]">
-              What&rsquo;s Next
+            <span className="whitespace-nowrap text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-cyan-400 to-blue-700 drop-shadow-[0_0_35px_rgba(37,99,235,0.45)]">
+              Build, Automate &amp; Secure
             </span>
+            <br />
+            Your Business
           </h1>
 
           {/* Subtitle */}
