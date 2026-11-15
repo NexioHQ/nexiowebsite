@@ -4,7 +4,7 @@ import bgImage from "../assets/bg.jpg";
 
 export function Hero() {
   return (
-    <section className="relative min-h-[100dvh] pt-28 sm:pt-36 pb-16 sm:pb-20 flex items-center overflow-hidden bg-[#0B1120]" id="home">
+    <section className="relative min-h-0 sm:min-h-[100dvh] pt-24 sm:pt-36 pb-12 sm:pb-20 flex items-center overflow-hidden bg-[#0B1120]" id="home">
       {/* Background with dark overlay & subtle gradient lighting */}
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0">
@@ -48,8 +48,8 @@ export function Hero() {
         <div className="max-w-4xl mx-auto text-center">
 
           {/* Main Title */}
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.12] tracking-tight mb-6">
-            <span className="whitespace-nowrap text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-cyan-400 to-blue-700 drop-shadow-[0_0_35px_rgba(37,99,235,0.45)]">
+          <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.12] tracking-tight mb-5 sm:mb-6">
+            <span className="sm:whitespace-nowrap text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-cyan-400 to-blue-700 drop-shadow-[0_0_35px_rgba(37,99,235,0.45)]">
               Build, Automate &amp; Secure
             </span>
             <br />
@@ -57,41 +57,41 @@ export function Hero() {
           </h1>
 
           {/* Subtitle */}
-          <p className="text-base sm:text-lg md:text-xl text-blue-100/70 max-w-2xl mx-auto leading-relaxed mb-10">
+          <p className="text-sm sm:text-lg md:text-xl text-blue-100/70 max-w-2xl mx-auto leading-relaxed mb-8 sm:mb-10">
             Digital solutions, intelligent automation, and cybersecurity for ambitious businesses.
           </p>
 
           {/* CTA Buttons & Stats/Trust Highlights */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link href="/contact">
-              <span className="group inline-flex items-center justify-center gap-2.5 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-sky-500 text-white px-8 py-4 rounded-full text-base font-semibold transition-all duration-300 cursor-pointer shadow-xl shadow-blue-600/30 hover:shadow-blue-500/50 hover:scale-[1.03] active:scale-[0.98]">
+              <span className="group inline-flex w-full sm:w-auto items-center justify-center gap-2.5 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-sky-500 text-white px-5 sm:px-8 py-3.5 sm:py-4 rounded-full text-sm sm:text-base font-semibold transition-all duration-300 cursor-pointer shadow-xl shadow-blue-600/30 hover:shadow-blue-500/50 hover:scale-[1.03] active:scale-[0.98]">
                 Book a Consultation
                 <ArrowRight size={18} className="transition-transform duration-300 group-hover:translate-x-1" />
               </span>
             </Link>
             <a
               href="#services"
-              className="inline-flex items-center justify-center gap-2 px-7 py-4 rounded-full text-base font-medium text-blue-200 hover:text-white bg-white/[0.05] hover:bg-white/[0.1] border border-white/[0.1] hover:border-white/[0.2] backdrop-blur-md transition-all duration-300"
+              className="inline-flex w-full sm:w-auto items-center justify-center gap-2 px-5 sm:px-7 py-3.5 sm:py-4 rounded-full text-sm sm:text-base font-medium text-blue-200 hover:text-white bg-white/[0.05] hover:bg-white/[0.1] border border-white/[0.1] hover:border-white/[0.2] backdrop-blur-md transition-all duration-300"
             >
               Explore Capabilities
             </a>
           </div>
 
           {/* Quick Metrics Bar */}
-          <div className="mt-10 sm:mt-12 pt-8 border-t border-white/10 grid grid-cols-3 gap-4 sm:gap-6 max-w-3xl mx-auto text-center">
+          <div className="mt-8 sm:mt-12 pt-6 sm:pt-8 border-t border-white/10 grid grid-cols-3 gap-2 sm:gap-6 max-w-3xl mx-auto text-center">
             <div>
-              <div className="text-lg sm:text-2xl md:text-3xl font-extrabold text-white tracking-tight">100%</div>
-              <div className="text-[10px] sm:text-xs md:text-sm text-blue-200/60 font-medium mt-0.5">Reliability & Uptime</div>
+              <div className="text-base sm:text-2xl md:text-3xl font-extrabold text-white tracking-tight">100%</div>
+              <div className="text-[9px] leading-tight sm:text-xs md:text-sm text-blue-200/60 font-medium mt-0.5">Reliability &amp; Uptime</div>
             </div>
             <div>
-              <div className="flex items-center justify-center h-7 sm:h-8 md:h-9">
-                <div className="text-lg sm:text-2xl md:text-3xl font-extrabold text-white tracking-tight">Global</div>
+              <div className="flex items-center justify-center h-6 sm:h-8 md:h-9">
+                <div className="text-base sm:text-2xl md:text-3xl font-extrabold text-white tracking-tight">Global</div>
               </div>
-              <div className="text-[10px] sm:text-xs md:text-sm text-blue-200/60 font-medium mt-0.5">Delivery</div>
+              <div className="text-[9px] leading-tight sm:text-xs md:text-sm text-blue-200/60 font-medium mt-0.5">Delivery</div>
             </div>
             <div>
-              <div className="text-lg sm:text-2xl md:text-3xl font-extrabold text-white tracking-tight">24/7</div>
-              <div className="text-[10px] sm:text-xs md:text-sm text-blue-200/60 font-medium mt-0.5">Dedicated Support</div>
+              <div className="text-base sm:text-2xl md:text-3xl font-extrabold text-white tracking-tight">24/7</div>
+              <div className="text-[9px] leading-tight sm:text-xs md:text-sm text-blue-200/60 font-medium mt-0.5">Dedicated Support</div>
             </div>
           </div>
         </div>
