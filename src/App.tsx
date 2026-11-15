@@ -1,4 +1,4 @@
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+﻿import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { Toaster } from '@/components/ui/toaster';
 import { TooltipProvider } from '@/components/ui/tooltip';
 import { Route, Switch, Router as WouterRouter, useLocation } from 'wouter';
@@ -12,7 +12,6 @@ const About = lazy(() => import('@/pages/About'));
 const Resources = lazy(() => import('@/pages/Resources'));
 const Careers = lazy(() => import('@/pages/Careers'));
 const Contact = lazy(() => import('@/pages/Contact'));
-const Solutions = lazy(() => import('@/pages/Solutions'));
 const PrivacyPolicy = lazy(() => import('@/pages/PrivacyPolicy'));
 const TermsOfService = lazy(() => import('@/pages/TermsOfService'));
 const DigitalSolutions = lazy(() => import('@/pages/solutions/WebSoftwareDevelopment'));
@@ -51,7 +50,6 @@ function Router() {
       <Switch>
         <Route path="/" component={Home} />
         <Route path="/about" component={About} />
-        <Route path="/solutions" component={Solutions} />
         <Route path="/solutions/digital-solutions" component={DigitalSolutions} />
         <Route path="/solutions/ai-automation" component={AIAutomation} />
         <Route path="/solutions/cybersecurity" component={Cybersecurity} />
@@ -96,3 +94,5 @@ function App() {
 }
 
 export default App;
+
+

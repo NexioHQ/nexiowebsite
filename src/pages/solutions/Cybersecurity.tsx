@@ -1,363 +1,706 @@
-import { motion } from "framer-motion";
-import { ShieldHalf, Search, Lock, GraduationCap, ClipboardCheck, ArrowLeft, CheckCircle2, ChevronDown } from "lucide-react";
+import { useState } from "react";
 import { Link } from "wouter";
+import { AnimatePresence, motion } from "framer-motion";
+import {
+  ArrowDownRight,
+  ArrowRight,
+  Braces,
+  Check,
+  ChevronDown,
+  ChevronRight,
+  ClipboardCheck,
+  FileCheck2,
+  GlobeLock,
+  GraduationCap,
+  LockKeyhole,
+  ScanEye,
+  SearchCheck,
+  Settings2,
+  ShieldCheck,
+  type LucideIcon,
+} from "lucide-react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
-import { Breadcrumbs } from "@/components/Breadcrumbs";
-import { useState } from "react";
 import { ContactForm } from "@/components/ContactForm";
+import {
+  AssessmentStackVisual,
+  CtaGeometry,
+  HeroArchitectureVisual,
+} from "@/components/cybersecurity/CyberVisuals";
 import { useSeo } from "@/lib/seo";
-import { serviceSchema, faqSchema, webPageSchema } from "@/lib/schema";
+import { breadcrumbSchema, serviceSchema, webPageSchema } from "@/lib/schema";
 
-const serviceGroups = [
-  {
-    title: "Security Assessments",
-    icon: Search,
-    items: [
-      "Security audits",
-      "Vulnerability assessment",
-      "Penetration testing",
-    ],
-  },
-  {
-    title: "Hardening & Protection",
-    icon: Lock,
-    items: [
-      "Website hardening",
-      "Network security",
-      "Cloud security configuration",
-    ],
-  },
-  {
-    title: "Training & Compliance",
-    icon: GraduationCap,
-    items: [
-      "Security awareness training",
-      "GRC compliance review",
-      "Policy development",
-    ],
-  },
-  {
-    title: "Governance & Reporting",
-    icon: ClipboardCheck,
-    items: [
-      "Compliance documentation",
-      "Risk assessment reports",
-      "Security roadmap planning",
-    ],
-  },
-];
 
-const stats = [
-  { value: "100%", label: "Compliance target achievement rate" },
-  { value: "6 wks", label: "Average time to compliance readiness" },
-  { value: "0", label: "Post-engagement breaches reported" },
-];
+/* -------------------------------------------------------------------------- */
+/*  Primitives                                                                 */
+/* -------------------------------------------------------------------------- */
 
-const process = [
-  { step: "01", title: "Security Assessment", desc: "An initial review of your current environment, identifying your most critical assets and likely threat vectors." },
-  { step: "02", title: "Threat Modelling", desc: "Systematic analysis of how attackers could target your systems, prioritised by likelihood and business impact." },
-  { step: "03", title: "Active Testing", desc: "Hands-on penetration testing and vulnerability scanning across all identified attack surfaces." },
-  { step: "04", title: "Remediation", desc: "Detailed remediation guidance with prioritised fixes and direct engineering support to close identified gaps." },
-  { step: "05", title: "Ongoing Monitoring", desc: "Continuous security monitoring, scheduled re-testing, and regular reporting to your leadership team." },
-];
+const EASE = [0.22, 1, 0.36, 1] as const;
 
-const whyItems = [
-  "Certified ethical hackers and CISSP-qualified security architects",
-  "Industry-specific experience across fintech, healthcare, and enterprise environments",
-  "Clear, actionable reports written for both technical and non-technical stakeholders",
-  "Ongoing monitoring partnerships available post-assessment",
-];
-
-const faqs = [
-  {
-    question: "What cybersecurity services do you offer?",
-    answer:
-      "We provide security assessments, penetration testing, vulnerability management, website and network hardening, GRC compliance reviews, security awareness training, and ongoing security monitoring.",
-  },
-  {
-    question: "How long does a security assessment take?",
-    answer:
-      "A typical security assessment takes 2–6 weeks depending on the size and complexity of your environment. We provide a detailed timeline after the initial scoping call.",
-  },
-  {
-    question: "Do you help with compliance requirements like ISO 27001 or GDPR?",
-    answer:
-      "Yes. Our GRC compliance review covers ISO 27001, GDPR, and other relevant frameworks. We assess your current posture, identify gaps, and provide a roadmap to achieve compliance.",
-  },
-  {
-    question: "What happens after a vulnerability is found?",
-    answer:
-      "We provide prioritised remediation guidance with clear technical instructions. For critical issues, we can also provide direct engineering support to fix vulnerabilities quickly.",
-  },
-];
-
-export default function Cybersecurity() {
-  const [formOpen, setFormOpen] = useState(false);
-  const [openFaq, setOpenFaq] = useState<number | null>(0);
-
-  useSeo({
-    title: "Cybersecurity",
-    description:
-      "Enterprise-grade cybersecurity from Nexio Global — penetration testing, vulnerability management, GRC compliance, security hardening, and ongoing monitoring to protect your business.",
-    path: "/solutions/cybersecurity",
-    schema: [
-      serviceSchema({
-        name: "Cybersecurity",
-        description:
-          "Enterprise-grade cybersecurity including penetration testing, vulnerability management, GRC compliance, security hardening, and ongoing monitoring.",
-        path: "/solutions/cybersecurity",
-        offers: true,
-      }),
-      faqSchema(faqs),
-      webPageSchema({
-        name: "Cybersecurity — Nexio Global",
-        description:
-          "Enterprise-grade cybersecurity from Nexio Global — penetration testing, vulnerability management, GRC compliance, security hardening, and ongoing monitoring.",
-        path: "/solutions/cybersecurity",
-        breadcrumbs: [
-          { name: "Home", path: "/" },
-          { name: "Solutions", path: "/solutions" },
-          { name: "Cybersecurity", path: "/solutions/cybersecurity" },
-        ],
-      }),
-    ],
-  });
-
+function Reveal({
+  children,
+  delay = 0,
+  y = 22,
+  className = "",
+}: {
+  children: React.ReactNode;
+  delay?: number;
+  y?: number;
+  className?: string;
+}) {
   return (
-    <div className="min-h-screen bg-background text-foreground font-sans">
-      <Navbar />
-      <main id="main-content">
+    <motion.div
+      initial={{ opacity: 0, y }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-90px" }}
+      transition={{ duration: 0.6, delay, ease: EASE }}
+      className={className}
+    >
+      {children}
+    </motion.div>
+  );
+}
 
-      {/* Hero */}
-      <section className="pt-28 sm:pt-36 pb-14 sm:pb-20 relative overflow-hidden">
-        <div className="absolute top-0 left-0 w-[600px] h-[400px] bg-gradient-to-br from-emerald-500 to-emerald-600 opacity-10 rounded-full blur-[120px] pointer-events-none" />
-        <div className="max-w-5xl mx-auto px-6 relative z-10">
-          <Breadcrumbs
-            items={[
-              { name: "Solutions", path: "/solutions" },
-              { name: "Cybersecurity", path: "/solutions/cybersecurity" },
-            ]}
-          />
-          <Link href="/">
-            <button className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors mb-8">
-              <ArrowLeft size={15} />
-              Back to home
-            </button>
-          </Link>
+function SectionLabel({
+  children,
+  dark = false,
+  className = "",
+}: {
+  children: React.ReactNode;
+  dark?: boolean;
+  className?: string;
+}) {
+  return (
+    <p
+      className={`flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.22em] ${
+        dark ? "text-blue-300" : "text-blue-700"
+      } ${className}`}
+    >
+      <span className={`h-px w-8 ${dark ? "bg-blue-400/60" : "bg-blue-600/50"}`} aria-hidden="true" />
+      {children}
+    </p>
+  );
+}
 
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-emerald-50 dark:bg-emerald-500/10 mb-6">
-              <ShieldHalf size={26} className="text-emerald-600 dark:text-emerald-400" strokeWidth={1.75} />
+function Container({ children, className = "" }: { children: React.ReactNode; className?: string }) {
+  return <div className={`mx-auto w-full max-w-7xl px-6 ${className}`}>{children}</div>;
+}
+
+const BTN_PRIMARY =
+  "inline-flex items-center justify-center gap-2 rounded-full bg-blue-600 px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-blue-600/25 transition-all duration-300 hover:-translate-y-0.5 hover:bg-blue-700 hover:shadow-xl hover:shadow-blue-600/30";
+const BTN_PRIMARY_DARK =
+  "inline-flex items-center justify-center gap-2 rounded-full bg-white px-7 py-3.5 text-sm font-semibold text-[#0B1120] shadow-lg shadow-black/20 transition-all duration-300 hover:-translate-y-0.5 hover:bg-blue-50";
+const BTN_GHOST =
+  "inline-flex items-center justify-center gap-2 rounded-full border border-slate-300 bg-white/70 px-7 py-3.5 text-sm font-semibold text-slate-700 transition-all duration-300 hover:-translate-y-0.5 hover:border-blue-300 hover:text-blue-700";
+const BTN_GHOST_DARK =
+  "inline-flex items-center justify-center gap-2 rounded-full border border-white/20 px-7 py-3.5 text-sm font-semibold text-blue-50 transition-all duration-300 hover:-translate-y-0.5 hover:border-white/40 hover:bg-white/5";
+
+const audience = [
+  "Applications built with AI coding assistants",
+  "Websites made with AI development platforms",
+  "SaaS products and business applications",
+  "AI-assisted dashboards, portals and systems",
+  "Agency-built applications using AI workflows",
+];
+
+/* -------------------------------------------------------------------------- */
+/*  Hero                                                                       */
+/* -------------------------------------------------------------------------- */
+
+function Hero({ onRequest }: { onRequest: () => void }) {
+  return (
+    <section className="nri-hero" id="overview">
+      <div className="nri-hero-shell">
+        <div className="nri-breadcrumb">
+          <a href="/">Home</a><ChevronRight size={12} />
+          <a href="/solutions">Solutions</a><ChevronRight size={12} />
+          <span>Cybersecurity</span>
+        </div>
+        <div className="nri-hero-grid">
+          <div className="nri-hero-copy">
+            <br></br>
+            <h1>Your application works. <em>But is it <span className="nri-secure-badge">secure?</span></em></h1>
+            <p>Nexio&rsquo;s security assessments help find weaknesses before attackers do.</p>
+            <div className="nri-actions">
+              <button type="button" onClick={onRequest} className="nri-button nri-button-blue">
+                Request a Security Assessment <ArrowRight size={16} />
+              </button>
+              <a href="#security-services" className="nri-button nri-button-quiet">
+                Explore our services
+              </a>
             </div>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight mb-5">
-              Cybersecurity
-            </h1>
-            <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl leading-relaxed">
-              Proactive security strategies that protect your business, meet compliance requirements, and keep your customers' trust intact.
-            </p>
-          </motion.div>
-        </div>
-      </section>
+            
+          </div>
 
-      {/* Stats */}
-      <section className="py-12 border-y border-border bg-gray-50/50 dark:bg-card/20">
-        <div className="max-w-5xl mx-auto px-6">
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-3 sm:gap-8">
-            {stats.map((stat, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="text-center"
-              >
-                <p className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-emerald-500 to-emerald-600 bg-clip-text text-transparent">
-                  {stat.value}
-                </p>
-                <p className="text-sm text-muted-foreground mt-1">{stat.label}</p>
-              </motion.div>
-            ))}
+          <div className="nri-hero-art">
+            <img
+              className="nri-hero-image"
+              src="/cybersecurity-hero.png"
+              alt="A protected web application connected to APIs and data during a security assessment"
+            />
+            
           </div>
         </div>
-      </section>
+        <br></br>
+        <br></br>
+        <br></br>
+      </div>
+    </section>
+  );
+}
 
-      {/* Overview */}
-      <section className="py-20">
-        <div className="max-w-5xl mx-auto px-6">
-<div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-start">
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-            >
-              <h2 className="text-2xl sm:text-3xl font-bold mb-5">What We Do</h2>
-              <p className="text-muted-foreground leading-relaxed text-lg">
-                In a world where breaches make headlines daily, security cannot be an afterthought. 
-                Our team of certified security professionals embeds enterprise-grade protection into 
-                your systems and processes before attackers find the gaps you don't know exist.
+/* -------------------------------------------------------------------------- */
+/*  Featured service — Vibe-Coded Application Security Assessment              */
+/* -------------------------------------------------------------------------- */
+
+function FeaturedAssessment({ onRequest }: { onRequest: () => void }) {
+  return (
+    <section className="nri-feature-section" id="featured-assessment">
+      <div className="nri-feature-wrap">
+        <div className="nri-feature-panel">
+          <br></br>
+          <div className="nri-feature-grid">
+            <div className="nri-feature-copy">
+              <h2>Security Assessment for AI Generated Applications</h2>
+              <h3>Built with AI?    Get tested by people!</h3>
+              <p>
+                Our human-led security testing reveals what vibe coded applications can hide,
+                helping you see and fix risks.
               </p>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="space-y-3"
-            >
-              {whyItems.map((item, i) => (
-                <div key={i} className="flex items-start gap-3 p-4 bg-white dark:bg-card border border-border rounded-xl">
-                  <CheckCircle2 size={17} className="text-emerald-600 flex-shrink-0 mt-0.5" strokeWidth={2} />
-                  <span className="text-sm text-foreground/80">{item}</span>
-                </div>
-              ))}
-            </motion.div>
+              <button type="button" onClick={onRequest} className="nri-button nri-button-white">
+                Get Your Application Assessed <ArrowRight size={16} />
+              </button>
+            </div>
+            <aside className="nri-audience">
+              <div className="nri-audience-heading">
+                <span>Suitable for Developers and Agencies</span>
+              </div>
+              <ul>
+                {audience.map((item) => (
+                  <li key={item}>
+                    <Check size={15} />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </aside>
           </div>
+          <br></br>
         </div>
-      </section>
+        <div className="nri-feature-shadow" aria-hidden="true" />
+      </div>
+    </section>
+  );
+}
 
-      {/* Services Grid */}
-      <section className="py-16 bg-gray-50/70 dark:bg-card/20">
-        <div className="max-w-5xl mx-auto px-6">
-          <motion.h2
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-3xl font-bold mb-10"
-          >
-            Our Capabilities
-          </motion.h2>
+/* -------------------------------------------------------------------------- */
+/*  Audience                                                                   */
+/* -------------------------------------------------------------------------- */
 
-          <div className="grid sm:grid-cols-2 gap-8">
-            {serviceGroups.map((group, gi) => (
-              <motion.div
-                key={group.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: gi * 0.1 }}
-                className="bg-white dark:bg-card border border-border rounded-2xl p-6 sm:p-8"
-              >
-                <div className="flex items-center gap-3 mb-5">
-                  <div className="w-10 h-10 rounded-xl bg-emerald-50 dark:bg-emerald-500/10 flex items-center justify-center">
-                    <group.icon size={20} className="text-emerald-600 dark:text-emerald-400" strokeWidth={1.75} />
-                  </div>
-                  <h3 className="text-xl font-bold">{group.title}</h3>
-                </div>
-                <ul className="space-y-2.5">
-                  {group.items.map((item) => (
-                    <li key={item} className="flex items-center gap-2.5 text-sm text-foreground/80">
-                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 flex-shrink-0" />
+/* -------------------------------------------------------------------------- */
+/*  What we look for                                                           */
+/* -------------------------------------------------------------------------- */
+
+const ASSESSMENT_AREAS: { icon: LucideIcon; title: string; items: string[] }[] = [
+  {
+    icon: LockKeyhole,
+    title: "Authentication & Access Control",
+    items: [
+      "Authentication weaknesses",
+      "Broken access control",
+      "Privilege escalation",
+      "Unauthorized account access",
+      "Session security",
+    ],
+  },
+  {
+    icon: ShieldCheck,
+    title: "Application Security",
+    items: [
+      "Input validation",
+      "Injection vulnerabilities",
+      "Business logic flaws",
+      "Insecure functionality",
+      "Sensitive information exposure",
+    ],
+  },
+  {
+    icon: Braces,
+    title: "API Security",
+    items: [
+      "API authorization",
+      "Authentication controls",
+      "Excessive data exposure",
+      "Endpoint security",
+      "Access control",
+    ],
+  },
+  {
+    icon: Settings2,
+    title: "Secrets & Configuration",
+    items: [
+      "Exposed API keys",
+      "Hardcoded credentials",
+      "Environment configuration",
+      "Security headers",
+      "CORS configuration",
+    ],
+  },
+  {
+    icon: ScanEye,
+    title: "Database & Data Security",
+    items: [
+      "Database access controls",
+      "Storage permissions",
+      "Sensitive data exposure",
+      "Excessive privileges",
+      "Data access boundaries",
+    ],
+  },
+  {
+    icon: GlobeLock,
+    title: "Dependencies & Infrastructure",
+    items: [
+      "Vulnerable dependencies",
+      "Misconfigurations",
+      "Deployment security",
+      "Cloud configuration",
+      "External service exposure",
+    ],
+  },
+];
+
+function WhatWeAssess() {
+  return (
+    <section id="what-we-assess" className="relative scroll-mt-32 bg-[#F7F9FC] py-20 dark:bg-[#0A1022] lg:py-28">
+      <Container>
+        <div className="mx-auto max-w-2xl text-center">
+          <h2 className="text-3xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-4xl">
+            What We Look For
+          </h2>
+          <p className="mt-4 text-base leading-relaxed text-slate-600 dark:text-slate-400">
+            We go beyond whether the application works. We examine how securely it works.
+          </p>
+        </div>
+
+        <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {ASSESSMENT_AREAS.map((area, i) => (
+            <Reveal key={area.title} delay={i * 0.05} className="h-full">
+              <div className="sec-card flex h-full flex-col rounded-2xl border border-slate-200/80 bg-white p-7 dark:border-white/10 dark:bg-white/[0.03]">
+                <span className="flex h-11 w-11 items-center justify-center rounded-xl border border-blue-100 bg-blue-50 text-blue-600 dark:border-blue-500/20 dark:bg-blue-500/10 dark:text-blue-400">
+                  <area.icon className="h-5 w-5" strokeWidth={1.7} />
+                </span>
+                <h3 className="mt-4 text-lg font-semibold leading-snug text-slate-900 dark:text-white">
+                  {area.title}
+                </h3>
+                <ul className="mt-5 space-y-2.5 border-t border-slate-100 pt-5 dark:border-white/10">
+                  {area.items.map((item) => (
+                    <li
+                      key={item}
+                      className="flex items-start gap-2.5 text-sm leading-relaxed text-slate-600 dark:text-slate-400"
+                    >
+                      <span className="mt-[7px] h-1 w-1 shrink-0 rounded-full bg-blue-400" aria-hidden="true" />
                       {item}
                     </li>
                   ))}
                 </ul>
-              </motion.div>
-            ))}
-          </div>
+              </div>
+            </Reveal>
+          ))}
         </div>
-      </section>
+      </Container>
+    </section>
+  );
+}
 
-      {/* Process */}
-      <section className="py-20">
-        <div className="max-w-5xl mx-auto px-6">
-          <motion.h2
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-3xl font-bold mb-10"
-          >
-            How We Work
-          </motion.h2>
-          <div className="space-y-4">
-            {process.map((step, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, x: -16 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.08 }}
-                className="flex gap-4 sm:gap-6 items-start p-5 sm:p-6 bg-white dark:bg-card border border-border rounded-2xl"
-              >
-                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-500 to-emerald-600 flex items-center justify-center flex-shrink-0 text-white font-bold text-sm">
-                  {step.step}
-                </div>
-                <div>
-                  <h3 className="font-semibold mb-1">{step.title}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{step.desc}</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+/* -------------------------------------------------------------------------- */
+/*  Functional is not secure                                                   */
+/* -------------------------------------------------------------------------- */
 
-      {/* FAQ */}
-      <section className="py-20 bg-gray-50/70 dark:bg-card/20">
-        <div className="max-w-3xl mx-auto px-6">
-          <motion.h2
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-3xl font-bold mb-10 text-center"
-          >
-            Frequently Asked Questions
-          </motion.h2>
-          <div className="space-y-3">
-            {faqs.map((faq, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 12 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.06 }}
-                className="bg-white dark:bg-card border border-border rounded-xl overflow-hidden"
-              >
-                <button
-                  onClick={() => setOpenFaq(openFaq === i ? null : i)}
-                  className="w-full flex items-center justify-between gap-4 p-5 text-left font-semibold hover:bg-gray-50 dark:hover:bg-card/60 transition-colors"
-                  aria-expanded={openFaq === i}
-                >
-                  {faq.question}
-                  <ChevronDown
-                    size={18}
-                    className={`flex-shrink-0 text-muted-foreground transition-transform duration-200 ${openFaq === i ? "rotate-180" : ""}`}
-                  />
-                </button>
-                {openFaq === i && (
-                  <div className="px-5 pb-5 text-sm text-muted-foreground leading-relaxed">
-                    {faq.answer}
-                  </div>
-                )}
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+function FunctionalNotSecure() {
+  return (
+    <section className="relative overflow-hidden bg-[#0B1120] py-20 lg:py-28">
+      <div className="pointer-events-none absolute inset-0" aria-hidden="true">
+        <div className="absolute left-1/2 top-4 h-[420px] w-[820px] -translate-x-1/2 rounded-full bg-blue-700/20 blur-[150px]" />
+      </div>
 
-      {/* CTA */}
-      <section className="py-16 px-6">
-        <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-2xl sm:text-3xl font-bold mb-4">Ready to secure your business?</h2>
-          <p className="text-muted-foreground mb-8">
-            Let's discuss how Nexio can help protect your systems and meet your compliance goals.
+      <Container className="relative">
+        <Reveal className="mx-auto max-w-3xl text-center">
+          <h2 className="text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-[3.4rem]">
+            Functional <span className="text-blue-400">&ne;</span> Secure
+          </h2>
+          <p className="mx-auto mt-6 max-w-3xl text-base leading-relaxed text-blue-100/70 sm:text-lg">
+            Functionality means nothing without security. It can work as intended and still leave
+            the door wide open to attackers, which is why <br />
+            <strong className="text-lg font-semibold text-white">
+              security must always come first.
+            </strong>
           </p>
-          <button
-            onClick={() => setFormOpen(true)}
-            className="bg-primary text-white px-10 py-4 rounded-full font-semibold hover:bg-primary/90 hover:scale-105 transition-all shadow-lg shadow-primary/20"
-          >
-            Let's Talk
-          </button>
-        </div>
-      </section>
+        </Reveal>
 
+      </Container>
+    </section>
+  );
+}
+
+/* -------------------------------------------------------------------------- */
+/*  Security services                                                          */
+/* -------------------------------------------------------------------------- */
+
+const SECURITY_SERVICES: { icon: LucideIcon; title: string; desc: string }[] = [
+  {
+    icon: ClipboardCheck,
+    title: "Security Audits",
+    desc: "Review controls and configurations to uncover security gaps.",
+  },
+  {
+    icon: GlobeLock,
+    title: "Web Application Security Testing",
+    desc: "Test access, authentication, input handling and business logic.",
+  },
+  {
+    icon: SearchCheck,
+    title: "Vulnerability Assessment",
+    desc: "Find and prioritize weaknesses across your environment.",
+  },
+  {
+    icon: Braces,
+    title: "API Security Assessment",
+    desc: "Check API access, authorization and data exposure.",
+  },
+  {
+    icon: LockKeyhole,
+    title: "Website Hardening",
+    desc: "Harden configurations and defenses against common attacks.",
+  },
+  {
+    icon: Settings2,
+    title: "Security Configuration Review",
+    desc: "Find risky settings across apps, servers and cloud.",
+  },
+  {
+    icon: GraduationCap,
+    title: "Security Awareness Training",
+    desc: "Help teams recognize risks and practice safer habits.",
+  },
+  {
+    icon: FileCheck2,
+    title: "GRC & Compliance Review",
+    desc: "Align policies and controls with compliance requirements.",
+  },
+];
+
+function SecurityServices({ onRequest }: { onRequest: () => void }) {
+  return (
+    <section
+      id="security-services"
+      className="relative scroll-mt-32 bg-[#F4F7FD] py-20 dark:bg-[#0A1024] lg:py-28"
+    >
+      <Container>
+        <div className="mx-auto max-w-2xl text-center">
+          <h2 className="text-3xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-4xl">
+            Cybersecurity Services for Modern Digital Products
+          </h2>
+          <p className="mt-4 text-base leading-relaxed text-slate-600 dark:text-slate-400">
+            Human-led security testing and practical protection for websites, applications, APIs
+            and the business environments they support.
+          </p>
+        </div>
+
+        <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {SECURITY_SERVICES.map((service, i) => (
+            <Reveal key={service.title} delay={(i % 4) * 0.05} className="h-full">
+              <div className="sec-card flex h-full flex-col rounded-2xl border border-slate-200/80 bg-white p-6 dark:border-white/10 dark:bg-white/[0.03]">
+                <span className="flex h-11 w-11 items-center justify-center rounded-xl border border-blue-100 bg-blue-50 text-blue-600 dark:border-blue-500/20 dark:bg-blue-500/10 dark:text-blue-400">
+                  <service.icon className="h-5 w-5" strokeWidth={1.7} />
+                </span>
+                <h3 className="mt-6 text-base font-semibold leading-snug text-slate-900 dark:text-white">
+                  {service.title}
+                </h3>
+                <p className="mt-3 text-sm leading-relaxed text-slate-500 dark:text-slate-400">
+                  {service.desc}
+                </p>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+
+        <Reveal delay={0.1}>
+          <div className="mt-12 flex flex-col items-start justify-between gap-6 rounded-2xl border border-slate-200/80 bg-white p-7 dark:border-white/10 dark:bg-white/[0.03] sm:flex-row sm:items-center">
+            <div>
+              <p className="text-base font-semibold text-slate-900 dark:text-white">
+                Not sure which assessment your application needs?
+              </p>
+              <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">
+                Tell us what you have built and we will recommend the right scope.
+              </p>
+            </div>
+            <button type="button" onClick={onRequest} className={`${BTN_PRIMARY} shrink-0`}>
+              Request a Security Assessment
+            </button>
+          </div>
+        </Reveal>
+      </Container>
+    </section>
+  );
+}
+
+/* -------------------------------------------------------------------------- */
+/*  Why Nexio                                                                  */
+/* -------------------------------------------------------------------------- */
+
+const PRINCIPLES = [
+  {
+    title: "Human-led Assessments",
+    desc: "We validate what attackers could actually reach.",
+  },
+  {
+    title: "Optimized for Modern Applications",
+    desc: "We understand AI-built websites, SaaS products, APIs, dashboards and the integrations behind them.",
+  },
+  {
+    title: "Clear priorities & Actionable Remediation",
+    desc: "You get severity ranked findings, evidence and context with practical guidance on remidiation.",
+  },
+  {
+    title: "Confidence to Launch",
+    desc: "Understand your highest-impact risks before customers, users or production are exposed.",
+  },
+];
+
+function WhyNexio() {
+  return (
+    <section
+      id="why-nexio"
+      className="relative scroll-mt-32 border-t border-slate-100 bg-white py-20 dark:border-white/10 dark:bg-[#0B1120] lg:py-28"
+    >
+      <Container>
+        <div className="grid items-center gap-14 lg:grid-cols-[0.95fr_1.05fr] lg:gap-20">
+          <div className="lg:self-center">
+            
+            <h2 className="mt-6 text-3xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-4xl">
+              Why Choose <span className="text-blue-600 dark:text-blue-400">Nexio?</span> 
+            </h2>
+            <p className="mt-5 max-w-lg text-base leading-relaxed text-slate-600 dark:text-slate-400">
+              Your application is unique, so your security assessment should be too. Nexio combines
+              hands-on application security expertise with practical technology experience.
+            </p>
+          </div>
+
+          <ul>
+            {PRINCIPLES.map((principle, i) => (
+              <li key={principle.title}>
+                <Reveal delay={i * 0.06}>
+                  <div
+                    className={`border-b border-slate-100 dark:border-white/10 ${
+                      i === 0 ? "pb-3" : "py-3"
+                    }`}
+                  >
+                    <h3 className="text-base font-semibold text-slate-900 dark:text-white">
+                      {principle.title}
+                    </h3>
+                    <p className="mt-2 max-w-xl text-sm leading-relaxed text-slate-600 dark:text-slate-400">
+                      {principle.desc}
+                    </p>
+                  </div>
+                </Reveal>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </Container>
+    </section>
+  );
+}
+
+/* -------------------------------------------------------------------------- */
+/*  FAQ                                                                        */
+/* -------------------------------------------------------------------------- */
+
+const FAQS = [
+  {
+    q: "Our application works well. Why does it need a security assessment?",
+    a: "Functionality and security are separate concerns. An application can work exactly as designed while still letting users reach data or actions they should not have access to. An assessment tests what normal usage never touches.",
+  },
+  {
+    q: "Does an AI-built application need different testing?",
+    a: "The method is the same, but AI-built applications often share patterns worth reviewing closely, such as exposed keys, permissive access rules and endpoints that were never intended to be public. We know where to look.",
+  },
+  {
+    q: "Do you only provide security services for AI-generated applications?",
+    a: "No. Nexio assesses and protects traditional and AI-assisted applications, websites, APIs, SaaS products, internal systems, cloud environments and broader business technology.",
+  },
+  {
+    q: "What do we receive after the assessment?",
+    a: "A written report covering findings, severity, affected areas, technical evidence, remediation guidance and an executive summary for decision makers.",
+  },
+  {
+    q: "How long does an assessment take?",
+    a: "Scope is confirmed after a short call. Most web application and API assessments are completed within one to two weeks, depending on size and complexity.",
+  },
+];
+
+function FaqSection() {
+  const [open, setOpen] = useState<number | null>(0);
+
+  return (
+    <section className="bg-[#F7F9FC] py-20 dark:bg-[#0A1022] lg:py-28">
+      <Container>
+        <div className="mx-auto max-w-3xl">
+          <h2 className="text-center text-3xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-4xl">
+            Before You Book an Assessment <span className="text-blue-600 dark:text-blue-400">(FAQs)</span>
+          </h2>
+
+          <div className="mt-10 border-y border-slate-200/80 dark:border-white/10">
+            {FAQS.map((item, i) => (
+              <div
+                key={item.q}
+                className="border-b border-slate-200/80 last:border-b-0 dark:border-white/10"
+              >
+                <h3>
+                  <button
+                    type="button"
+                    onClick={() => setOpen(open === i ? null : i)}
+                    aria-expanded={open === i}
+                    className="flex w-full items-center justify-between gap-6 py-5 text-left"
+                  >
+                    <span className="text-base font-medium text-slate-900 dark:text-white">
+                      {item.q}
+                    </span>
+                    <ChevronDown
+                      className={`h-4 w-4 shrink-0 text-slate-400 transition-transform duration-300 ${
+                        open === i ? "rotate-180" : ""
+                      }`}
+                      aria-hidden="true"
+                    />
+                  </button>
+                </h3>
+                <AnimatePresence initial={false}>
+                  {open === i && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.28, ease: EASE }}
+                      className="overflow-hidden"
+                    >
+                      <p className="max-w-2xl pb-6 pr-10 text-sm leading-relaxed text-slate-600 dark:text-slate-400">
+                        {item.a}
+                      </p>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            ))}
+          </div>
+        </div>
+      </Container>
+    </section>
+  );
+}
+
+/* -------------------------------------------------------------------------- */
+/*  Closing CTA                                                                */
+/* -------------------------------------------------------------------------- */
+
+function FinalCta({ onRequest }: { onRequest: () => void }) {
+  return (
+    <section id="contact" className="relative scroll-mt-32 overflow-hidden bg-[#0B1120] py-20 lg:py-28">
+      <div
+        className="absolute inset-0 bg-gradient-to-br from-[#0B1120] via-[#0C1830] to-[#12295A]"
+        aria-hidden="true"
+      />
+      <CtaGeometry />
+
+      <Container className="relative">
+        <div className="mx-auto max-w-2xl text-center">
+          <Reveal>
+            <h2 className="text-3xl font-bold leading-[1.15] tracking-tight text-white sm:text-4xl lg:text-[2.85rem]">
+              Built Something With AI?
+              <span className="mt-1 block text-blue-300">Let&rsquo;s Check it's Security</span>
+            </h2>
+            
+
+            <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4">
+              <button type="button" onClick={onRequest} className={BTN_PRIMARY_DARK}>
+                Request a Security Assessment
+              </button>
+              <Link href="/contact" className={BTN_GHOST_DARK}>
+                Talk to Nexio
+              </Link>
+            </div>
+          </Reveal>
+        </div>
+      </Container>
+    </section>
+  );
+}
+
+/* -------------------------------------------------------------------------- */
+/*  Page                                                                       */
+/* -------------------------------------------------------------------------- */
+
+const PAGE_DESCRIPTION =
+  "Nexio Global provides cybersecurity assessments, web application security testing, vulnerability assessments, API security testing and security services for modern digital applications.";
+
+export default function Cybersecurity() {
+  const [formOpen, setFormOpen] = useState(false);
+  const openForm = () => setFormOpen(true);
+
+  useSeo({
+    title: "Cybersecurity Services",
+    description: PAGE_DESCRIPTION,
+    path: "/solutions/cybersecurity",
+    keywords: [
+      "Cybersecurity Services",
+      "Application Security",
+      "Web Application Security Testing",
+      "Vulnerability Assessment",
+      "API Security",
+      "Website Security",
+      "AI-Built Applications",
+      "Vibe-Coded Application Security Assessment",
+      "Security Assessment",
+    ],
+    schema: [
+      serviceSchema({
+        name: "Cybersecurity Services",
+        description: PAGE_DESCRIPTION,
+        path: "/solutions/cybersecurity",
+      }),
+      webPageSchema({
+        name: "Cybersecurity Services — Nexio Global",
+        description: PAGE_DESCRIPTION,
+        path: "/solutions/cybersecurity",
+        breadcrumbs: [
+          { name: "Home", path: "/" },
+          { name: "Cybersecurity", path: "/solutions/cybersecurity" },
+        ],
+      }),
+      breadcrumbSchema([
+        { name: "Home", path: "/" },
+        { name: "Cybersecurity", path: "/solutions/cybersecurity" },
+      ]),
+    ],
+  });
+
+  return (
+    <div className="min-h-screen bg-white font-display text-slate-900 dark:bg-[#0B1120] dark:text-slate-100">
+      <Navbar />
+
+      <main id="main-content">
+        <Hero onRequest={openForm} />
+        <FeaturedAssessment onRequest={openForm} />
+        <WhatWeAssess />
+        <FunctionalNotSecure />
+        <SecurityServices onRequest={openForm} />
+        <WhyNexio />
+        <FaqSection />
+        <FinalCta onRequest={openForm} />
       </main>
+
       <Footer />
-      <ContactForm open={formOpen} onClose={() => setFormOpen(false)} />
+      <ContactForm open={formOpen} onClose={() => setFormOpen(false)} defaultService="Cybersecurity" />
     </div>
   );
 }

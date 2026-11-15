@@ -6,69 +6,56 @@ const reasons = [
     Icon: Earth,
     title: "Global Delivery Capability",
     desc: "Access top-tier engineering talent and cross-border delivery expertise built for worldwide scale.",
-    color: "text-blue-500 dark:text-blue-400",
-    bg: "bg-blue-500/10 border-blue-500/20",
-    glow: "group-hover:shadow-[0_0_20px_rgba(59,130,246,0.2)]",
+    wide: true,
   },
   {
     Icon: Code2,
     title: "Modern Tech Architecture",
-    desc: "We leverage cutting-edge frameworks, serverless systems, and cloud-native practices to build future-proof software.",
-    color: "text-violet-500 dark:text-violet-400",
-    bg: "bg-violet-500/10 border-violet-500/20",
-    glow: "group-hover:shadow-[0_0_20px_rgba(139,92,246,0.2)]",
+    desc: "Cutting-edge frameworks, serverless systems, and cloud-native practices for future-proof software.",
+    wide: false,
   },
   {
     Icon: ShieldCheck,
     title: "Security-First Engineering",
-    desc: "Enterprise security protocols, data protection standards, and zero-trust safeguards embedded at every layer.",
-    color: "text-emerald-500 dark:text-emerald-400",
-    bg: "bg-emerald-500/10 border-emerald-500/20",
-    glow: "group-hover:shadow-[0_0_20px_rgba(16,185,129,0.2)]",
+    desc: "Enterprise security protocols and zero-trust safeguards embedded at every layer.",
+    wide: false,
   },
   {
     Icon: Cpu,
     title: "AI-Native Innovation",
-    desc: "Harnessing deep machine learning and generative AI models to transform manual operational overhead.",
-    color: "text-cyan-500 dark:text-cyan-400",
-    bg: "bg-cyan-500/10 border-cyan-500/20",
-    glow: "group-hover:shadow-[0_0_20px_rgba(6,182,212,0.2)]",
+    desc: "Deep machine learning and generative AI models that eliminate manual operational overhead.",
+    wide: false,
   },
   {
     Icon: Target,
     title: "Business Outcome Focused",
-    desc: "Technology architecture engineered exclusively to accelerate your key metrics, ROI, and user growth.",
-    color: "text-amber-500 dark:text-amber-400",
-    bg: "bg-amber-500/10 border-amber-500/20",
-    glow: "group-hover:shadow-[0_0_20px_rgba(245,158,11,0.2)]",
+    desc: "Technology engineered exclusively to accelerate your key metrics, ROI, and user growth.",
+    wide: false,
   },
   {
     Icon: Users,
     title: "Long-Term Strategic Partner",
     desc: "We operate as an extension of your leadership team to drive continuous product evolution and success.",
-    color: "text-rose-500 dark:text-rose-400",
-    bg: "bg-rose-500/10 border-rose-500/20",
-    glow: "group-hover:shadow-[0_0_20px_rgba(244,63,94,0.2)]",
+    wide: true,
   },
 ];
 
 export function WhyNexio() {
   return (
     <section className="py-16 lg:py-24 relative overflow-hidden bg-background" id="why-nexio">
-      {/* Background Soft Glow Divider */}
-      <div className="absolute top-1/2 left-0 w-96 h-96 bg-primary/5 rounded-full blur-[140px] pointer-events-none" />
+      {/* Single soft ambient wash so the glass has something to refract */}
+      <div className="absolute top-0 right-0 w-[36rem] h-[36rem] bg-primary/[0.06] dark:bg-primary/[0.05] rounded-full blur-[140px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-5 sm:px-6 relative z-10">
-        <div className="flex flex-col md:flex-row gap-8 md:gap-10 lg:gap-16 items-start">
+        <div className="flex flex-col md:flex-row gap-10 lg:gap-16 items-start">
           {/* Left Column Header */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
+            initial={{ opacity: 0, x: -24 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
             className="md:w-5/12 md:sticky md:top-32"
           >
-
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-6 leading-tight">
               Why Choose nexio?
             </h2>
@@ -91,29 +78,40 @@ export function WhyNexio() {
             </div>
           </motion.div>
 
-          {/* Right Column Reason Cards Grid */}
-          <div className="md:w-7/12 grid sm:grid-cols-2 gap-5 w-full">
+          {/* Right Column — Bento Cards */}
+          <div className="md:w-7/12 grid sm:grid-cols-2 gap-4 w-full">
             {reasons.map((reason, i) => (
               <motion.div
                 key={reason.title}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: i * 0.08 }}
-                whileHover={{ y: -4 }}
-                className="group relative p-6 rounded-2xl border border-gray-200/80 dark:border-white/10 bg-white/70 dark:bg-card/60 backdrop-blur-md transition-all duration-300 hover:border-primary/40 hover:shadow-xl dark:hover:bg-card/90"
+                transition={{ duration: 0.45, delay: i * 0.06, ease: "easeOut" }}
+                className={`group relative rounded-[20px] border border-foreground/[0.08]
+                  bg-white/50 dark:bg-white/[0.03] backdrop-blur-xl
+                  transition-colors duration-300
+                  hover:border-primary/25 hover:bg-white/70 dark:hover:bg-white/[0.05]
+                  ${reason.wide ? "sm:col-span-2" : ""}`}
               >
-                <div className="flex gap-4">
+                {/* Hairline inner highlight */}
+                <div className="pointer-events-none absolute inset-0 rounded-[20px] shadow-[inset_0_1px_0_0_rgba(255,255,255,0.45)] dark:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.06)]" />
+
+                <div className={`relative p-5 ${reason.wide ? "flex items-center gap-5" : ""}`}>
+                  {/* Icon chip */}
                   <div
-                    className={`w-12 h-12 flex-shrink-0 rounded-xl border ${reason.bg} ${reason.glow} flex items-center justify-center group-hover:scale-110 transition-all duration-300`}
+                    className={`shrink-0 rounded-xl border border-foreground/[0.08] bg-background/70 dark:bg-white/[0.05]
+                      flex items-center justify-center text-primary
+                      transition-colors duration-300 group-hover:border-primary/25
+                      ${reason.wide ? "w-11 h-11" : "w-10 h-10 mb-4"}`}
                   >
-                    <reason.Icon size={22} className={reason.color} strokeWidth={1.75} />
+                    <reason.Icon size={reason.wide ? 19 : 17} strokeWidth={1.75} />
                   </div>
-                  <div>
-                    <h3 className="text-base font-bold mb-1.5 group-hover:text-primary transition-colors">
+
+                  <div className="min-w-0">
+                    <h3 className="text-[15px] font-semibold tracking-tight mb-1.5">
                       {reason.title}
                     </h3>
-                    <p className="text-muted-foreground leading-relaxed text-xs sm:text-sm">
+                    <p className="text-[13px] text-muted-foreground leading-relaxed">
                       {reason.desc}
                     </p>
                   </div>
@@ -126,4 +124,3 @@ export function WhyNexio() {
     </section>
   );
 }
-

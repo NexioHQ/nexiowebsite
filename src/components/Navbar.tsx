@@ -6,9 +6,9 @@ import { AnimatePresence, motion } from "framer-motion";
 import logo from "../assets/logo.png";
 
 const solutionLinks = [
+  { name: "Cyber Security", href: "/solutions/cybersecurity" },
   { name: "Digital Solutions", href: "/solutions/digital-solutions" },
   { name: "AI & Automation", href: "/solutions/ai-automation" },
-  { name: "Cybersecurity", href: "/solutions/cybersecurity" },
 ];
 
 const navLinks = [
@@ -85,11 +85,11 @@ export function Navbar() {
                     <div
                       onMouseEnter={() => setSolutionsOpen(true)}
                       onMouseLeave={() => setSolutionsOpen(false)}
-                      className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-max bg-[#0D1528] border border-blue-900/30 rounded-xl shadow-2xl shadow-black/30 py-2 z-50"
+                      className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-56 bg-[#0D1528] border border-blue-900/30 rounded-xl shadow-2xl shadow-black/30 py-2 z-50"
                     >
                       {solutionLinks.map((sl) => (
-                        <Link key={sl.href} href={sl.href} className="block w-max">
-                          <span className="block w-max px-3 py-2 text-sm text-gray-300 hover:bg-blue-500/10 hover:text-blue-300 transition-colors cursor-pointer whitespace-nowrap">
+                        <Link key={sl.href} href={sl.href} className="block w-full">
+                          <span className="block w-full px-3 py-2 text-center text-sm text-gray-300 hover:bg-blue-500/10 hover:text-blue-300 transition-colors cursor-pointer whitespace-nowrap">
                             {sl.name}
                           </span>
                         </Link>
@@ -118,7 +118,7 @@ export function Navbar() {
           </button>
           {!isHome && (
             <Link href="/contact">
-              <span className="bg-blue-600 hover:bg-blue-500 text-white px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 hover:scale-105 shadow-lg shadow-blue-600/20 hover:shadow-blue-500/30 cursor-pointer">
+              <span className="bg-blue-600 hover:bg-blue-500 text-white px-3 py-1.5 rounded-full text-[11px] font-medium transition-all duration-300 hover:scale-105 shadow-lg shadow-blue-600/20 hover:shadow-blue-500/30 cursor-pointer">
                 Book a Consultation
               </span>
             </Link>
@@ -189,7 +189,7 @@ export function Navbar() {
             );
           })}
           <Link href="/contact">
-            <span className="block bg-blue-600 text-white px-5 py-3 rounded-full text-base font-medium mt-4 w-full text-center cursor-pointer hover:bg-blue-500 transition-colors">
+            <span className="block bg-blue-600 text-white px-3 py-1.5 rounded-full text-xs font-medium mt-4 w-full text-center cursor-pointer hover:bg-blue-500 transition-colors">
               Book a Consultation
             </span>
           </Link>

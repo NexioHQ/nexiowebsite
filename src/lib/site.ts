@@ -168,6 +168,7 @@ export const PUBLIC_ROUTES: SiteRoute[] = [
       "Nexio Global's cybersecurity services — penetration testing, vulnerability management, and GRC compliance.",
     changefreq: "monthly",
     priority: 0.8,
+    noindex: true,
   },
   {
     path: "/services/technology-consulting",

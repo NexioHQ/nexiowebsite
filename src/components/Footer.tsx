@@ -1,4 +1,4 @@
-import { Facebook, Instagram, Linkedin } from "lucide-react";
+﻿import { Facebook, Instagram, Linkedin } from "lucide-react";
 import { Link } from "wouter";
 import logo from "../assets/logo2.png";
 
@@ -36,7 +36,6 @@ export function Footer() {
           <div>
             <h4 className="font-semibold mb-5 text-sm">Solutions</h4>
             <ul className="space-y-3 text-sm text-muted-foreground">
-              <li><Link href="/solutions"><span className="hover:text-primary transition-colors cursor-pointer">Solutions Overview</span></Link></li>
               <li><Link href="/solutions/digital-solutions"><span className="hover:text-primary transition-colors cursor-pointer">Digital Solutions</span></Link></li>
               <li><Link href="/solutions/ai-automation"><span className="hover:text-primary transition-colors cursor-pointer">AI & Automation</span></Link></li>
               <li><Link href="/solutions/cybersecurity"><span className="hover:text-primary transition-colors cursor-pointer">Cybersecurity</span></Link></li>
@@ -72,4 +71,5 @@ export function Footer() {
     </footer>
   );
 }
+
 
