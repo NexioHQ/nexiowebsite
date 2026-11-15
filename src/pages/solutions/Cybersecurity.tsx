@@ -118,7 +118,6 @@ function Hero({ onRequest }: { onRequest: () => void }) {
         </div>
         <div className="nri-hero-grid">
           <div className="nri-hero-copy">
-            <br></br>
             <h1>Your application works. <em>But is it <span className="nri-secure-badge">secure?</span></em></h1>
             <p>Nexio&rsquo;s security assessments help find weaknesses before attackers do.</p>
             <div className="nri-actions">
@@ -129,7 +128,6 @@ function Hero({ onRequest }: { onRequest: () => void }) {
                 Explore our services
               </a>
             </div>
-            
           </div>
 
           <div className="nri-hero-art">
@@ -138,12 +136,8 @@ function Hero({ onRequest }: { onRequest: () => void }) {
               src="/cybersecurity-hero.png"
               alt="A protected web application connected to APIs and data during a security assessment"
             />
-            
           </div>
         </div>
-        <br></br>
-        <br></br>
-        <br></br>
       </div>
     </section>
   );

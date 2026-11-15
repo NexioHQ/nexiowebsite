@@ -233,19 +233,27 @@ html {
 .nri-hero {
   box-sizing: border-box;
   width: 100%;
-  padding: 22px 0 0;
+  min-height: calc(100svh - 72px);
+  padding: 28px 24px 36px;
+  display: flex;
+  align-items: center;
   background-color: #eaf2ff;
   background: linear-gradient(180deg, #eaf2ff 0%, #eff5ff 79%, #e9f1ff 100%);
 }
 .nri-hero-shell {
   position: relative;
-  width: 100%;
+  width: min(100%, 1280px);
+  min-height: min(700px, calc(100svh - 120px));
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   margin: 0 auto;
-  padding: 23px 44px 27px;
-  border: 1px solid rgba(255,255,255,.94);
-  border-radius: 0;
-  background: rgba(255,255,255,.9);
-  box-shadow: 0 14px 52px rgba(41,80,143,.07);
+  padding: 30px clamp(28px, 5vw, 68px) 42px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.96);
+  border-radius: 28px;
+  background: rgba(255,255,255,.94);
+  box-shadow: 0 20px 60px rgba(41,80,143,.12);
 }
 .nri-breadcrumb {
   display: flex;
@@ -267,10 +275,10 @@ html {
   font-weight: 500;
 }
 .nri-hero-grid {
-  min-height: 395px;
+  min-height: 520px;
   display: grid;
   grid-template-columns: 1.04fr .96fr;
-  gap: 38px;
+  gap: clamp(38px, 5vw, 76px);
   align-items: center;
 }
 .nri-hero-copy {
@@ -374,20 +382,70 @@ html {
   color: #316fd7;
 }
 .nri-hero-art {
-  min-height: 365px;
+  min-height: 460px;
   position: relative;
   display: grid;
   place-items: center;
   isolation: isolate;
 }
+.nri-hero-art::before {
+  content: "";
+  position: absolute;
+  width: min(92%, 490px);
+  aspect-ratio: 1 / .8;
+  border-radius: 36px 92px 36px 92px;
+  background:
+    linear-gradient(135deg, rgba(42,112,232,.28), rgba(92,181,255,.06)),
+    repeating-linear-gradient(90deg, rgba(48,116,221,.08) 0 1px, transparent 1px 22px);
+  transform: rotate(-5deg) translate(12px, 12px);
+  box-shadow: 0 24px 60px rgba(36,101,207,.14);
+  animation: nri-hero-depth 9s ease-in-out infinite;
+}
+.nri-hero-art::after {
+  content: "";
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  top: 8%;
+  right: 3%;
+  z-index: -1;
+  border-radius: 50%;
+  background: rgba(69,145,255,.2);
+  filter: blur(35px);
+  animation: nri-hero-glow 7s ease-in-out infinite;
+}
 .nri-hero-image {
+  position: relative;
+  z-index: 1;
   display: block;
   width: min(100%, 510px);
-  height: 345px;
+  height: 430px;
   object-fit: cover;
+  object-position: center;
   border: 1px solid rgba(214,228,246,.9);
-  border-radius: 18px;
-  box-shadow: 0 20px 48px rgba(32,67,123,.16);
+  border-radius: 34px 72px 34px 72px;
+  box-shadow: 0 24px 52px rgba(32,67,123,.2);
+  transform: rotate(1.5deg);
+  animation: nri-hero-float 8s ease-in-out infinite;
+}
+@keyframes nri-hero-float {
+  0%, 100% { transform: rotate(1.5deg) translateY(0); }
+  50% { transform: rotate(1.5deg) translateY(-8px); }
+}
+@keyframes nri-hero-depth {
+  0%, 100% { transform: rotate(-5deg) translate(12px, 12px); }
+  50% { transform: rotate(-3deg) translate(18px, 6px); }
+}
+@keyframes nri-hero-glow {
+  0%, 100% { opacity: .65; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.12); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .nri-hero-image,
+  .nri-hero-art::before,
+  .nri-hero-art::after {
+    animation: none;
+  }
 }
 .nri-art-tag {
   position: absolute;
@@ -429,12 +487,31 @@ html {
 }
 
 @media (max-width: 768px) {
+  .nri-hero {
+    min-height: 0;
+    padding: 16px max(16px, env(safe-area-inset-left)) 24px max(16px, env(safe-area-inset-right));
+    display: block;
+  }
+  .nri-hero-shell {
+    min-height: 0;
+    padding: 24px 20px 30px;
+    border-radius: 22px;
+  }
   .nri-hero-copy { padding-bottom: 0; }
   .nri-hero h1 { max-width: 510px; margin: 17px 0 13px; font-size: clamp(39px, 10.5vw, 56px); letter-spacing: -2.4px; }
   .nri-hero-copy > p { font-size: 12px; }
   .nri-actions { align-items: stretch; }
   .nri-actions .nri-button { min-height: 43px; }
-  .nri-hero-art { min-height: 285px; margin: 2px -9px 0; }
+  .nri-hero-art { min-height: 285px; margin: 2px 0 0; }
+  .nri-hero-art::before {
+    width: 94%;
+    border-radius: 28px 58px 28px 58px;
+  }
+  .nri-hero-image {
+    height: auto;
+    aspect-ratio: 1 / .86;
+    border-radius: 26px 52px 26px 52px;
+  }
   .nri-scroll-cue { margin-top: 6px; }
 }
 
@@ -700,11 +777,8 @@ html {
 }
 
 @media (max-width: 768px) {
-  .nri-hero {
-    padding-inline: 0;
-  }
   .nri-hero-shell {
-    padding-inline: max(16px, env(safe-area-inset-left)) max(16px, env(safe-area-inset-right));
+    padding-inline: 20px;
   }
   .nri-hero-grid {
     min-height: 0;
