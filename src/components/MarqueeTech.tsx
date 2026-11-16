@@ -20,16 +20,16 @@ const techStack = [
   { name: "Make", icon: "https://cdn.simpleicons.org/make/6D00FF", category: "AI & Automation" },
   { name: "n8n", icon: "https://cdn.simpleicons.org/n8n/EA4B71", category: "AI & Automation" },
 
-  // Cybersecurity & Cloud Infrastructure
-  { name: "AWS", icon: "https://cdn.simpleicons.org/amazonwebservices/FF9900", category: "Cybersecurity & Cloud" },
-  { name: "Google Cloud", icon: "https://cdn.simpleicons.org/googlecloud/4285F4", category: "Cybersecurity & Cloud" },
-  { name: "Microsoft Azure", icon: "https://cdn.simpleicons.org/microsoftazure/0078D4", category: "Cybersecurity & Cloud" },
-  { name: "Cloudflare", icon: "https://cdn.simpleicons.org/cloudflare/F38020", category: "Cybersecurity & Cloud" },
-  { name: "CrowdStrike", icon: "https://cdn.simpleicons.org/crowdstrike/FC0000", category: "Cybersecurity & Cloud" },
-  { name: "Docker", icon: "https://cdn.simpleicons.org/docker/2496ED", category: "Cybersecurity & Cloud" },
-  { name: "Kubernetes", icon: "https://cdn.simpleicons.org/kubernetes/326CE5", category: "Cybersecurity & Cloud" },
-  { name: "Terraform", icon: "https://cdn.simpleicons.org/terraform/7B42BC", category: "Cybersecurity & Cloud" },
-  { name: "Datadog", icon: "https://cdn.simpleicons.org/datadog/632CA6", category: "Cybersecurity & Cloud" },
+  // Cyber Security & Cloud Infrastructure
+  { name: "AWS", icon: "https://cdn.simpleicons.org/amazonwebservices/FF9900", category: "Cyber Security & Cloud" },
+  { name: "Google Cloud", icon: "https://cdn.simpleicons.org/googlecloud/4285F4", category: "Cyber Security & Cloud" },
+  { name: "Microsoft Azure", icon: "https://cdn.simpleicons.org/microsoftazure/0078D4", category: "Cyber Security & Cloud" },
+  { name: "Cloudflare", icon: "https://cdn.simpleicons.org/cloudflare/F38020", category: "Cyber Security & Cloud" },
+  { name: "CrowdStrike", icon: "https://cdn.simpleicons.org/crowdstrike/FC0000", category: "Cyber Security & Cloud" },
+  { name: "Docker", icon: "https://cdn.simpleicons.org/docker/2496ED", category: "Cyber Security & Cloud" },
+  { name: "Kubernetes", icon: "https://cdn.simpleicons.org/kubernetes/326CE5", category: "Cyber Security & Cloud" },
+  { name: "Terraform", icon: "https://cdn.simpleicons.org/terraform/7B42BC", category: "Cyber Security & Cloud" },
+  { name: "Datadog", icon: "https://cdn.simpleicons.org/datadog/632CA6", category: "Cyber Security & Cloud" },
 ];
 
 // Duplicate for seamless infinite scroll

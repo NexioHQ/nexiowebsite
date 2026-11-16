@@ -4,8 +4,8 @@ import { workItems } from "../data/work";
 export const SITE_URL = "https://nexiogbl.com";
 export const SITE_NAME = "Nexio Global";
 export const SITE_DEFAULT_DESCRIPTION =
-  "Nexio Global transforms businesses through technology. Enterprise-grade digital solutions, AI automation, cloud infrastructure, and cybersecurity services.";
-export const SITE_DEFAULT_TITLE = "Nexio Global | Digital Solutions, AI Automation & Cybersecurity";
+  "Nexio Global transforms businesses through technology. Enterprise-grade digital solutions, AI automation, cloud infrastructure, and cyber security services.";
+export const SITE_DEFAULT_TITLE = "Nexio Global | Digital Solutions, AI Automation & Cyber Security";
 export const SITE_DEFAULT_IMAGE = `${SITE_URL}/favicon.png`;
 export const SITE_TWITTER_HANDLE = "@nexiogbl";
 export const SITE_LOCALE = "en_US";
@@ -34,9 +34,9 @@ export const MAIN_NAV_LINKS = [
 
 export const SOLUTION_NAV_LINKS = [
   { name: "Solutions Overview", href: "/solutions" },
-  { name: "Digital Solutions", href: "/solutions/digital-solutions" },
-  { name: "AI & Automation", href: "/solutions/ai-automation" },
-  { name: "Cybersecurity", href: "/solutions/cybersecurity" },
+  { name: "Digital Solutions", href: "/digital-solutions" },
+  { name: "AI & Automation", href: "/ai-automation" },
+  { name: "Cyber Security", href: "/cyber-security" },
 ];
 
 export interface SiteRoute {
@@ -74,7 +74,7 @@ export const PUBLIC_ROUTES: SiteRoute[] = [
     priority: 0.9,
   },
   {
-    path: "/solutions/digital-solutions",
+    path: "/digital-solutions",
     title: "Digital Solutions & Custom Software Development",
     description:
       "Nexio Global builds high-performance websites, web applications, mobile apps, SaaS products, and custom enterprise software.",
@@ -82,7 +82,7 @@ export const PUBLIC_ROUTES: SiteRoute[] = [
     priority: 0.9,
   },
   {
-    path: "/solutions/ai-automation",
+    path: "/ai-automation",
     title: "AI Automation Services & Intelligent Workflows",
     description:
       "Nexio Global delivers AI automation services, AI assistants, workflow automation, predictive analytics, and intelligent business systems.",
@@ -90,8 +90,8 @@ export const PUBLIC_ROUTES: SiteRoute[] = [
     priority: 0.9,
   },
   {
-    path: "/solutions/cybersecurity",
-    title: "Cybersecurity Services & Application Security Testing",
+    path: "/cyber-security",
+    title: "Cyber Security Services & Application Security Testing",
     description:
       "Nexio Global provides cybersecurity services, application security testing, vulnerability assessments, API security testing, and practical protection.",
     changefreq: "monthly",
@@ -163,7 +163,7 @@ export const PUBLIC_ROUTES: SiteRoute[] = [
   },
   {
     path: "/services/cybersecurity",
-    title: "Cybersecurity Services",
+    title: "Cyber Security Services",
     description:
       "Nexio Global's cybersecurity services — penetration testing, vulnerability management, and GRC compliance.",
     changefreq: "monthly",

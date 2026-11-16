@@ -50,6 +50,9 @@ function Router() {
       <Switch>
         <Route path="/" component={Home} />
         <Route path="/about" component={About} />
+        <Route path="/digital-solutions" component={DigitalSolutions} />
+        <Route path="/ai-automation" component={AIAutomation} />
+        <Route path="/cyber-security" component={Cybersecurity} />
         <Route path="/solutions/digital-solutions" component={DigitalSolutions} />
         <Route path="/solutions/ai-automation" component={AIAutomation} />
         <Route path="/solutions/cybersecurity" component={Cybersecurity} />

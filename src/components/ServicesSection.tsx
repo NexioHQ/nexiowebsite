@@ -12,29 +12,29 @@ const services = [
     borderGlow: "group-hover:border-emerald-500/40",
     iconBg: "bg-emerald-500/10 border-emerald-500/20 text-emerald-400 group-hover:bg-emerald-500 group-hover:text-white group-hover:shadow-[0_0_25px_rgba(16,185,129,0.5)]",
     tagBg: "bg-emerald-500/10 text-emerald-300 border-emerald-500/20",
-    href: "/solutions/cybersecurity",
+    href: "/cyber-security",
   },
   {
     Icon: Code2,
     title: "Digital Solutions",
-    desc: "High-performance websites, enterprise web apps, native mobile applications, and scalable cloud architectures tailored for high growth.",
+    desc: "Websites, enterprise web apps, Mobile applications, and scalable cloud architectures tailored for high growth.",
     tags: ["Websites & Digital Products", "Custom Software & Business Systems", "Mobile App Development"],
     accent: "from-blue-500/20 via-sky-500/10 to-transparent",
     borderGlow: "group-hover:border-blue-500/40",
     iconBg: "bg-blue-500/10 border-blue-500/20 text-blue-400 group-hover:bg-blue-500 group-hover:text-white group-hover:shadow-[0_0_25px_rgba(59,130,246,0.5)]",
     tagBg: "bg-blue-500/10 text-blue-300 border-blue-500/20",
-    href: "/solutions/digital-solutions",
+    href: "/digital-solutions",
   },
   {
     Icon: Cpu,
     title: "AI & Automation",
-    desc: "Intelligent autonomous workflows,  AI assistants, and predictive systems that eliminate repetitive tasks and unlock new revenue.",
+    desc: "Intelligent autonomous workflows,  AI assistants, and predictive systems that eliminate repetitive tasks.",
     tags: ["Workflow Automation", "AI Assistants and Content Tools", "CRM & Lead Automation"],
     accent: "from-violet-500/20 via-fuchsia-500/10 to-transparent",
     borderGlow: "group-hover:border-violet-500/40",
     iconBg: "bg-violet-500/10 border-violet-500/20 text-violet-400 group-hover:bg-violet-500 group-hover:text-white group-hover:shadow-[0_0_25px_rgba(139,92,246,0.5)]",
     tagBg: "bg-violet-500/10 text-violet-300 border-violet-500/20",
-    href: "/solutions/ai-automation",
+    href: "/ai-automation",
   },
 ];
 
@@ -56,7 +56,7 @@ export function ServicesSection() {
         >
 
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight mb-5 leading-tight">
-            Our Technology Services
+            Our Services
           </h2>
           <p className="text-base sm:text-lg text-blue-100/60 leading-relaxed max-w-2xl mx-auto">
             Build. Automate. Stay secure.

@@ -12,7 +12,7 @@ const services = [
   "Digital Solutions",
   "AI and Automation",
   "Cloud Solutions",
-  "Cybersecurity",
+  "Cyber Security",
   "Technology Consulting",
   "Other",
 ];

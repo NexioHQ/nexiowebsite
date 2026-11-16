@@ -18,7 +18,7 @@ function SectionLoader() {
 
 export default function Home() {
   useSeo({
-    title: "Nexio Global | Digital Solutions, AI Automation & Cybersecurity",
+    title: "Nexio Global | Digital Solutions, AI Automation & Cyber Security",
     description:
       "Nexio Global transforms businesses through technology. We deliver enterprise-grade digital solutions, AI automation, cloud infrastructure, and cybersecurity services.",
     path: "/",

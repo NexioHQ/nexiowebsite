@@ -31,21 +31,21 @@ const DEFAULT_RELATED_SERVICES = [
     title: "Digital Solutions",
     description:
       "High-performance websites, enterprise web apps, native mobile applications, and scalable cloud architectures.",
-    href: "/solutions/digital-solutions",
+    href: "/digital-solutions",
     accent: "from-blue-500 to-blue-600",
   },
   {
     title: "AI & Automation",
     description:
       "Intelligent autonomous workflows, AI assistants, and predictive systems that eliminate repetitive tasks.",
-    href: "/solutions/ai-automation",
+    href: "/ai-automation",
     accent: "from-violet-500 to-violet-600",
   },
   {
-    title: "Cybersecurity",
+    title: "Cyber Security",
     description:
       "Enterprise-grade threat protection, penetration testing, compliance readiness, and zero-trust architectures.",
-    href: "/solutions/cybersecurity",
+    href: "/cyber-security",
     accent: "from-emerald-500 to-emerald-600",
   },
 ];

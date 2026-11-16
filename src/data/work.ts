@@ -17,7 +17,7 @@ export interface WorkItem {
   aiSolution?: string;
   timeSaved?: string;
   roi?: string;
-  // Cybersecurity
+  // Cyber Security
   engagementType?: string;
 }
 
@@ -48,7 +48,7 @@ export const workItems: WorkItem[] = [
     title: "Enterprise GRC & Compliance Review",
     slug: "enterprise-grc-compliance-review",
     type: "Dashboard",
-    category: "Cybersecurity",
+    category: "Cyber Security",
     description:
       "Governance, Risk, and Compliance assessment featuring ISO 27001 auditing.",
     longDescription:

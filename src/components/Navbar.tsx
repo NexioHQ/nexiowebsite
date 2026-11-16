@@ -6,15 +6,15 @@ import { AnimatePresence, motion } from "framer-motion";
 import logo from "../assets/logo.png";
 
 const solutionLinks = [
-  { name: "Cyber Security", href: "/solutions/cybersecurity" },
-  { name: "Digital Solutions", href: "/solutions/digital-solutions" },
-  { name: "AI & Automation", href: "/solutions/ai-automation" },
+  { name: "Cyber Security", href: "/cyber-security" },
+  { name: "Digital Solutions", href: "/digital-solutions" },
+  { name: "AI & Automation", href: "/ai-automation" },
 ];
 
 const navLinks = [
   { name: "Home", href: "/" },
   { name: "About Us", href: "/about" },
-  { name: "Solutions", href: "/solutions/digital-solutions", hasDropdown: true },
+  { name: "Solutions", href: "/solutions", hasDropdown: true },
   { name: "Resources", href: "/resources" },
   { name: "Careers", href: "/careers" },
   { name: "Contact Us", href: "/contact" },

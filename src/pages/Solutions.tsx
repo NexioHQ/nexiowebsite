@@ -16,7 +16,7 @@ const solutions = [
     accent: "from-blue-500 to-blue-600",
     iconBg: "bg-blue-50 dark:bg-blue-500/10",
     iconColor: "text-blue-600 dark:text-blue-400",
-    href: "/solutions/digital-solutions",
+    href: "/digital-solutions",
   },
   {
     icon: Cpu,
@@ -26,17 +26,17 @@ const solutions = [
     accent: "from-violet-500 to-violet-600",
     iconBg: "bg-violet-50 dark:bg-violet-500/10",
     iconColor: "text-violet-600 dark:text-violet-400",
-    href: "/solutions/ai-automation",
+    href: "/ai-automation",
   },
   {
     icon: ShieldCheck,
-    title: "Cybersecurity",
+    title: "Cyber Security",
     description: "Proactive security strategies that protect your business, meet compliance requirements, and keep your customers' trust intact.",
     features: ["Penetration testing and audits", "Compliance consulting (ISO, SOC2)", "Managed security operations", "Incident response planning"],
     accent: "from-emerald-500 to-emerald-600",
     iconBg: "bg-emerald-50 dark:bg-emerald-500/10",
     iconColor: "text-emerald-600 dark:text-emerald-400",
-    href: "/solutions/cybersecurity",
+    href: "/cyber-security",
   },
 ];
 
@@ -50,7 +50,7 @@ export default function Solutions() {
       "Technology Solutions",
       "Digital Solutions",
       "AI Automation Services",
-      "Cybersecurity Services",
+      "Cyber Security Services",
       "Custom Software Development",
     ],
     schema: [

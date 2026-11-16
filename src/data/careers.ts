@@ -37,7 +37,7 @@ export const jobListings: JobListing[] = [
     slug: "cloud-solutions-architect",
   },
   {
-    title: "Cybersecurity Analyst",
+    title: "Cyber Security Analyst",
     department: "Security",
     location: "Remote / Sri Lanka",
     type: "Full-time",

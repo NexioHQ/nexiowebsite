@@ -3,7 +3,6 @@ import { BrainCircuit, MessageSquareText, Workflow, Bot, BarChart3, ArrowLeft, C
 import { Link } from "wouter";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
-import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { useState } from "react";
 import { ContactForm } from "@/components/ContactForm";
 import { useSeo } from "@/lib/seo";
@@ -108,7 +107,7 @@ export default function AIAutomation() {
     title: "AI Automation Services & Intelligent Workflows",
     description:
       "Nexio Global delivers AI automation services, AI assistants, workflow automation, predictive analytics, and intelligent business systems that reduce manual effort.",
-    path: "/solutions/ai-automation",
+    path: "/ai-automation",
     keywords: [
       "AI Automation Services",
       "Workflow Automation",
@@ -122,18 +121,18 @@ export default function AIAutomation() {
         name: "AI Automation Services & Intelligent Workflows",
         description:
           "AI automation services including AI assistants, workflow automation, predictive analytics, and intelligent business systems.",
-        path: "/solutions/ai-automation",
+        path: "/ai-automation",
       }),
       faqSchema(faqs),
       webPageSchema({
         name: "AI Automation Services & Intelligent Workflows — Nexio Global",
         description:
           "Nexio Global delivers AI automation services, AI assistants, workflow automation, predictive analytics, and intelligent business systems.",
-        path: "/solutions/ai-automation",
+        path: "/ai-automation",
         breadcrumbs: [
           { name: "Home", path: "/" },
           { name: "Solutions", path: "/solutions" },
-          { name: "AI & Automation", path: "/solutions/ai-automation" },
+          { name: "AI & Automation", path: "/ai-automation" },
         ],
       }),
     ],
@@ -148,12 +147,6 @@ export default function AIAutomation() {
       <section className="pt-28 sm:pt-36 pb-14 sm:pb-20 relative overflow-hidden">
         <div className="absolute top-0 left-0 w-[600px] h-[400px] bg-gradient-to-br from-violet-500 to-violet-600 opacity-10 rounded-full blur-[120px] pointer-events-none" />
         <div className="max-w-5xl mx-auto px-6 relative z-10">
-          <Breadcrumbs
-            items={[
-              { name: "Solutions", path: "/solutions" },
-              { name: "AI & Automation", path: "/solutions/ai-automation" },
-            ]}
-          />
           <Link href="/">
             <button className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors mb-8">
               <ArrowLeft size={15} />

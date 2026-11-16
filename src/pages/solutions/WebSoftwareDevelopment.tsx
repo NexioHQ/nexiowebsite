@@ -3,7 +3,6 @@ import { Code2, Globe, Monitor, Smartphone, LayoutDashboard, ArrowLeft, CheckCir
 import { Link } from "wouter";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
-import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { useState } from "react";
 import { ContactForm } from "@/components/ContactForm";
 import { useSeo } from "@/lib/seo";
@@ -85,11 +84,7 @@ const whyItems = [
   "Post-launch support and iterative improvement included",
 ];
 
-const breadcrumbs = [
-  { name: "Home", path: "/" },
-  { name: "Solutions", path: "/solutions" },
-  { name: "Digital Solutions", path: "/solutions/digital-solutions" },
-];
+const breadcrumbs = [{ name: "Digital Solutions", path: "/digital-solutions" }];
 
 const faqs = [
   {
@@ -122,7 +117,7 @@ export default function DigitalSolutions() {
     title: "Digital Solutions & Custom Software Development",
     description:
       "Nexio Global builds high-performance websites, web applications, mobile apps, SaaS products, and custom enterprise software that scales with your business.",
-    path: "/solutions/digital-solutions",
+    path: "/digital-solutions",
     keywords: [
       "Digital Solutions",
       "Custom Software Development",
@@ -137,14 +132,14 @@ export default function DigitalSolutions() {
         name: "Digital Solutions & Custom Software Development",
         description:
           "High-performance websites, web applications, mobile apps, SaaS products, and custom enterprise software built by Nexio Global.",
-        path: "/solutions/digital-solutions",
+        path: "/digital-solutions",
       }),
       faqSchema(faqs),
       webPageSchema({
         name: "Digital Solutions & Custom Software Development — Nexio Global",
         description:
           "Nexio Global builds high-performance websites, web applications, mobile apps, SaaS products, and custom enterprise software that scales with your business.",
-        path: "/solutions/digital-solutions",
+        path: "/digital-solutions",
         breadcrumbs,
       }),
     ],
@@ -159,9 +154,6 @@ export default function DigitalSolutions() {
       <section className="pt-28 sm:pt-36 pb-14 sm:pb-20 relative overflow-hidden">
         <div className="absolute top-0 left-0 w-[600px] h-[400px] bg-gradient-to-br from-blue-500 to-blue-600 opacity-10 rounded-full blur-[120px] pointer-events-none" />
         <div className="max-w-5xl mx-auto px-6 relative z-10">
-          <Breadcrumbs
-            items={breadcrumbs.slice(1)}
-          />
           <Link href="/">
             <button className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors mb-8">
               <ArrowLeft size={15} />

@@ -2,12 +2,12 @@ import { useState } from "react";
 import { Link } from "wouter";
 import { AnimatePresence, motion } from "framer-motion";
 import {
+  ArrowLeft,
   ArrowDownRight,
   ArrowRight,
   Braces,
   Check,
   ChevronDown,
-  ChevronRight,
   ClipboardCheck,
   FileCheck2,
   GlobeLock,
@@ -111,13 +111,14 @@ function Hero({ onRequest }: { onRequest: () => void }) {
   return (
     <section className="nri-hero" id="overview">
       <div className="nri-hero-shell">
-        <div className="nri-breadcrumb">
-          <a href="/">Home</a><ChevronRight size={12} />
-          <a href="/solutions">Solutions</a><ChevronRight size={12} />
-          <span>Cybersecurity</span>
-        </div>
         <div className="nri-hero-grid">
           <div className="nri-hero-copy">
+            <Link href="/">
+              <button className="nri-back-link" type="button">
+                <ArrowLeft size={15} />
+                Back to home
+              </button>
+            </Link>
             <h1>Your application works. <em>But is it <span className="nri-secure-badge">secure?</span></em></h1>
             <p>Nexio&rsquo;s security assessments help find weaknesses before attackers do.</p>
             <div className="nri-actions">
@@ -391,7 +392,7 @@ function SecurityServices({ onRequest }: { onRequest: () => void }) {
       <Container>
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="text-3xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-4xl">
-            Cybersecurity Services for Modern Digital Products
+            Cyber Security Services for Modern Digital Products
           </h2>
           <p className="mt-4 text-base leading-relaxed text-slate-600 dark:text-slate-400">
             Human-led security testing and practical protection for websites, applications, APIs
@@ -640,11 +641,11 @@ export default function Cybersecurity() {
   const openForm = () => setFormOpen(true);
 
   useSeo({
-    title: "Cybersecurity Services & Application Security Testing",
+    title: "Cyber Security Services & Application Security Testing",
     description: PAGE_DESCRIPTION,
-    path: "/solutions/cybersecurity",
+    path: "/cyber-security",
     keywords: [
-      "Cybersecurity Services",
+      "Cyber Security Services",
       "Application Security",
       "Web Application Security Testing",
       "Vulnerability Assessment",
@@ -659,23 +660,23 @@ export default function Cybersecurity() {
     ],
     schema: [
       serviceSchema({
-        name: "Cybersecurity Services & Application Security Testing",
+        name: "Cyber Security Services & Application Security Testing",
         description: PAGE_DESCRIPTION,
-        path: "/solutions/cybersecurity",
+        path: "/cyber-security",
       }),
       faqSchema(FAQS.map(({ q, a }) => ({ question: q, answer: a }))),
       webPageSchema({
-        name: "Cybersecurity Services & Application Security Testing — Nexio Global",
+        name: "Cyber Security Services & Application Security Testing — Nexio Global",
         description: PAGE_DESCRIPTION,
-        path: "/solutions/cybersecurity",
+        path: "/cyber-security",
         breadcrumbs: [
           { name: "Home", path: "/" },
-          { name: "Cybersecurity", path: "/solutions/cybersecurity" },
+          { name: "Cyber Security", path: "/cyber-security" },
         ],
       }),
       breadcrumbSchema([
         { name: "Home", path: "/" },
-        { name: "Cybersecurity", path: "/solutions/cybersecurity" },
+        { name: "Cyber Security", path: "/cyber-security" },
       ]),
     ],
   });
@@ -696,7 +697,7 @@ export default function Cybersecurity() {
       </main>
 
       <Footer />
-      <ContactForm open={formOpen} onClose={() => setFormOpen(false)} defaultService="Cybersecurity" />
+      <ContactForm open={formOpen} onClose={() => setFormOpen(false)} defaultService="Cyber Security" />
     </div>
   );
 }

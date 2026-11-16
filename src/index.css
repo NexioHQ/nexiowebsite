@@ -285,6 +285,29 @@ html {
   max-width: 570px;
   padding: 4px 0 20px;
 }
+.nri-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 24px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #64748b;
+  font: inherit;
+  font-size: 14px;
+  cursor: pointer;
+  transition: color .2s ease;
+}
+.nri-back-link:hover {
+  color: #2563eb;
+}
+.dark .nri-back-link {
+  color: #a9bad5;
+}
+.dark .nri-back-link:hover {
+  color: #93c5fd;
+}
 .nri-eyebrow {
   display: flex;
   align-items: center;
@@ -427,6 +450,28 @@ html {
   box-shadow: 0 24px 52px rgba(32,67,123,.2);
   transform: rotate(1.5deg);
   animation: nri-hero-float 8s ease-in-out infinite;
+}
+.dark .nri-hero {
+  background: linear-gradient(180deg, #0b1120 0%, #101b35 100%);
+}
+.dark .nri-hero-shell {
+  border-color: rgba(255,255,255,.1);
+  background: rgba(11,17,32,.88);
+  box-shadow: 0 20px 60px rgba(0,0,0,.28);
+}
+.dark .nri-hero h1 {
+  color: #f8fbff;
+}
+.dark .nri-hero-copy > p {
+  color: #b7c6df;
+}
+.dark .nri-button-quiet {
+  color: #d7e5ff;
+  border-color: rgba(255,255,255,.18);
+  background: rgba(255,255,255,.06);
+}
+.dark .nri-feature-section {
+  background: #101b35;
 }
 @keyframes nri-hero-float {
   0%, 100% { transform: rotate(1.5deg) translateY(0); }
