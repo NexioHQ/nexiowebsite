@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Nexio Global Security Assessment Report</title>
+    <style>
+      :root { color-scheme: light; --blue: #1769e0; --ink: #17243b; --muted: #5d6b82; --line: #dce5f2; --soft: #f3f7fc; }
+      * { box-sizing: border-box; }
+      body { margin: 0; color: var(--ink); background: #eef3f9; font: 15px/1.65 Arial, sans-serif; }
+      main { max-width: 980px; margin: 32px auto; background: #fff; box-shadow: 0 16px 50px rgba(28, 54, 91, .12); }
+      header { padding: 48px 56px; color: #fff; background: linear-gradient(120deg, #0b2b62, #1769e0); }
+      header img { width: 180px; max-height: 52px; object-fit: contain; object-position: left center; margin-bottom: 32px; }
+      h1 { margin: 0 0 8px; font-size: 34px; line-height: 1.15; }
+      h2 { margin: 36px 0 12px; color: #0e4ea9; font-size: 22px; }
+      h3 { margin: 24px 0 8px; font-size: 17px; }
+      p { margin: 8px 0 14px; }
+      .subtitle { color: #dbeafe; font-size: 18px; }
+      .meta { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 30px; }
+      .meta div, .callout { padding: 14px 16px; border: 1px solid var(--line); border-radius: 10px; background: var(--soft); }
+      .meta div { border-color: rgba(255,255,255,.25); background: rgba(255,255,255,.1); }
+      .meta strong, .meta span { display: block; }
+      .meta span { color: #dbeafe; font-size: 13px; }
+      section { padding: 0 56px; }
+      table { width: 100%; margin: 12px 0 20px; border-collapse: collapse; }
+      th, td { padding: 11px 12px; border: 1px solid var(--line); text-align: left; vertical-align: top; }
+      th { color: #174b93; background: var(--soft); }
+      code { padding: 2px 5px; border-radius: 4px; background: #edf2f8; font: 13px Consolas, monospace; }
+      ul { padding-left: 22px; }
+      .status { color: #087443; font-weight: 700; }
+      .severity { font-weight: 700; white-space: nowrap; }
+      .low { color: #64748b; }
+      .pass { color: #087443; }
+      footer { margin-top: 40px; padding: 24px 56px; color: var(--muted); border-top: 1px solid var(--line); font-size: 13px; }
+      @media (max-width: 700px) {
+        main { margin: 0; }
+        header, section, footer { padding: 30px 22px; }
+        .meta { grid-template-columns: 1fr; }
+        table { display: block; overflow-x: auto; }
+        h1 { font-size: 28px; }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header>
+        <img src="public/nexio-logo-white.png" alt="Nexio Global">
+        <h1>Security Assessment Report</h1>
+        <div class="subtitle">OWASP Top 10 static security review</div>
+        <div class="meta">
+          <div><strong>Prepared by</strong><span>Nexio Global</span></div>
+          <div><strong>Assessment date</strong><span>16 November 2026</span></div>
+          <div><strong>Assessment type</strong><span>Source and dependency review</span></div>
+        </div>
+      </header>
+
+      <section>
+        <h2>Executive summary</h2>
+        <p>The Nexio Global website was reviewed against the OWASP Top 10 using static inspection of the React application, routing, forms, Firebase client integration, hosting configuration, and production dependencies.</p>
+        <p class="status">No confirmed exploitable application vulnerabilities were identified in the reviewed source.</p>
+        <p>Four dependency advisories were identified during the initial audit. Targeted upgrades and package overrides were applied, and the production dependency audit now reports zero vulnerabilities.</p>
+
+        <h2>Scope and methodology</h2>
+        <ul>
+          <li>React, TypeScript, Vite, Wouter routes, forms, and static content.</li>
+          <li>Firebase client initialization and Firebase Hosting configuration.</li>
+          <li>Dependency graph using <code>npm audit --omit=dev</code>.</li>
+          <li>OWASP Top 10 categories: injection, broken access control, cryptographic failures, insecure design, security misconfiguration, vulnerable components, identification/authentication failures, software/data integrity failures, logging/monitoring failures, and SSRF.</li>
+        </ul>
+
+        <h2>Findings and remediation</h2>
+        <table>
+          <thead><tr><th>#</th><th>Severity</th><th>Area</th><th>Finding</th><th>Remediation</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr>
+              <td>1</td><td class="severity low">LOW</td><td>Dependencies</td>
+              <td>Initial audit reported vulnerable versions of Zod, <code>@grpc/grpc-js</code>, and <code>postcss-selector-parser</code>.</td>
+              <td>Upgraded Zod to the 4.x patched line and added package-lock overrides for patched gRPC and PostCSS selector parser versions.</td>
+              <td class="pass">Resolved</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2>OWASP Top 10 review summary</h2>
+        <table>
+          <thead><tr><th>Category</th><th>Result</th><th>Evidence / notes</th></tr></thead>
+          <tbody>
+            <tr><td>A01 Broken Access Control</td><td class="pass">No issue observed</td><td>Client routes map to fixed components; no privileged authorization logic is exposed in the reviewed frontend.</td></tr>
+            <tr><td>A02 Cryptographic Failures</td><td class="pass">No issue observed</td><td>HTTPS and production TLS behavior require runtime verification; no hardcoded private keys were found.</td></tr>
+            <tr><td>A03 Injection</td><td class="pass">No issue observed</td><td>No unsafe HTML rendering was found. Contact fields are URL encoded before mailto construction.</td></tr>
+            <tr><td>A04 Insecure Design</td><td class="pass">No issue observed</td><td>Static site architecture has a small attack surface; backend abuse controls are not present in this repository.</td></tr>
+            <tr><td>A05 Security Misconfiguration</td><td>Needs runtime verification</td><td>Review production CSP, HSTS, clickjacking headers, Firebase rules, and DNS/CDN configuration.</td></tr>
+            <tr><td>A06 Vulnerable Components</td><td class="pass">Remediated</td><td>Production audit after remediation: 0 critical, 0 high, 0 moderate, 0 low vulnerabilities.</td></tr>
+            <tr><td>A07 Identification and Authentication</td><td>Not applicable in scope</td><td>No application authentication flow was found in the reviewed frontend.</td></tr>
+            <tr><td>A08 Software and Data Integrity</td><td class="pass">No issue observed</td><td>Build and typecheck pass; dependency lockfile is maintained.</td></tr>
+            <tr><td>A09 Logging and Monitoring</td><td>Needs runtime verification</td><td>Review Firebase Analytics, hosting logs, alerting, and incident retention separately.</td></tr>
+            <tr><td>A10 SSRF</td><td class="pass">No issue observed</td><td>No server-side URL fetching or backend request proxy was identified.</td></tr>
+          </tbody>
+        </table>
+
+        <h2>Validation performed</h2>
+        <ul>
+          <li class="pass"><code>npm run typecheck</code> passed.</li>
+          <li class="pass"><code>npm run build</code> passed.</li>
+          <li class="pass"><code>npm audit --omit=dev</code> reported zero vulnerabilities after remediation.</li>
+        </ul>
+
+        <h2>Recommendations</h2>
+        <ol>
+          <li>Run a production header scan and enforce a restrictive Content Security Policy, HSTS, and clickjacking protection.</li>
+          <li>Review Firebase Authentication, Firestore, Storage, IAM, and Hosting rules in the Firebase console.</li>
+          <li>Add rate limiting and server-side validation if a backend or email submission endpoint is introduced.</li>
+          <li>Schedule dependency audits in CI and review lockfile changes before release.</li>
+        </ol>
+      </section>
+
+      <footer>
+        This report is a source and dependency review, not a penetration test or formal certification. Runtime infrastructure, third-party services, Firebase rules, and production DNS/CDN behavior were outside the repository-only assessment scope.
+      </footer>
+    </main>
+  </body>
+</html>

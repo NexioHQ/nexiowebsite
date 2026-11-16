@@ -863,6 +863,18 @@ html {
   }
 }
 
+@media (max-width: 768px) {
+  .digital-hero-art {
+    min-height: 285px;
+  }
+  .digital-window {
+    min-height: 240px;
+  }
+  .digital-hero-image {
+    object-fit: cover;
+  }
+}
+
 /* AI hero image treatment */
 .ai-hero {
   background: linear-gradient(180deg, #eaf5ff 0%, #f5f9ff 79%, #e8f3ff 100%);
