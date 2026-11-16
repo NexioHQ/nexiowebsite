@@ -1,13 +1,19 @@
-# Nexio — Transforming Businesses Through Technology
+# Nexio - Transforming Businesses Through Technology
 
 [![Firebase Hosting](https://img.shields.io/badge/Hosted%20on-Firebase-FFCA28?logo=firebase&logoColor=white)](https://nexiogbl.web.app)
 [![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=white)](https://react.dev)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.9-3178C6?logo=typescript&logoColor=white)](https://typescriptlang.org)
 [![Vite](https://img.shields.io/badge/Vite-7-646CFF?logo=vite&logoColor=white)](https://vitejs.dev)
 
-Official website for **Nexio Global** — a technology company delivering enterprise-grade digital solutions, AI automation, cloud infrastructure, and cybersecurity services.
+Official website for **Nexio Global** - a technology company delivering digital solutions, AI automation, cloud infrastructure, and cyber security services.
 
-**Live Site:** [https://nexiogbl.web.app](https://nexiogbl.web.app)
+**Live Site:** [https://nexiogbl.com](https://nexiogbl.com)
+
+### Solution routes
+
+- [Digital Solutions](https://nexiogbl.com/digital-solutions)
+- [Cyber Security](https://nexiogbl.com/cyber-security)
+- [AI & Automation](https://nexiogbl.com/ai-automation)
 
 ---
 
@@ -33,7 +39,7 @@ Official website for **Nexio Global** — a technology company delivering enterp
   - Digital Solutions
   - AI & Automation
   - Cloud Solutions
-  - Cybersecurity
+  - Cyber Security
   - Technology Consulting
 - SEO-optimized meta tags and Open Graph support
 - Firebase Analytics integration
@@ -152,7 +158,7 @@ The app will be available at `http://localhost:5173` with hot module replacement
 
 ## Deployment
 
-This project is deployed to **Firebase Hosting** and accessible at [nexiogbl.web.app](https://nexiogbl.web.app).
+This project is deployed to **Firebase Hosting** and accessible at [nexiogbl.com](https://nexiogbl.com).
 
 ### Deploy to Firebase
 
@@ -167,7 +173,7 @@ npx firebase-tools deploy --only hosting
 ### Firebase Configuration
 
 - **Project ID:** `nexiogbl`
-- **Hosting URL:** `https://nexiogbl.web.app`
+- **Hosting URL:** `https://nexiogbl.com`
 - **Build output directory:** `dist/`
 - **SPA rewrites:** All routes redirect to `index.html`
 

@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { BrainCircuit, MessageSquareText, Workflow, Bot, BarChart3, ArrowLeft, CheckCircle2, ChevronDown } from "lucide-react";
+import { BrainCircuit, MessageSquareText, Workflow, Bot, BarChart3, ArrowLeft, ArrowRight, CheckCircle2, ChevronDown } from "lucide-react";
 import { Link } from "wouter";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
@@ -144,31 +144,48 @@ export default function AIAutomation() {
       <main id="main-content">
 
       {/* Hero */}
-      <section className="pt-28 sm:pt-36 pb-14 sm:pb-20 relative overflow-hidden">
-        <div className="absolute top-0 left-0 w-[600px] h-[400px] bg-gradient-to-br from-violet-500 to-violet-600 opacity-10 rounded-full blur-[120px] pointer-events-none" />
-        <div className="max-w-5xl mx-auto px-6 relative z-10">
-          <Link href="/">
-            <button className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors mb-8">
-              <ArrowLeft size={15} />
-              Back to home
-            </button>
-          </Link>
+      <section className="nri-hero ai-hero" id="overview">
+        <div className="nri-hero-shell ai-hero-shell">
+          <div className="nri-hero-grid">
+            <motion.div
+              className="nri-hero-copy"
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+            >
+              <Link href="/">
+                <button className="nri-back-link" type="button">
+                  <ArrowLeft size={15} />
+                  Back to home
+                </button>
+              </Link>
+              <h1>Make work <em>smarter.</em><br />Make progress faster.</h1>
+              <p>Practical AI systems that remove repetitive work, surface better decisions, and help your business move with confidence.</p>
+              <div className="nri-actions">
+                <button type="button" onClick={() => setFormOpen(true)} className="nri-button nri-button-blue ai-button">
+                  Explore what&rsquo;s possible <ArrowRight size={16} />
+                </button>
+                <a href="#services" className="nri-button nri-button-quiet">
+                  See our capabilities
+                </a>
+              </div>
+            </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-violet-50 dark:bg-violet-500/10 mb-6">
-              <BrainCircuit size={26} className="text-violet-600 dark:text-violet-400" strokeWidth={1.75} />
-            </div>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight mb-5">
-              AI & Automation
-            </h1>
-            <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl leading-relaxed">
-              Intelligent systems that reduce manual effort, accelerate decisions, and create entirely new revenue opportunities for your organisation.
-            </p>
-          </motion.div>
+            <motion.div
+              className="nri-hero-art ai-hero-art"
+              initial={{ opacity: 0, scale: 0.96 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, delay: 0.15 }}
+              aria-label="AI workflow illustration"
+              role="img"
+            >
+              <img
+                className="ai-hero-image"
+                src="/ai-automation-hero.webp"
+                alt="AI automation illustration with an AI processor, workflow connections, analytics, and cloud systems"
+              />
+            </motion.div>
+          </div>
         </div>
       </section>
 
@@ -185,7 +202,7 @@ export default function AIAutomation() {
                 transition={{ delay: i * 0.1 }}
                 className="text-center"
               >
-                <p className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-violet-500 to-violet-600 bg-clip-text text-transparent">
+                <p className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-blue-500 to-blue-600 bg-clip-text text-transparent">
                   {stat.value}
                 </p>
                 <p className="text-sm text-muted-foreground mt-1">{stat.label}</p>
@@ -219,7 +236,7 @@ export default function AIAutomation() {
             >
               {whyItems.map((item, i) => (
                 <div key={i} className="flex items-start gap-3 p-4 bg-white dark:bg-card border border-border rounded-xl">
-                  <CheckCircle2 size={17} className="text-violet-600 flex-shrink-0 mt-0.5" strokeWidth={2} />
+                  <CheckCircle2 size={17} className="text-blue-600 flex-shrink-0 mt-0.5" strokeWidth={2} />
                   <span className="text-sm text-foreground/80">{item}</span>
                 </div>
               ))}
@@ -229,7 +246,7 @@ export default function AIAutomation() {
       </section>
 
       {/* Services Grid */}
-      <section className="py-16 bg-gray-50/70 dark:bg-card/20">
+      <section className="py-16 bg-gray-50/70 dark:bg-card/20" id="services">
         <div className="max-w-5xl mx-auto px-6">
           <motion.h2
             initial={{ opacity: 0, y: 16 }}
@@ -251,15 +268,15 @@ export default function AIAutomation() {
                 className="bg-white dark:bg-card border border-border rounded-2xl p-6 sm:p-8"
               >
                 <div className="flex items-center gap-3 mb-5">
-                  <div className="w-10 h-10 rounded-xl bg-violet-50 dark:bg-violet-500/10 flex items-center justify-center">
-                    <group.icon size={20} className="text-violet-600 dark:text-violet-400" strokeWidth={1.75} />
+                  <div className="w-10 h-10 rounded-xl bg-blue-50 dark:bg-blue-500/10 flex items-center justify-center">
+                    <group.icon size={20} className="text-blue-600 dark:text-blue-400" strokeWidth={1.75} />
                   </div>
                   <h3 className="text-xl font-bold">{group.title}</h3>
                 </div>
                 <ul className="space-y-2.5">
                   {group.items.map((item) => (
                     <li key={item} className="flex items-center gap-2.5 text-sm text-foreground/80">
-                      <span className="w-1.5 h-1.5 rounded-full bg-violet-500 flex-shrink-0" />
+                      <span className="w-1.5 h-1.5 rounded-full bg-blue-500 flex-shrink-0" />
                       {item}
                     </li>
                   ))}
@@ -291,7 +308,7 @@ export default function AIAutomation() {
                 transition={{ delay: i * 0.08 }}
                 className="flex gap-4 sm:gap-6 items-start p-5 sm:p-6 bg-white dark:bg-card border border-border rounded-2xl"
               >
-                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-violet-500 to-violet-600 flex items-center justify-center flex-shrink-0 text-white font-bold text-sm">
+                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center flex-shrink-0 text-white font-bold text-sm">
                   {step.step}
                 </div>
                 <div>

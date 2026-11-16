@@ -134,7 +134,7 @@ function Hero({ onRequest }: { onRequest: () => void }) {
           <div className="nri-hero-art">
             <img
               className="nri-hero-image"
-              src="/cybersecurity-hero.png"
+              src="/cybersecurity-hero.webp"
               alt="A protected web application connected to APIs and data during a security assessment"
             />
           </div>

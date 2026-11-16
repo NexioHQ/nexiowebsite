@@ -15,7 +15,7 @@ export const blogPosts: BlogPost[] = [
     excerpt:
       "How self-directed AI agents are moving beyond simple chatbots to orchestrate complex workflows, sync with CRMs, and deliver measurable ROI in 2026.",
     slug: "autonomous-ai-agents-enterprise-automation",
-    date: "2026-07-20",
+    date: "2026-11-12",
     image:
       "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1200&q=85",
     readTime: "7 min read",
@@ -40,7 +40,7 @@ export const blogPosts: BlogPost[] = [
     excerpt:
       "As workloads move closer to the user, learn how edge computing and multi-cloud architecture are reshaping performance, resilience, and cost efficiency.",
     slug: "edge-cloud-multi-cloud-2026",
-    date: "2026-07-12",
+    date: "2026-11-05",
     image:
       "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=85",
     readTime: "6 min read",
@@ -65,7 +65,7 @@ export const blogPosts: BlogPost[] = [
     excerpt:
       "Zero Trust is no longer optional. Explore the practical implementation steps, emerging threats, and compliance pressures shaping enterprise security this year.",
     slug: "zero-trust-security-2026-implementation",
-    date: "2026-07-05",
+    date: "2026-10-29",
     image:
       "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=85",
     readTime: "8 min read",
@@ -90,7 +90,7 @@ export const blogPosts: BlogPost[] = [
     excerpt:
       "From multi-tenancy to event-driven design, discover the architecture patterns that let high-growth SaaS products scale without crumbling under demand.",
     slug: "scalable-saas-architecture-2026",
-    date: "2026-06-28",
+    date: "2026-10-21",
     image:
       "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=85",
     readTime: "7 min read",
@@ -115,7 +115,7 @@ export const blogPosts: BlogPost[] = [
     excerpt:
       "LLMs hold huge promise, but production is where most fail. Learn the practical guardrails, evaluation, and monitoring practices that make AI reliable.",
     slug: "llm-integrations-production-lessons",
-    date: "2026-06-19",
+    date: "2026-10-14",
     image:
       "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=85",
     readTime: "6 min read",
@@ -140,7 +140,7 @@ export const blogPosts: BlogPost[] = [
     excerpt:
       "Digital transformation is less about technology and more about strategy and people. A practical guide to roadmaps that actually deliver measurable value.",
     slug: "digital-transformation-2026-roadmap",
-    date: "2026-06-10",
+    date: "2026-10-07",
     image:
       "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=85",
     readTime: "5 min read",

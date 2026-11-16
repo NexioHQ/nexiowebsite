@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Code2, Globe, Monitor, Smartphone, LayoutDashboard, ArrowLeft, CheckCircle2, ChevronDown } from "lucide-react";
+import { Globe, Monitor, Smartphone, LayoutDashboard, ArrowLeft, ArrowRight, CheckCircle2, ChevronDown } from "lucide-react";
 import { Link } from "wouter";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
@@ -151,31 +151,50 @@ export default function DigitalSolutions() {
       <main id="main-content">
 
       {/* Hero */}
-      <section className="pt-28 sm:pt-36 pb-14 sm:pb-20 relative overflow-hidden">
-        <div className="absolute top-0 left-0 w-[600px] h-[400px] bg-gradient-to-br from-blue-500 to-blue-600 opacity-10 rounded-full blur-[120px] pointer-events-none" />
-        <div className="max-w-5xl mx-auto px-6 relative z-10">
-          <Link href="/">
-            <button className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors mb-8">
-              <ArrowLeft size={15} />
-              Back to home
-            </button>
-          </Link>
+      <section className="nri-hero digital-hero" id="overview">
+        <div className="nri-hero-shell digital-hero-shell">
+          <div className="nri-hero-grid">
+            <motion.div
+              className="nri-hero-copy"
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+            >
+              <Link href="/">
+                <button className="nri-back-link" type="button">
+                  <ArrowLeft size={15} />
+                  Back to home
+                </button>
+              </Link>
+              <h1>Digital products built for <em>real-world growth.</em></h1>
+              <p>From first concept to full-scale platform, we build digital products that turn ambitious ideas into measurable business growth.</p>
+              <div className="nri-actions">
+                <button type="button" onClick={() => setFormOpen(true)} className="nri-button nri-button-blue digital-button">
+                  Start a conversation <ArrowRight size={16} />
+                </button>
+                <a href="#services" className="nri-button nri-button-quiet">
+                  Explore our services
+                </a>
+              </div>
+            </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-blue-50 dark:bg-blue-500/10 mb-6">
-              <Code2 size={26} className="text-blue-600 dark:text-blue-400" strokeWidth={1.75} />
-            </div>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight mb-5">
-              Digital Solutions
-            </h1>
-            <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl leading-relaxed">
-              We design and build high-performance websites, web applications, mobile apps, and enterprise software that scale with your business.
-            </p>
-          </motion.div>
+            <motion.div
+              className="nri-hero-art digital-hero-art"
+              initial={{ opacity: 0, scale: 0.96 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, delay: 0.15 }}
+              aria-label="Digital product interface illustration"
+              role="img"
+            >
+              <div className="digital-window">
+                <img
+                  className="digital-hero-image"
+                  src="/digital-solutions-hero.png"
+                  alt="Digital solutions network connecting websites, applications, analytics, and cloud systems"
+                />
+              </div>
+            </motion.div>
+          </div>
         </div>
       </section>
 
@@ -236,7 +255,7 @@ export default function DigitalSolutions() {
       </section>
 
       {/* Services Grid */}
-      <section className="py-16 bg-gray-50/70 dark:bg-card/20">
+      <section className="py-16 bg-gray-50/70 dark:bg-card/20" id="services">
         <div className="max-w-5xl mx-auto px-6">
           <motion.h2
             initial={{ opacity: 0, y: 16 }}
